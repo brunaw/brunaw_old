@@ -4,6 +4,6 @@
 
 ***
 
-+ [Regressão Segmentada](https://brunaw.github.io/ext/t1.html)
++ [Regressão Segmentada](https://brunaw.github.io/Ext/t1.html)
 
 ***

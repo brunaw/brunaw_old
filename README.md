@@ -4,6 +4,6 @@
 
 ***
 
-+ [Regressão Segmentada](http://brunaw.github.io/ce092/t1 - Bruna.html)
++ [Regressão Segmentada](https://brunaw.github.io/ext/t1.html)
 
 ***

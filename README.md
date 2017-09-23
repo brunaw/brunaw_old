@@ -6,6 +6,7 @@
 
 ***
   > [Package Description](https://brunaw.github.io/vagalume/README.html)
+  
   > [Simple Usage](https://brunaw.github.io/vagalume/vagalumeR.html)
 
 ***

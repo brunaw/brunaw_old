@@ -6,6 +6,7 @@
 
 ***
   > [Package Description](https://brunaw.github.io/vagalume/README.html)
+  > [Simple Usage](https://brunaw.github.io/vagalume/vagalumeR.html)
 
 ***
 
@@ -24,5 +25,5 @@
 
   + [Material](https://brunaw.github.io/ML/cv.html)
 
-+ Gradiente Descendent 
++ Gradiente Descendente 
   + [Batch, Stochastic e Boosting](https://brunaw.github.io/ML/grad.html)

@@ -70,7 +70,7 @@ xtabs(~date, disc)
 # Artistas relacionados
 (rel <- relatedInfo(artist))[,4]
 
-# Busca de letras de músicas 10 do artista
+# Busca de letras de músicas do artista
 song <- songNames(artist)
 let <- ldply(map(song$song.id[1:10], lyrics, type = "id", key = key),
              data.frame)

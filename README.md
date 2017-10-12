@@ -23,8 +23,10 @@
 [**Introdução ao Machine Learning**](https://github.com/brunaw/IMC)
 
 + Validação Cruzada
-
   + [Material](https://brunaw.github.io/ML/cv.html)
 
 + Gradiente Descendente 
   + [Batch, Stochastic e Boosting](https://brunaw.github.io/ML/grad.html)
+  
++ Regularização 
+  + [Regressão Ridge e Lasso](https://brunaw.github.io/ML/reg.html)

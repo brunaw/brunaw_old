@@ -18,6 +18,8 @@
 
 + [Regressão Segmentada e Não Paramétrica](https://brunaw.github.io/Ext/t1.html)
 
++ [Paper: Confiabilidade e Precisão na Estimação de Médias](https://brunaw.github.io/Ext/artigo_singer.html)
+
 ***
 
 [**Introdução ao Machine Learning**](https://github.com/brunaw/IMC)

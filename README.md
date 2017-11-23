@@ -20,7 +20,7 @@
 
 + [Paper: Confiabilidade e Precisão na Estimação de Médias](https://brunaw.github.io/Ext/artigo_singer.html)
 
-+ [Paper: Inferência em Modelos Heterocedásticos](https://brunaw.github.io/Ext/ModelosHeterocedasticos.html)
++ [Paper: Inferência em Modelos Heterocedásticos](https://brunaw.github.io/Ext/het.html)
 
 ***
 

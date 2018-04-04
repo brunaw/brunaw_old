@@ -37,4 +37,4 @@
 
 ***
 
-[**TCC**](https://github.com/brunaw/TCC/analise.html)
+[**TCC**](https://brunaw.github.io/TCC/analise.html)

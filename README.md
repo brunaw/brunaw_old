@@ -34,3 +34,7 @@
   
 + Regularização 
   + [Regressão Ridge e Lasso](https://brunaw.github.io/ML/reg.html)
+
+***
+
+[**TCC**](https://github.com/brunaw/TCC/analise.html)

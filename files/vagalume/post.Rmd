@@ -1,0 +1,218 @@
+---
+title: "Aplicações simples do pacote vagalumeR"
+output:
+  rmarkdown::html_vignette:
+    fig_width: 5
+    fig_height: 3.5
+    fig_cap: TRUE
+    toc: yes
+    css: mark.css
+---
+
+```{r setup, include = FALSE}
+library(knitr)
+opts_chunk$set(
+    dpi = 100,
+    fig.align = "center",
+    fig.height = 5, 
+    fig.width = 5, 
+    comment = NA,
+    message = FALSE,
+    warning = FALSE,
+    error = FALSE)
+```
+
+O site https://www.vagalume.com.br é um lugar aonde podemos obter 
+informações sobre músicas, com foco nas letras e traduções delas. Este
+site possui uma API, que pode ser acessada no `R` através do pacote
+[vagalumeR](https://github.com/brunaw/vagalumeR). Aqui, demonstra-se
+algumas funcionalidades do pacote, sendo uma das mais interessantes
+delas a análise das letras das músicas. 
+
+
+```{r}
+# Carregamento de pacotes
+library(vagalumeR)
+library(tidyverse)
+library(tm)
+library(lattice)
+library(lexiconPT)
+library(latticeExtra)
+library(wordcloud)
+library(networkD3)
+
+packageVersion("vagalumeR")
+```
+
+```{r, echo=FALSE}
+key <- "3f4f4a35789cae8ce84b5579069db511"
+``` 
+Para acessar a API, é preciso que o usuário possua um `token`, que 
+pode ser obtido no endereço:  https://auth.vagalume.com.br/settings/api/
+```{r, eval = FALSE}
+key <- "insira seu token"
+```
+
+```{r}
+# Seleção de algum artista
+artist <- "chico-buarque"
+
+# Informações sobre o artista
+(info <- artistInfo(artist))
+
+# Discografia do artista
+disc <- discography(artist)
+head(disc, 10)
+
+# Contagem de discos por ano
+xtabs(~date, disc)
+
+# Artistas relacionados
+(rel <- relatedInfo(artist))[,4]
+
+# Busca de letras de músicas do artista
+song <- songNames(artist)
+let <- ldply(map(song$song.id[1:10], lyrics, type = "id", key = key),
+             data.frame)
+
+str(let)
+
+#----------------------------------------------------------------------
+# Frequência de Palavras
+#----------------------------------------------------------------------
+
+# Cria o Corpus e limpa 
+cps <- VCorpus(VectorSource(let$text),
+                 readerControl = list(language = "pt"))
+cps <- tm_map(cps, FUN = content_transformer(tolower))
+cps <- tm_map(cps, FUN = removePunctuation)
+cps <- tm_map(cps, FUN = removeNumbers)
+cps <- tm_map(cps, FUN = stripWhitespace)
+cps <- tm_map(cps,
+                FUN = removeWords,
+                words = stopwords("portuguese"))
+cps <- tm_map(cps,
+                FUN = removeWords,
+                words = "\t")
+
+# Cria a matriz de documentos e termos
+dtm <- DocumentTermMatrix(cps)
+
+# Características da dtm
+inspect(dtm)
+
+# Termos com uma certa frequência miníma
+tms <- findFreqTerms(dtm, lowfreq = 3)
+str(tms)
+
+# Termos que são associados
+assoc <- findAssocs(dtm, terms = tms, corlimit = 0.9)
+b <- data.frame(pal = "amor", assoc = names(assoc$amor))
+
+# Visualização de associação entre palavras
+simpleNetwork(b,
+              opacity = 0.8, 
+              linkColour= "violet", 
+              nodeColour="tomato", 
+              zoom=TRUE, fontSize = 16,
+              linkDistance = 70)
+
+# Contagem das palavras
+frq <- slam::colapply_simple_triplet_matrix(dtm, FUN = sum)
+frq <- sort(frq, decreasing = TRUE)
+
+# Gráfico da contagem das 30 palavras mais frequentes
+barchart(head(frq, n = 30), xlim = c(0, NA),
+         col =  "lightsalmon", 
+         xlab = "Frequência",
+         ylab = "Palavras",
+         main = "Paravras em músicas do Chico Buarque",
+         strip = strip.custom(bg = "white"))
+
+# O mesmo resultado visto em nuvem
+wordcloud(cps,
+          family = "serif", 
+          min.freq = 3,
+          max.words = 30,
+          colors = brewer.pal(7, "Paired"))
+
+#----------------------------------------------------------------------
+# Atribuição de Polaridades
+#----------------------------------------------------------------------
+
+# Dicionário de sentimentos do pacote lexiconPT
+dic <- lexiconPT::oplexicon_v3.0
+str(dic)
+
+# Intersecção entre termos das músicas e os que estão
+# no dicionário
+inter <- intersect(x = Terms(dtm),
+                   y = dic$term)
+length(inter)
+
+# Traz as polaridades para as palavras das músicas
+lex <- merge(x = data.frame(term = inter,
+                            stringsAsFactors = FALSE),
+             y = dic,
+             sort = FALSE)
+head(lex, 10)
+
+# Tranzforma a dtm em matriz ordinária
+m <- as.matrix(dtm)
+m <- m[, lex$term]
+
+# Somas por linhas da matriz
+rtot <- rowSums(m)
+
+# "Cargas" de cada música
+(carga <- (m %*% lex$polarity)/rtot)
+
+# Soma de polaridades por música
+m %*% cbind(lex$polarity)
+
+# Função que traz as proporções de cada polaridade por música
+pp <- function(song){
+  
+  cps <- VCorpus(VectorSource(song),
+                 readerControl = list(language = "pt"))
+  cps <- tm_map(cps, FUN = content_transformer(tolower))
+  cps <- tm_map(cps, FUN = removePunctuation)
+  cps <- tm_map(cps, FUN = removeNumbers)
+  cps <- tm_map(cps, FUN = stripWhitespace)
+  cps <- tm_map(cps,
+                FUN = removeWords,
+                words = stopwords("portuguese"))
+  cps <- tm_map(cps,
+                FUN = removeWords,
+                words = "\t")
+  
+  dtm <- DocumentTermMatrix(cps)
+  
+  inter <- intersect(x = Terms(dtm),
+                     y = dic$term)
+  
+  lex <- merge(x = data.frame(term = inter,
+                              stringsAsFactors = FALSE),
+               y = dic,
+               sort = FALSE)
+  
+  pp <- c(prop.table(xtabs(~polarity, lex)))
+  
+  return(pp)  
+}
+# Porcentagens de cada polaridade por música
+(pcs <- ldply(map(let$text, pp), matrix, ncol = 3))
+names(pcs) <- c("neg", "neutro", "pos")
+
+# Curva da distribuição acumulada dos sentimentos
+ecdfplot(~pos+neg+neutro, pcs, 
+         col = c("tomato", "turquoise", "orange"),
+         key = list(columns = 1,
+                    corner = c(0.05, 0.9),
+                    lines = list(col = c("tomato", "turquoise",
+                                         "orange")),
+                                 text = list(c("neg", "neutro",
+                                               "pos"))))
+
+```
+

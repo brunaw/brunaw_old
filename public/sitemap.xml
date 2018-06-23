@@ -23,6 +23,15 @@
     
     <url>
     
+      <loc>https://alison.rbind.io/project/nlmset/</loc>
+      <lastmod>2018-06-15T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://alison.rbind.io/project/shiny_education/</loc>
       <lastmod>2018-06-15T00:00:00+00:00</lastmod>
     </url>
@@ -139,15 +148,8 @@
     <url>
     
       <loc>https://alison.rbind.io/tags/non-linear-modelling/</loc>
+      <lastmod>2018-06-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://alison.rbind.io/project/nlmset/</loc>
     </url>
     
   

@@ -1,6 +1,6 @@
 +++
 # Date this page was created.
-date = "201-06-15"
+date = "2018-06-15"
 
 # Project title
 title = "Non Linear Modelling"

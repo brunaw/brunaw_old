@@ -1,0 +1,185 @@
+---
+title: "Aplicações simples do pacote vagalumeR"
+date: "2017-06-25T00:00:00+00:00"
+tags: ["musica"]
+categories: ["análises", "r"]
+author: ["Bruna Wundervald"]
+#summary: "Esse post da nossa convidada Bruna é mais uma bela aplicação de estatística em música, usando o R. Novos pacotes, lindas visualizações e insights super legais sobre a música brasileira..."
+draft: false
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+<p>O site <a href="https://www.vagalume.com.br" class="uri">https://www.vagalume.com.br</a> é um lugar aonde podemos obter informações sobre músicas, com foco nas letras e traduções delas. Este site possui uma API, que pode ser acessada no <code>R</code> através do pacote <a href="https://github.com/brunaw/vagalumeR">vagalumeR</a>. Aqui, demonstra-se algumas funcionalidades do pacote, sendo uma das mais interessantes delas a análise das letras das músicas.</p>
+<pre class="r"><code># Carregamento de pacotes
+library(vagalumeR)
+library(tidyverse)
+library(tm)
+library(lattice)
+library(lexiconPT)
+library(latticeExtra)
+library(wordcloud)
+library(networkD3)
+
+packageVersion(&quot;vagalumeR&quot;)</code></pre>
+<p>Para acessar a API, é preciso que o usuário possua um <code>token</code>, que pode ser obtido no endereço: <a href="https://auth.vagalume.com.br/settings/api/" class="uri">https://auth.vagalume.com.br/settings/api/</a></p>
+<pre class="r"><code>key &lt;- &quot;insira seu token&quot;</code></pre>
+<pre class="r"><code># Seleção de algum artista
+artist &lt;- &quot;chico-buarque&quot;
+
+# Informações sobre o artista
+(info &lt;- artistInfo(artist))
+
+# Discografia do artista
+disc &lt;- discography(artist)
+head(disc, 10)
+
+# Contagem de discos por ano
+xtabs(~date, disc)
+
+# Artistas relacionados
+(rel &lt;- relatedInfo(artist))[,4]
+
+# Busca de letras de músicas do artista
+song &lt;- songNames(artist)
+let &lt;- plyr::ldply(map(song$song.id[1:10], lyrics, type = &quot;id&quot;, key = key),
+             data.frame)
+
+str(let)
+
+#------------------------------------------------------------------# Frequência de Palavras
+#------------------------------------------------------------------
+# Cria o Corpus e limpa 
+cps &lt;- VCorpus(VectorSource(let$text),
+                 readerControl = list(language = &quot;pt&quot;))
+cps &lt;- tm_map(cps, FUN = content_transformer(tolower))
+cps &lt;- tm_map(cps, FUN = removePunctuation)
+cps &lt;- tm_map(cps, FUN = removeNumbers)
+cps &lt;- tm_map(cps, FUN = stripWhitespace)
+cps &lt;- tm_map(cps,
+                FUN = removeWords,
+                words = stopwords(&quot;portuguese&quot;))
+cps &lt;- tm_map(cps,
+                FUN = removeWords,
+                words = &quot;\t&quot;)
+
+# Cria a matriz de documentos e termos
+dtm &lt;- DocumentTermMatrix(cps)
+
+# Características da dtm
+inspect(dtm)
+
+# Termos com uma certa frequência miníma
+tms &lt;- findFreqTerms(dtm, lowfreq = 3)
+str(tms)
+
+# Termos que são associados
+assoc &lt;- findAssocs(dtm, terms = tms, corlimit = 0.9)
+b &lt;- data.frame(pal = &quot;amor&quot;, assoc = names(assoc$amor))
+
+# Visualização de associação entre palavras
+simpleNetwork(b,
+              opacity = 0.8, 
+              linkColour= &quot;violet&quot;, 
+              nodeColour=&quot;tomato&quot;, 
+              zoom=TRUE, fontSize = 16,
+              linkDistance = 70)
+
+# Contagem das palavras
+frq &lt;- slam::colapply_simple_triplet_matrix(dtm, FUN = sum)
+frq &lt;- sort(frq, decreasing = TRUE)
+
+# Gráfico da contagem das 30 palavras mais frequentes
+barchart(head(frq, n = 30), xlim = c(0, NA),
+         col =  &quot;lightsalmon&quot;, 
+         xlab = &quot;Frequência&quot;,
+         ylab = &quot;Palavras&quot;,
+         main = &quot;Paravras em músicas do Chico Buarque&quot;,
+         strip = strip.custom(bg = &quot;white&quot;))
+
+# O mesmo resultado visto em nuvem
+wordcloud(cps,
+          family = &quot;serif&quot;, 
+          min.freq = 3,
+          max.words = 30,
+          colors = brewer.pal(7, &quot;Paired&quot;))
+
+#------------------------------------------------------------------
+# Atribuição de Polaridades
+#------------------------------------------------------------------
+
+# Dicionário de sentimentos do pacote lexiconPT
+dic &lt;- lexiconPT::oplexicon_v3.0
+str(dic)
+
+# Intersecção entre termos das músicas e os que estão
+# no dicionário
+inter &lt;- intersect(x = Terms(dtm),
+                   y = dic$term)
+length(inter)
+
+# Traz as polaridades para as palavras das músicas
+lex &lt;- merge(x = data.frame(term = inter,
+                            stringsAsFactors = FALSE),
+             y = dic,
+             sort = FALSE)
+head(lex, 10)
+
+# Tranzforma a dtm em matriz ordinária
+m &lt;- as.matrix(dtm)
+m &lt;- m[, lex$term]
+
+# Somas por linhas da matriz
+rtot &lt;- rowSums(m)
+
+# &quot;Cargas&quot; de cada música
+(carga &lt;- (m %*% lex$polarity)/rtot)
+
+# Soma de polaridades por música
+m %*% cbind(lex$polarity)
+
+# Função que traz as proporções de cada polaridade por música
+pp &lt;- function(song){
+  
+  cps &lt;- VCorpus(VectorSource(song),
+                 readerControl = list(language = &quot;pt&quot;))
+  cps &lt;- tm_map(cps, FUN = content_transformer(tolower))
+  cps &lt;- tm_map(cps, FUN = removePunctuation)
+  cps &lt;- tm_map(cps, FUN = removeNumbers)
+  cps &lt;- tm_map(cps, FUN = stripWhitespace)
+  cps &lt;- tm_map(cps,
+                FUN = removeWords,
+                words = stopwords(&quot;portuguese&quot;))
+  cps &lt;- tm_map(cps,
+                FUN = removeWords,
+                words = &quot;\t&quot;)
+  
+  dtm &lt;- DocumentTermMatrix(cps)
+  
+  inter &lt;- intersect(x = Terms(dtm),
+                     y = dic$term)
+  
+  lex &lt;- merge(x = data.frame(term = inter,
+                              stringsAsFactors = FALSE),
+               y = dic,
+               sort = FALSE)
+  
+  pp &lt;- c(prop.table(xtabs(~polarity, lex)))
+  
+  return(pp)  
+}
+# Porcentagens de cada polaridade por música
+(pcs &lt;- plyr::ldply(map(let$text, pp), matrix, ncol = 3))
+names(pcs) &lt;- c(&quot;neg&quot;, &quot;neutro&quot;, &quot;pos&quot;)
+
+# Curva da distribuição acumulada dos sentimentos
+ecdfplot(~pos+neg+neutro, pcs, 
+         col = c(&quot;tomato&quot;, &quot;turquoise&quot;, &quot;orange&quot;),
+         key = list(columns = 1,
+                    corner = c(0.05, 0.9),
+                    lines = list(col = c(&quot;tomato&quot;, &quot;turquoise&quot;,
+                                         &quot;orange&quot;)),
+                                 text = list(c(&quot;neg&quot;, &quot;neutro&quot;,
+                                               &quot;pos&quot;))))</code></pre>

@@ -1,0 +1,6 @@
+_site
+.static/docs
+.public/docs
+.sass-cache
+.jekyll-metadata
+**.orig

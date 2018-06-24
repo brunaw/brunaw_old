@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bruna Wundervald on Bruna Wundervald</title>
-    <link>https://alison.rbind.io/</link>
+    <link>https://brunaw.github.io/</link>
     <description>Recent content in Bruna Wundervald on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,14 +12,14 @@
     
     <item>
       <title>1st Meetup R-Ladies Curitiba</title>
-      <link>https://alison.rbind.io/talk/rladies-dplyr/</link>
+      <link>https://brunaw.github.io/talk/rladies-dplyr/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://alison.rbind.io/talk/rladies-dplyr/</guid>
+      <guid>https://brunaw.github.io/talk/rladies-dplyr/</guid>
       <description>
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://alison.rbind.io/img/ohsu-os-panel.png&#34; /&gt;
+        &lt;img src=&#34;https://brunaw.github.io/img/ohsu-os-panel.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -44,7 +44,7 @@
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://alison.rbind.io/img/ohsu-os-labhub-workshop.png&#34; /&gt;
+        &lt;img src=&#34;https://brunaw.github.io/img/ohsu-os-labhub-workshop.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -58,10 +58,10 @@
     
     <item>
       <title>Music Information Retrieval in R</title>
-      <link>https://alison.rbind.io/project/r_music/</link>
+      <link>https://brunaw.github.io/project/r_music/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://alison.rbind.io/project/r_music/</guid>
+      <guid>https://brunaw.github.io/project/r_music/</guid>
       <description>&lt;p&gt;Improving spoken language use (i.e., discourse skills) is a common treatment goal for children with neurodevelopmental disorders, particularly for those with difficulties in conversational reciprocity, perseverative speech, or idiosyncratic/stereotyped word use. These features are clinically meaningful, and in previous projects, we have successfully applied Natural Language Processing (NLP) methods to measure these discourse skills using natural language samples from children with Autism Spectrum Disorder (ASD). However, while NLP methods yield diagnostically relevant measures, it is not known if they can be translated into meaningful outcome measures. To take this next step, important questions must be addressed:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -79,10 +79,10 @@
     
     <item>
       <title>Shiny Applications for Teaching &amp; Learning</title>
-      <link>https://alison.rbind.io/project/shiny_education/</link>
+      <link>https://brunaw.github.io/project/shiny_education/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://alison.rbind.io/project/shiny_education/</guid>
+      <guid>https://brunaw.github.io/project/shiny_education/</guid>
       <description>
 
 &lt;h1 id=&#34;the-female-clinical-presentation-of-autism-spectrum-disorder-asd-is-not-well-understood-and-is-a-contributing-factor-to-underidentification-and-delays-in-the-diagnosis-of-asds-among-females-particularly-for-those-who-are-verbal-and-without-cognitive-impairments-sex-differences-in-clinical-presentation-may-make-it-more-difficult-to-recognize-asd-symptoms-in-females-yet-evidence-for-differences-between-females-and-males-in-the-two-core-symptom-domains-social-communication-interaction-and-repetitive-behaviors-and-restricted-interests-has-been-inconsistent-although-some-studies-have-found-stronger-social-communication-interaction-skills-in-affected-females-than-in-males-researchers-and-clinicians-have-cautioned-that-these-strengths-may-be-superficial-and-allow-females-to-mask-their-asd-symptoms-further-contributing-to-underidentification-among-females-similarly-restricted-and-repetitive-behaviors-may-be-less-common-among-females-with-asd-or-they-may-simply-look-different-from-clinical-expectations-based-on-male-presentations-again-allowing-females-to-fly-under-the-radar-thus-there-is-a-critical-need-to-further-understanding-of-sex-differences-in-the-fundamental-patterns-of-behavioral-and-social-functioning-relevant-to-the-clinical-presentation-of-asd-in-the-absence-of-such-knowledge-females-with-asd-will-continue-to-be-underidentified-affected-females-will-be-identified-at-older-ages-and-thus-will-fail-to-benefit-from-access-to-early-intervention-services&#34;&gt;The female clinical presentation of Autism Spectrum Disorder (ASD) is not well understood, and is a contributing factor to underidentification and delays in the diagnosis of ASDs among females, particularly for those who are verbal and without cognitive impairments. Sex differences in clinical presentation may make it more difficult to recognize ASD symptoms in females, yet evidence for differences between females and males in the two core symptom domains—social communication/interaction and repetitive behaviors and restricted interests—has been inconsistent. Although some studies have found stronger social communication/interaction skills in affected females than in males, researchers and clinicians have cautioned that these strengths may be superficial and allow females to “mask” their ASD symptoms, further contributing to underidentification among females. Similarly, restricted and repetitive behaviors may be less common among females with ASD, or they may simply look different from clinical expectations based on male presentations, again allowing females to “fly under the radar.” Thus, there is a critical need to further understanding of sex differences in the fundamental patterns of behavioral and social functioning relevant to the clinical presentation of ASD. In the absence of such knowledge, females with ASD will continue to be underidentified; affected females will be identified at older ages and thus will fail to benefit from access to early intervention services.&lt;/h1&gt;
@@ -93,10 +93,10 @@
     
     <item>
       <title>chorrrds: Analisando acordes de músicas brasileiras</title>
-      <link>https://alison.rbind.io/post/2018-04-25-chorrrds/</link>
+      <link>https://brunaw.github.io/post/2018-04-25-chorrrds/</link>
       <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://alison.rbind.io/post/2018-04-25-chorrrds/</guid>
+      <guid>https://brunaw.github.io/post/2018-04-25-chorrrds/</guid>
       <description>&lt;p&gt;Olá! Tudo bem? Eu sou a &lt;a href=&#34;https://github.com/brunaw&#34;&gt;Bruna&lt;/a&gt;, e talvez você já me conheça de algum grupo de R no Telegram ou Facebook, ou mesmo pelo meu outro pacote, o&lt;br /&gt;
 &lt;a href=&#34;https://cran.r-project.org/web/packages/vagalumeR/index.html&#34;&gt;vagalumeR&lt;/a&gt;. Eu estou prestes a me formar em Estatística na UFPR, e esse post vai ter muito a ver com o tema do meu trabalho de conclusão de curso, que está sendo feito sob orientação do Professor &lt;a href=&#34;https://github.com/walmes&#34;&gt;Walmes Zeviani&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Recentemente, eu fiz a primeira versão do pacote do meu TCC, o &lt;code&gt;chorrrds&lt;/code&gt;. Ainda tem muito a ser feito nele, mas os primeiros resultados já são bem legais. O pacote &lt;code&gt;chorrrds&lt;/code&gt; pode ser utilizado para a obtenção acordes de músicas, através da raspagem do site &lt;a href=&#34;https://www.cifraclub.com.br/&#34;&gt;CifraClub&lt;/a&gt;. Junto com o pacote já vêm diversos bancos de dados relativos à música brasileira. Ele já está disponível no CRAN, mas as próximas atualizações devem sair em primeira mão nesse repositório: &lt;a href=&#34;https://github.com/brunaw/chorrrds&#34; class=&#34;uri&#34;&gt;https://github.com/brunaw/chorrrds&lt;/a&gt;&lt;/p&gt;
@@ -262,7 +262,7 @@ tema &amp;lt;- theme(
   axis.text = element_text(size = 12))
   
 p + tema&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://alison.rbind.io/blog/2018-04-25-chorrrds/media-acordes-musicas.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://brunaw.github.io/blog/2018-04-25-chorrrds/media-acordes-musicas.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Claramente, gêneros como o samba, MPB e bossa nova têm, em geral, uma quantidade média de acordes distintos por música muito maior do que os outros. E eles têm mais variação ao longo dos anos também, o que pode ser um reflexo da maior criatividade envolvida nestes genêros. Os menores valores, como é esperado, estão principalmente no sertanejo, que é um genêro conhecidamente mais uniforme na questão harmônica.&lt;/p&gt;
 &lt;p&gt;Nós podemos avançar um pouco e olhar para os próprios artistas. Quem será que usa as maiores quantidades de acordes distintos em suas composições? Vamos ver o próximo gráfico, que mostra apenas os artistas com mediana maior do que 8 acordes diferentes por música.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;da_g &amp;lt;- da %&amp;gt;%   
@@ -303,7 +303,7 @@ tema &amp;lt;- theme(
   axis.title.y = element_text(size = 16))
 
 p + tema&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://alison.rbind.io/blog/2018-04-25-chorrrds/stats-artistas.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://brunaw.github.io/blog/2018-04-25-chorrrds/stats-artistas.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;E &lt;em&gt;voilá&lt;/em&gt;. A primeira posição é ocupada por um dos maiores musicistas brasileiros, que é referência internacional em questões de harmonia: Chico Buarque. Logo em seguida, temos o Reinaldo, um dos maiores sambistas que o Brasil já conheceu, e o Pixinguinha, um gênio do choro. E assim a lista segue, com artistas principalmente da bossa nova, samba e MPB. Demora até que apareça o primeiro dos rockeiros nesta lista, que é a Rita Lee. Dos membros do sertanejo, nenhum chega a aparecer no gráfico, mostrando que a “variedade” harmônica deste gênero musical é mesmo bem baixa.&lt;/p&gt;
 &lt;p&gt;Até agora está legal mas, com música, sempre pode ficar ainda mais. A ideia mais recente que o meu caro orientador &lt;a href=&#34;https://github.com/walmes&#34;&gt;Walmes Zeviani&lt;/a&gt; teve para o nosso trabalho é de encadear as transições entre os acordes em um diagrama de cordas. Vocês já ouviram falar desse diagrama? Eu mal o conheço e já considero pacas.&lt;/p&gt;
 &lt;p&gt;O diagrama de cordas é um método gráfico (e lindo) de explicitar relações entre grupos ou indivíduos. Os grupos ficam arranjados de forma radial/circular, e as cordas que aparecem dentro do círculo demonstram as conexões entre eles e suas forças. Pra quem sabe um pouquinho sobre harmonia, vai ser sensacional ver o quanto isso faz sentido (mas também não vou entrar nesse mérito agora).&lt;/p&gt;
@@ -351,10 +351,10 @@ chorddiag::chorddiag(mm, showTicks = FALSE,
     
     <item>
       <title>Aplicações simples do pacote vagalumeR</title>
-      <link>https://alison.rbind.io/post/2017-06-25-vagalumer/</link>
+      <link>https://brunaw.github.io/post/2017-06-25-vagalumer/</link>
       <pubDate>Sun, 25 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://alison.rbind.io/post/2017-06-25-vagalumer/</guid>
+      <guid>https://brunaw.github.io/post/2017-06-25-vagalumer/</guid>
       <description>&lt;p&gt;O site &lt;a href=&#34;https://www.vagalume.com.br&#34; class=&#34;uri&#34;&gt;https://www.vagalume.com.br&lt;/a&gt; é um lugar aonde podemos obter informações sobre músicas, com foco nas letras e traduções delas. Este site possui uma API, que pode ser acessada no &lt;code&gt;R&lt;/code&gt; através do pacote &lt;a href=&#34;https://github.com/brunaw/vagalumeR&#34;&gt;vagalumeR&lt;/a&gt;. Aqui, demonstra-se algumas funcionalidades do pacote, sendo uma das mais interessantes delas a análise das letras das músicas.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Carregamento de pacotes
 library(vagalumeR)
@@ -531,10 +531,10 @@ ecdfplot(~pos+neg+neutro, pcs,
     
     <item>
       <title>Non Linear Modelling</title>
-      <link>https://alison.rbind.io/project/nlmset/</link>
+      <link>https://brunaw.github.io/project/nlmset/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://alison.rbind.io/project/nlmset/</guid>
+      <guid>https://brunaw.github.io/project/nlmset/</guid>
       <description>
 
 &lt;h1 id=&#34;targeting-core-symptoms-of-autism-spectrum-disorders-asd-is-a-key-treatment-goal-for-parents-of-children-with-asd-while-many-efficacious-treatments-for-asd-have-been-developed-a-major-obstacle-in-evaluating-these-treatments-among-children-with-asd-has-been-the-lack-of-adequate-outcome-measures-anagnostou-et-al-2014-bolte-diehl-2013-kanne-et-al-2014-most-treatment-studies-have-relied-on-informant-based-measures-i-e-parent-or-clinician-report-that-either-place-a-high-burden-on-families-or-require-significant-training-and-time-to-administer-moreover-measures-are-often-re-purposed-from-existing-measures-intended-for-screening-or-diagnosis-and-do-not-provide-continuous-measures-of-symptoms-that-are-responsive-to-change-thus-there-is-a-clear-need-to-develop-asd-outcome-measures-that-are-reliable-valid-and-sensitive-to-change-in-the-absence-of-such-outcome-measures-our-understanding-of-the-efficacy-of-treatments-for-asd-will-continue-to-be-limited&#34;&gt;Targeting core symptoms of Autism Spectrum Disorders (ASD) is a key treatment goal for parents of children with ASD. While many efficacious treatments for ASD have been developed, a major obstacle in evaluating these treatments among children with ASD has been the lack of adequate outcome measures (Anagnostou et al., 2014; Bolte &amp;amp; Diehl, 2013; Kanne et al., 2014). Most treatment studies have relied on informant-based measures (i.e., parent or clinician report) that either place a high burden on families, or require significant training and time to administer. Moreover, measures are often re-purposed from existing measures intended for screening or diagnosis, and do not provide continuous measures of symptoms that are responsive to change. Thus, there is a clear need to develop ASD outcome measures that are reliable, valid, and sensitive to change. In the absence of such outcome measures, our understanding of the efficacy of treatments for ASD will continue to be limited.&lt;/h1&gt;

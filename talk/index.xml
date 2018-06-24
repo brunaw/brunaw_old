@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recent &amp; Upcoming Talks on Bruna Wundervald</title>
-    <link>https://alison.rbind.io/talk/</link>
+    <link>https://brunaw.github.io/talk/</link>
     <description>Recent content in Recent &amp; Upcoming Talks on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,14 +12,14 @@
     
     <item>
       <title>1st Meetup R-Ladies Curitiba</title>
-      <link>https://alison.rbind.io/talk/rladies-dplyr/</link>
+      <link>https://brunaw.github.io/talk/rladies-dplyr/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://alison.rbind.io/talk/rladies-dplyr/</guid>
+      <guid>https://brunaw.github.io/talk/rladies-dplyr/</guid>
       <description>
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://alison.rbind.io/img/ohsu-os-panel.png&#34; /&gt;
+        &lt;img src=&#34;https://brunaw.github.io/img/ohsu-os-panel.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -44,7 +44,7 @@
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://alison.rbind.io/img/ohsu-os-labhub-workshop.png&#34; /&gt;
+        &lt;img src=&#34;https://brunaw.github.io/img/ohsu-os-labhub-workshop.png&#34; /&gt;
     
     
 &lt;/figure&gt;

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recent &amp; Upcoming Talks on Bruna Wundervald</title>
-    <link>https://brunaw.github.io/talk/</link>
+    <link>http://brunaw.com/talk/</link>
     <description>Recent content in Recent &amp; Upcoming Talks on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,19 +12,19 @@
     
     <item>
       <title>1st Meetup R-Ladies Curitiba</title>
-      <link>https://brunaw.github.io/talk/rladies-dplyr/</link>
+      <link>http://brunaw.com/talk/rladies-dplyr/</link>
       <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://brunaw.github.io/talk/rladies-dplyr/</guid>
+      <guid>http://brunaw.com/talk/rladies-dplyr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Chord Based Features for Genre Classification in Popular Brazilian Music</title>
-      <link>https://brunaw.github.io/talk/genre_classification/</link>
+      <link>http://brunaw.com/talk/genre_classification/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://brunaw.github.io/talk/genre_classification/</guid>
+      <guid>http://brunaw.com/talk/genre_classification/</guid>
       <description></description>
     </item>
     

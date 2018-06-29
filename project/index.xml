@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Bruna Wundervald</title>
-    <link>https://brunaw.github.io/project/</link>
+    <link>http://brunaw.com/project/</link>
     <description>Recent content in Projects on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,19 +12,19 @@
     
     <item>
       <title>Music Information Retrieval in R</title>
-      <link>https://brunaw.github.io/project/r_music/</link>
+      <link>http://brunaw.com/project/r_music/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://brunaw.github.io/project/r_music/</guid>
+      <guid>http://brunaw.com/project/r_music/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Non Linear Modelling</title>
-      <link>https://brunaw.github.io/project/nlmset/</link>
+      <link>http://brunaw.com/project/nlmset/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://brunaw.github.io/project/nlmset/</guid>
+      <guid>http://brunaw.com/project/nlmset/</guid>
       <description>
 
 &lt;h1 id=&#34;targeting-core-symptoms-of-autism-spectrum-disorders-asd-is-a-key-treatment-goal-for-parents-of-children-with-asd-while-many-efficacious-treatments-for-asd-have-been-developed-a-major-obstacle-in-evaluating-these-treatments-among-children-with-asd-has-been-the-lack-of-adequate-outcome-measures-anagnostou-et-al-2014-bolte-diehl-2013-kanne-et-al-2014-most-treatment-studies-have-relied-on-informant-based-measures-i-e-parent-or-clinician-report-that-either-place-a-high-burden-on-families-or-require-significant-training-and-time-to-administer-moreover-measures-are-often-re-purposed-from-existing-measures-intended-for-screening-or-diagnosis-and-do-not-provide-continuous-measures-of-symptoms-that-are-responsive-to-change-thus-there-is-a-clear-need-to-develop-asd-outcome-measures-that-are-reliable-valid-and-sensitive-to-change-in-the-absence-of-such-outcome-measures-our-understanding-of-the-efficacy-of-treatments-for-asd-will-continue-to-be-limited&#34;&gt;Targeting core symptoms of Autism Spectrum Disorders (ASD) is a key treatment goal for parents of children with ASD. While many efficacious treatments for ASD have been developed, a major obstacle in evaluating these treatments among children with ASD has been the lack of adequate outcome measures (Anagnostou et al., 2014; Bolte &amp;amp; Diehl, 2013; Kanne et al., 2014). Most treatment studies have relied on informant-based measures (i.e., parent or clinician report) that either place a high burden on families, or require significant training and time to administer. Moreover, measures are often re-purposed from existing measures intended for screening or diagnosis, and do not provide continuous measures of symptoms that are responsive to change. Thus, there is a clear need to develop ASD outcome measures that are reliable, valid, and sensitive to change. In the absence of such outcome measures, our understanding of the efficacy of treatments for ASD will continue to be limited.&lt;/h1&gt;
@@ -37,10 +37,10 @@
     
     <item>
       <title>Shiny Applications for Teaching &amp; Learning</title>
-      <link>https://brunaw.github.io/project/shiny_education/</link>
+      <link>http://brunaw.com/project/shiny_education/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://brunaw.github.io/project/shiny_education/</guid>
+      <guid>http://brunaw.com/project/shiny_education/</guid>
       <description>&lt;p&gt;Statistical concepts are not always easy to absorb. Many students remain without fully understanding them, even after spending a good time studying the subject. Sometimes, this can be due to the level of abstraction needed to perceive the behavior of mathematical functions. With this in mind, this project has as one of its main goals to provide a set of interactive applications to help with both teaching and learning of statistics.&lt;/p&gt;
 
 &lt;p&gt;Our intention is to build applications where the users can interact with data, summaries, plots, tables, and so on. Those features will show, for example, how a curve of a probability distribution changes when we vary its parameters and what does that mean for the results. Many topics are included:  data exploring and visualisation, continuous and discrete probability distributions, hypothesis testing, regression models, non-linear models, network analysis, machine learning techniques, and others.&lt;/p&gt;

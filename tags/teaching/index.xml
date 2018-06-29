@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Teaching on Bruna Wundervald</title>
-    <link>https://brunaw.github.io/tags/teaching/</link>
+    <link>http://brunaw.com/tags/teaching/</link>
     <description>Recent content in Teaching on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>Shiny Applications for Teaching &amp; Learning</title>
-      <link>https://brunaw.github.io/project/shiny_education/</link>
+      <link>http://brunaw.com/project/shiny_education/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://brunaw.github.io/project/shiny_education/</guid>
+      <guid>http://brunaw.com/project/shiny_education/</guid>
       <description>&lt;p&gt;Statistical concepts are not always easy to absorb. Many students remain without fully understanding them, even after spending a good time studying the subject. Sometimes, this can be due to the level of abstraction needed to perceive the behavior of mathematical functions. With this in mind, this project has as one of its main goals to provide a set of interactive applications to help with both teaching and learning of statistics.&lt;/p&gt;
 
 &lt;p&gt;Our intention is to build applications where the users can interact with data, summaries, plots, tables, and so on. Those features will show, for example, how a curve of a probability distribution changes when we vary its parameters and what does that mean for the results. Many topics are included:  data exploring and visualisation, continuous and discrete probability distributions, hypothesis testing, regression models, non-linear models, network analysis, machine learning techniques, and others.&lt;/p&gt;

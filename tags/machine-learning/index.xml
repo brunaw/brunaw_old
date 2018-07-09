@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on Bruna Wundervald</title>
-    <link>http://brunaw.com/tags/machine-learning/</link>
+    <link>/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>Music Information Retrieval in R</title>
-      <link>http://brunaw.com/project/r_music/</link>
+      <link>/project/r_music/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/project/r_music/</guid>
+      <guid>/project/r_music/</guid>
       <description></description>
     </item>
     

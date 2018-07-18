@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on Bruna Wundervald</title>
-    <link>https://alison.rbind.io/tags/machine-learning/</link>
+    <link>/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>Music Information Retrieval in R</title>
-      <link>https://alison.rbind.io/project/r_music/</link>
+      <link>/project/r_music/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://alison.rbind.io/project/r_music/</guid>
+      <guid>/project/r_music/</guid>
       <description>&lt;p&gt;Improving spoken language use (i.e., discourse skills) is a common treatment goal for children with neurodevelopmental disorders, particularly for those with difficulties in conversational reciprocity, perseverative speech, or idiosyncratic/stereotyped word use. These features are clinically meaningful, and in previous projects, we have successfully applied Natural Language Processing (NLP) methods to measure these discourse skills using natural language samples from children with Autism Spectrum Disorder (ASD). However, while NLP methods yield diagnostically relevant measures, it is not known if they can be translated into meaningful outcome measures. To take this next step, important questions must be addressed:&lt;/p&gt;
 
 &lt;ul&gt;

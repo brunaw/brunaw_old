@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recent &amp; Upcoming Talks on Bruna Wundervald</title>
-    <link>/talk/</link>
+    <link>http://brunaw.com/talk/</link>
     <description>Recent content in Recent &amp; Upcoming Talks on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018 Bruna Wundervald</copyright>
     <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://brunaw.com/talk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>1st Meetup R-Ladies Curitiba</title>
-      <link>/talk/rladies-dplyr/</link>
+      <link>http://brunaw.com/talk/rladies-dplyr/</link>
       <pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/talk/rladies-dplyr/</guid>
+      <guid>http://brunaw.com/talk/rladies-dplyr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Chord Based Feature Engineering for Genre Classification in Popular Brazilian Music</title>
-      <link>/talk/genre_classification/</link>
+      <link>http://brunaw.com/talk/genre_classification/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/talk/genre_classification/</guid>
+      <guid>http://brunaw.com/talk/genre_classification/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Construction and Implementation of Multivariate Dispersion Models</title>
-      <link>/talk/rbras_2018/</link>
+      <link>http://brunaw.com/talk/rbras_2018/</link>
       <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/talk/rbras_2018/</guid>
+      <guid>http://brunaw.com/talk/rbras_2018/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Music Data Analysis in R</title>
-      <link>/talk/1st_rday/</link>
+      <link>http://brunaw.com/talk/1st_rday/</link>
       <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/talk/1st_rday/</guid>
+      <guid>http://brunaw.com/talk/1st_rday/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RMarkdown Course</title>
-      <link>/talk/markdown-course/</link>
+      <link>http://brunaw.com/talk/markdown-course/</link>
       <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>/talk/markdown-course/</guid>
+      <guid>http://brunaw.com/talk/markdown-course/</guid>
       <description></description>
     </item>
     

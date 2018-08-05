@@ -2,68 +2,68 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Homes on Bruna Wundervald</title>
-    <link>/home/</link>
+    <link>http://brunaw.com/home/</link>
     <description>Recent content in Homes on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018 Bruna Wundervald</copyright>
     <lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/home/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://brunaw.com/home/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>/home/about/</link>
+      <link>http://brunaw.com/home/about/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/home/about/</guid>
+      <guid>http://brunaw.com/home/about/</guid>
       <description>About me I&amp;rsquo;m a Statistician and reproducible research enthusiast. An R and GIT lover and active user. I like statistical modelling in general, package and dashboards building, text mining and APIs. Also, I&amp;rsquo;m specially interested in multivariate analysis, feature extraction, probabilistic graphical models and data science.
 Projects As as I am very interested in Music Information Retrieval, I developed, so far, two packages for R: vagalumeR, which is about lyrics data extraction, and chorrrds, a package that extracts music chords from the CifraClub website.</description>
     </item>
     
     <item>
       <title>Recent Publications</title>
-      <link>/home/publications/</link>
+      <link>http://brunaw.com/home/publications/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/home/publications/</guid>
+      <guid>http://brunaw.com/home/publications/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Talks &amp; Workshops</title>
-      <link>/home/talks/</link>
+      <link>http://brunaw.com/home/talks/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/home/talks/</guid>
+      <guid>http://brunaw.com/home/talks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Recent Posts</title>
-      <link>/home/posts/</link>
+      <link>http://brunaw.com/home/posts/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/home/posts/</guid>
+      <guid>http://brunaw.com/home/posts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>/home/projects/</link>
+      <link>http://brunaw.com/home/projects/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/home/projects/</guid>
+      <guid>http://brunaw.com/home/projects/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Packages</title>
-      <link>/home/packages/</link>
+      <link>http://brunaw.com/home/packages/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/home/packages/</guid>
+      <guid>http://brunaw.com/home/packages/</guid>
       <description>Currently, I have two packages on CRAN
  vagalumeR chorrrds  They have the same subject: music data. vagalumeR is the package that extracts music lyrics from the Vagalume API. The second package, chorrrds, extracts music chords from the CifraClub website, through web scraping.
 Both these packages are in constantly development, are their most recent ones will be always available first at my github.</description>
@@ -71,10 +71,10 @@ Both these packages are in constantly development, are their most recent ones wi
     
     <item>
       <title>Contact</title>
-      <link>/home/contact/</link>
+      <link>http://brunaw.com/home/contact/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/home/contact/</guid>
+      <guid>http://brunaw.com/home/contact/</guid>
       <description></description>
     </item>
     

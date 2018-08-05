@@ -5,10 +5,12 @@
     <link>/tags/music/</link>
     <description>Recent content in Music on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&amp;copy; 2018 Bruna Wundervald</copyright>
     <lastBuildDate>Fri, 15 Jun 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/music/" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="/tags/music/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Music Information Retrieval in R</title>

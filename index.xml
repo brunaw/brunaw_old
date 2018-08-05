@@ -5,7 +5,7 @@
     <link>/</link>
     <description>Recent content in Bruna Wundervald on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&amp;copy; 2018 Bruna Wundervald</copyright>
     <lastBuildDate>Wed, 20 Apr 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
@@ -341,6 +341,15 @@ chorddiag::chorddiag(mm, showTicks = FALSE,
 &lt;p&gt;Ao meu orientador, &lt;a href=&#34;https://github.com/walmes&#34;&gt;Walmes Zeviani&lt;/a&gt;, que fez eu me apaixonar pelo R, e ao &lt;a href=&#34;http://curso-r.com/author/julio/&#34;&gt;Julio Trecenti&lt;/a&gt;, que é tão entusiasta do meu TCC quanto eu, e já fez diversas contribuições valiosas.&lt;/p&gt;
 &lt;/div&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>RMarkdown Course</title>
+      <link>/talk/markdown-course/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/markdown-course/</guid>
+      <description></description>
     </item>
     
     <item>

@@ -5,10 +5,12 @@
     <link>/project/</link>
     <description>Recent content in Projects on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&amp;copy; 2018 Bruna Wundervald</copyright>
     <lastBuildDate>Fri, 15 Jun 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/project/" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Music Information Retrieval in R</title>
@@ -25,14 +27,7 @@
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/project/nlmset/</guid>
-      <description>
-
-&lt;h1 id=&#34;targeting-core-symptoms-of-autism-spectrum-disorders-asd-is-a-key-treatment-goal-for-parents-of-children-with-asd-while-many-efficacious-treatments-for-asd-have-been-developed-a-major-obstacle-in-evaluating-these-treatments-among-children-with-asd-has-been-the-lack-of-adequate-outcome-measures-anagnostou-et-al-2014-bolte-diehl-2013-kanne-et-al-2014-most-treatment-studies-have-relied-on-informant-based-measures-i-e-parent-or-clinician-report-that-either-place-a-high-burden-on-families-or-require-significant-training-and-time-to-administer-moreover-measures-are-often-re-purposed-from-existing-measures-intended-for-screening-or-diagnosis-and-do-not-provide-continuous-measures-of-symptoms-that-are-responsive-to-change-thus-there-is-a-clear-need-to-develop-asd-outcome-measures-that-are-reliable-valid-and-sensitive-to-change-in-the-absence-of-such-outcome-measures-our-understanding-of-the-efficacy-of-treatments-for-asd-will-continue-to-be-limited&#34;&gt;Targeting core symptoms of Autism Spectrum Disorders (ASD) is a key treatment goal for parents of children with ASD. While many efficacious treatments for ASD have been developed, a major obstacle in evaluating these treatments among children with ASD has been the lack of adequate outcome measures (Anagnostou et al., 2014; Bolte &amp;amp; Diehl, 2013; Kanne et al., 2014). Most treatment studies have relied on informant-based measures (i.e., parent or clinician report) that either place a high burden on families, or require significant training and time to administer. Moreover, measures are often re-purposed from existing measures intended for screening or diagnosis, and do not provide continuous measures of symptoms that are responsive to change. Thus, there is a clear need to develop ASD outcome measures that are reliable, valid, and sensitive to change. In the absence of such outcome measures, our understanding of the efficacy of treatments for ASD will continue to be limited.&lt;/h1&gt;
-
-&lt;h1 id=&#34;at-the-same-time-automated-methods-for-quantifying-behavior-have-become-more-advanced-less-intrusive-and-more-cost-effective-and-could-provide-reliable-and-sensitive-measures-of-behavioral-change-however-these-methods-have-yet-to-be-translated-into-a-viable-outcome-measure-for-use-in-treatment-studies-for-example-recent-research-has-shown-that-autism-symptoms-can-be-objectively-measured-with-automated-methods-such-as-eye-tracking-rice-moriuchi-jones-klin-2012-natural-language-processing-gorman-et-al-2016-rouhizadeh-et-al-2014-van-santen-sproat-hill-2013-and-quantitative-facial-emotion-analysis-metallinou-grossman-narayanan-2013-and-that-such-measures-are-interpretable-and-meaningful-for-the-everyday-lives-of-children-and-their-families&#34;&gt;At the same time, automated methods for quantifying behavior have become more advanced, less intrusive, and more cost-effective, and could provide reliable and sensitive measures of behavioral change. However, these methods have yet to be translated into a viable outcome measure for use in treatment studies. For example, recent research has shown that autism symptoms can be objectively measured with automated methods such as eye-tracking (Rice, Moriuchi, Jones, &amp;amp; Klin, 2012), natural language processing (Gorman et al., 2016; Rouhizadeh et al., 2014; van Santen, Sproat, &amp;amp; Hill, 2013), and quantitative facial emotion analysis (Metallinou, Grossman, &amp;amp; Narayanan, 2013), and that such measures are interpretable and meaningful for the everyday lives of children and their families.&lt;/h1&gt;
-
-&lt;h1 id=&#34;the-goal-of-this-project-is-to-develop-and-validate-a-novel-objective-measurement-tool-the-multi-modal-autism-phenotype-snapshot-maps-for-use-in-clinical-trials-targeting-core-symptoms-of-autism-maps-uses-automated-methods-to-measure-autism-relevant-behaviors-across-multiple-modalities-gaze-tracking-natural-language-processing-facial-expression-analysis-while-children-watch-and-respond-to-audiovisual-stimuli-presented-on-a-laptop-this-project-was-funded-by-a-catalyst-award-from-the-oregon-clinical-translational-research-institute&#34;&gt;The goal of this project is to develop and validate a novel objective measurement tool, the Multi-modal Autism Phenotype Snapshot (MAPS), for use in clinical trials targeting core symptoms of autism. MAPS uses automated methods to measure autism-relevant behaviors across multiple modalities (gaze-tracking, natural language processing, facial expression analysis) while children watch and respond to audiovisual stimuli presented on a laptop. This project was funded by a Catalyst Award from the Oregon Clinical &amp;amp; Translational Research Institute.&lt;/h1&gt;
-</description>
+      <description>Targeting core symptoms of Autism Spectrum Disorders (ASD) is a key treatment goal for parents of children with ASD. While many efficacious treatments for ASD have been developed, a major obstacle in evaluating these treatments among children with ASD has been the lack of adequate outcome measures (Anagnostou et al., 2014; Bolte &amp;amp; Diehl, 2013; Kanne et al., 2014). Most treatment studies have relied on informant-based measures (i.e., parent or clinician report) that either place a high burden on families, or require significant training and time to administer.</description>
     </item>
     
     <item>
@@ -41,12 +36,7 @@
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/project/shiny_education/</guid>
-      <description>&lt;p&gt;Statistical concepts are not always easy to absorb. Many students remain without fully understanding them, even after spending a good time studying the subject. Sometimes, this can be due to the level of abstraction needed to perceive the behavior of mathematical functions. With this in mind, this project has as one of its main goals to provide a set of interactive applications to help with both teaching and learning of statistics.&lt;/p&gt;
-
-&lt;p&gt;Our intention is to build applications where the users can interact with data, summaries, plots, tables, and so on. Those features will show, for example, how a curve of a probability distribution changes when we vary its parameters and what does that mean for the results. Many topics are included:  data exploring and visualisation, continuous and discrete probability distributions, hypothesis testing, regression models, non-linear models, network analysis, machine learning techniques, and others.&lt;/p&gt;
-
-&lt;p&gt;Shiny applications are simple, easy to build interactive apps. They are made directly from R, and can be available on the web for community access. This way, the combination of interactivity and statistical concepts can be a very useful tool for the general study of statistics.&lt;/p&gt;
-</description>
+      <description>Statistical concepts are not always easy to absorb. Many students remain without fully understanding them, even after spending a good time studying the subject. Sometimes, this can be due to the level of abstraction needed to perceive the behavior of mathematical functions. With this in mind, this project has as one of its main goals to provide a set of interactive applications to help with both teaching and learning of statistics.</description>
     </item>
     
   </channel>

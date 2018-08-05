@@ -2,94 +2,94 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Bruna Wundervald</title>
-    <link>http://brunaw.com/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018 Bruna Wundervald</copyright>
     <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://brunaw.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Content tagged as &#39;Academic&#39;</title>
-      <link>http://brunaw.com/tags/academic/</link>
+      <link>/tags/academic/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/tags/academic/</guid>
+      <guid>/tags/academic/</guid>
       <description>Here is a list of all the content that has been tagged as academic.</description>
     </item>
     
     <item>
       <title>Learning</title>
-      <link>http://brunaw.com/tags/learning/</link>
+      <link>/tags/learning/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/tags/learning/</guid>
+      <guid>/tags/learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>http://brunaw.com/tags/machine-learning/</link>
+      <link>/tags/machine-learning/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/tags/machine-learning/</guid>
+      <guid>/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Music</title>
-      <link>http://brunaw.com/tags/music/</link>
+      <link>/tags/music/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/tags/music/</guid>
+      <guid>/tags/music/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Musica</title>
-      <link>http://brunaw.com/tags/musica/</link>
+      <link>/tags/musica/</link>
       <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/tags/musica/</guid>
+      <guid>/tags/musica/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Non Linear Modelling</title>
-      <link>http://brunaw.com/tags/non-linear-modelling/</link>
+      <link>/tags/non-linear-modelling/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/tags/non-linear-modelling/</guid>
+      <guid>/tags/non-linear-modelling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>http://brunaw.com/tags/r/</link>
+      <link>/tags/r/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/tags/r/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Shiny</title>
-      <link>http://brunaw.com/tags/shiny/</link>
+      <link>/tags/shiny/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/tags/shiny/</guid>
+      <guid>/tags/shiny/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Teaching</title>
-      <link>http://brunaw.com/tags/teaching/</link>
+      <link>/tags/teaching/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/tags/teaching/</guid>
+      <guid>/tags/teaching/</guid>
       <description></description>
     </item>
     

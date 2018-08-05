@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Non Linear Modelling on Bruna Wundervald</title>
-    <link>http://brunaw.com/tags/non-linear-modelling/</link>
+    <link>/tags/non-linear-modelling/</link>
     <description>Recent content in Non Linear Modelling on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018 Bruna Wundervald</copyright>
     <lastBuildDate>Fri, 15 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://brunaw.com/tags/non-linear-modelling/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/non-linear-modelling/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Non Linear Modelling</title>
-      <link>http://brunaw.com/project/nlmset/</link>
+      <link>/project/nlmset/</link>
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/project/nlmset/</guid>
+      <guid>/project/nlmset/</guid>
       <description>Targeting core symptoms of Autism Spectrum Disorders (ASD) is a key treatment goal for parents of children with ASD. While many efficacious treatments for ASD have been developed, a major obstacle in evaluating these treatments among children with ASD has been the lack of adequate outcome measures (Anagnostou et al., 2014; Bolte &amp;amp; Diehl, 2013; Kanne et al., 2014). Most treatment studies have relied on informant-based measures (i.e., parent or clinician report) that either place a high burden on families, or require significant training and time to administer.</description>
     </item>
     

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Bruna Wundervald</title>
-    <link>http://brunaw.com/categories/r/</link>
+    <link>/categories/r/</link>
     <description>Recent content in R on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018 Bruna Wundervald</copyright>
     <lastBuildDate>Wed, 25 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://brunaw.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>chorrrds: Analisando acordes de músicas brasileiras</title>
-      <link>http://brunaw.com/post/2018-04-25-chorrrds/</link>
+      <link>/post/2018-04-25-chorrrds/</link>
       <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/post/2018-04-25-chorrrds/</guid>
+      <guid>/post/2018-04-25-chorrrds/</guid>
       <description>Olá! Tudo bem? Eu sou a Bruna, e talvez você já me conheça de algum grupo de R no Telegram ou Facebook, ou mesmo pelo meu outro pacote, o
 vagalumeR. Eu estou prestes a me formar em Estatística na UFPR, e esse post vai ter muito a ver com o tema do meu trabalho de conclusão de curso, que está sendo feito sob orientação do Professor Walmes Zeviani.
 Recentemente, eu fiz a primeira versão do pacote do meu TCC, o chorrrds.</description>
@@ -25,10 +25,10 @@ Recentemente, eu fiz a primeira versão do pacote do meu TCC, o chorrrds.</descr
     
     <item>
       <title>Simple uses of the vagalumeR package</title>
-      <link>http://brunaw.com/post/2017-06-25-vagalumer/</link>
+      <link>/post/2017-06-25-vagalumer/</link>
       <pubDate>Sun, 25 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://brunaw.com/post/2017-06-25-vagalumer/</guid>
+      <guid>/post/2017-06-25-vagalumer/</guid>
       <description>The website https://www.vagalume.com.br is where we can obtain information about songs and their lyrics (with translations, when they’re not in portuguese). This same website has an API, which can be accessed in R, through the vagalumeR package. Here, we have some demonstrations about the functionalities of the package, focusing on the analysis of music lyrics.
 # Package loading library(vagalumeR) library(tidyverse) library(tm) library(lattice) library(lexiconPT) library(latticeExtra) library(wordcloud) library(networkD3) packageVersion(&amp;quot;vagalumeR&amp;quot;) [1] &amp;#39;0.</description>
     </item>

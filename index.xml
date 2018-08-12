@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>1st Meetup R-Ladies São Paulo</title>
+      <link>/talk/rladies-sp/</link>
+      <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/rladies-sp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>1st Meetup R-Ladies Curitiba</title>
       <link>/talk/rladies-dplyr/</link>
       <pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate>

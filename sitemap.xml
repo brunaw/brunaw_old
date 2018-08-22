@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/project/rladies/</loc>
+      <lastmod>2018-08-20T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/talk/rladies-sp/</loc>
       <lastmod>2018-08-13T00:00:00+00:00</lastmod>
     </url>
@@ -152,8 +161,18 @@
     
     <url>
     
+      <loc>/tags/diversity/</loc>
+      <lastmod>2018-08-20T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/learning/</loc>
-      <lastmod>2018-06-15T00:00:00+00:00</lastmod>
+      <lastmod>2018-08-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -213,7 +232,7 @@
     <url>
     
       <loc>/project/</loc>
-      <lastmod>2018-06-15T00:00:00+00:00</lastmod>
+      <lastmod>2018-08-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -231,8 +250,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2018-06-15T00:00:00+00:00</lastmod>
+      <loc>/categories/r/</loc>
+      <lastmod>2018-04-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -241,8 +260,18 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
-      <lastmod>2018-04-25T00:00:00+00:00</lastmod>
+      <loc>/tags/r/</loc>
+      <lastmod>2018-08-20T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/rladies/</loc>
+      <lastmod>2018-08-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

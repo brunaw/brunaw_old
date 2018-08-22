@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Learning on Bruna Wundervald</title>
-    <link>/tags/learning/</link>
-    <description>Recent content in Learning on Bruna Wundervald</description>
+    <title>Diversity on Bruna Wundervald</title>
+    <link>/tags/diversity/</link>
+    <description>Recent content in Diversity on Bruna Wundervald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018 Bruna Wundervald</copyright>
     <lastBuildDate>Mon, 20 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/diversity/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,15 +20,6 @@
       <guid>/project/rladies/</guid>
       <description>The R community suffers from an underrepresentation of minority genders (including but not limited to cis/trans women, trans men, non-binary, genderqueer, agender) in every role and area of participation, whether as leaders, package developers, conference speakers, conference participants, educators, or users (see recent stats).
 As a diversity initiative, the mission of R-Ladies is to achieve proportionate representation by encouraging, inspiring, and empowering people of genders currently underrepresented in the R community.</description>
-    </item>
-    
-    <item>
-      <title>Shiny Applications for Teaching &amp; Learning</title>
-      <link>/project/shiny_education/</link>
-      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/shiny_education/</guid>
-      <description>Statistical concepts are not always easy to absorb. Many students remain without fully understanding them, even after spending a good time studying the subject. Sometimes, this can be due to the level of abstraction needed to perceive the behavior of mathematical functions. With this in mind, this project has as one of its main goals to provide a set of interactive applications to help with both teaching and learning of statistics.</description>
     </item>
     
   </channel>

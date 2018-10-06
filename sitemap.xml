@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/2018-10-06-finding-errors/</loc>
+      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/project/rladies/</loc>
       <lastmod>2018-08-20T00:00:00+00:00</lastmod>
     </url>
@@ -161,6 +170,16 @@
     
     <url>
     
+      <loc>/categories/debugging/</loc>
+      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/diversity/</loc>
       <lastmod>2018-08-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -222,7 +241,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2018-04-25T00:00:00+00:00</lastmod>
+      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -251,7 +270,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2018-08-20T00:00:00+00:00</lastmod>
+      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

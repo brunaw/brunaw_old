@@ -11,6 +11,144 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Finding errors in R</title>
+      <link>/post/2018-10-06-finding-errors/</link>
+      <pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-10-06-finding-errors/</guid>
+      <description>&lt;p&gt;*Portuguese version of this same post &lt;a href=&#34;https://www.curso-r.com/blog/2018-09-03-funcoes/&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;On a daily basis, I come across people on Facebook groups, Telegram or Twitter having troubles with some tasks in R. These problems have two main origins:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;difficulties in constructing the algorithm to reach the desired result.&lt;/li&gt;
+&lt;li&gt;difficulties in understanding the behavior of some function.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The focus of this post is to give some notion about how to solve the second one: problems using functions. To give a little bit of context, we can say that R packages are made by the community, voluntarily. Therefore, not all package documentations are written in the clearest way possible. Also, currently, CRAN only demands a certain amount of rigor regarding the functions of a package, and not its documentation. This situation is changing for better, which can be noted by the existence of recommendations such as the following, extracted from &lt;a href=&#34;http://r-pkgs.had.co.nz/&#34;&gt;Hadley’s book about R packages&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Documentation is one of the most important aspects of a good package. Without it, users won’t know how to use your package. Documentation is also useful for future-you (so you remember what your functions were supposed to do), and for developers extending your package.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;While documentation is not perfect, users need to try to understand the unexpected errors using other resources. The method I’ll describe now is basically looking into the source code of functions and search for what is generating the troubles.&lt;/p&gt;
+&lt;p&gt;There are functions that can be directly viewed in &lt;code&gt;console&lt;/code&gt;, by just printing them without the final &lt;code&gt;()&lt;/code&gt;, for example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean &amp;lt;- function(x, y){
+  n &amp;lt;- 2
+  sum_vars &amp;lt;- x + y
+  mean &amp;lt;- sum_vars/n
+  mean
+}
+
+mean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## function(x, y){
+##   n &amp;lt;- 2
+##   sum_vars &amp;lt;- x + y
+##   mean &amp;lt;- sum_vars/n
+##   mean
+## }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Just by running the name of the function we access the code that composes it. Then if we try, for example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(2, &amp;quot;1&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error in x + y: non-numeric argument to binary operator&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Well, what does that mean? For the new user, it might not be so obvious, but sum 2 and “1” doesn’t work in R. Although they simply look like two numbers, they’re actually two different objects, with two different classes - 2 is a numeric, but “1” is a character.&lt;/p&gt;
+&lt;p&gt;The strategy here is just to copy the function code and run line by line until the error is found. Remember to create the necessary objects first (the arguments the function receives), like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 2              # The first argument of the function
+y &amp;lt;- &amp;quot;1&amp;quot;            # The second argument of the function
+
+# Code of the created &amp;#39;mean&amp;#39; function   
+n &amp;lt;- 2
+sum_vars &amp;lt;- x + y  # error found here!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error in x + y: non-numeric argument to binary operator&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean &amp;lt;- sum_vars/n&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error in eval(expr, envir, enclos): object &amp;#39;sum_vars&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This was pretty simple because the function has just a few lines of code, and we get the error already in the second line. Now, is way easier to think about the probable reason of the problem than just trying to interpret the error message. Sometimes, the question is exactly about using objects with the wrong structure, and this is also what causes the weirdest errors.&lt;/p&gt;
+&lt;p&gt;The example above is with just a simple, short function. Usually, you’ll come across extensive functions or that when printed in the &lt;code&gt;console&lt;/code&gt; won’t show the code, but the &lt;code&gt;method&lt;/code&gt; used, for example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# The mean function that exists in R base
+base::mean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## function (x, ...) 
+## UseMethod(&amp;quot;mean&amp;quot;)
+## &amp;lt;bytecode: 0x7ff40ce019c0&amp;gt;
+## &amp;lt;environment: namespace:base&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And how we interpret that? We’re actually looking at a generic function of the S3 class, that calls a method to use. There are different methods for different object types.&lt;/p&gt;
+&lt;p&gt;Let’s use &lt;code&gt;base::mean&lt;/code&gt; as an example. Which are the objects that can be used in this function? In general, we use numeric vectors, but the function can also deal with other types, such as dates. What we mean with this is that the &lt;strong&gt;same function can perform the same task with different object types&lt;/strong&gt;, by calling the specific &lt;strong&gt;methods&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;And what are the methods? A method is a function associated with a particular type of object. We can check the available methods with:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;methods(mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] mean.Date     mean.default  mean.difftime mean.POSIXct  mean.POSIXlt 
+## see &amp;#39;?methods&amp;#39; for accessing help and source code&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(depending on the package, the methods aren’t exported. If you’re dealing with one of those, try using the operator &lt;code&gt;:::&lt;/code&gt;, as &lt;code&gt;dplyr:::filter.tbl_df&lt;/code&gt;, for example!)&lt;/p&gt;
+&lt;p&gt;Now we know which methods can be used for the function &lt;code&gt;base::mean&lt;/code&gt;. We can see the code by running the combination &lt;code&gt;desired-function.specific-method&lt;/code&gt;, without the final &lt;code&gt;()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;base::mean.default&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## function (x, trim = 0, na.rm = FALSE, ...) 
+## {
+##     if (!is.numeric(x) &amp;amp;&amp;amp; !is.complex(x) &amp;amp;&amp;amp; !is.logical(x)) {
+##         warning(&amp;quot;argument is not numeric or logical: returning NA&amp;quot;)
+##         return(NA_real_)
+##     }
+##     if (na.rm) 
+##         x &amp;lt;- x[!is.na(x)]
+##     if (!is.numeric(trim) || length(trim) != 1L) 
+##         stop(&amp;quot;&amp;#39;trim&amp;#39; must be numeric of length one&amp;quot;)
+##     n &amp;lt;- length(x)
+##     if (trim &amp;gt; 0 &amp;amp;&amp;amp; n) {
+##         if (is.complex(x)) 
+##             stop(&amp;quot;trimmed means are not defined for complex data&amp;quot;)
+##         if (anyNA(x)) 
+##             return(NA_real_)
+##         if (trim &amp;gt;= 0.5) 
+##             return(stats::median(x, na.rm = FALSE))
+##         lo &amp;lt;- floor(n * trim) + 1
+##         hi &amp;lt;- n + 1 - lo
+##         x &amp;lt;- sort.int(x, partial = unique(c(lo, hi)))[lo:hi]
+##     }
+##     .Internal(mean(x))
+## }
+## &amp;lt;bytecode: 0x7ff40f847c30&amp;gt;
+## &amp;lt;environment: namespace:base&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s get back to the discovery of error sources. Say we run the following line of code, which won’t go so well:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;base::mean(c(&amp;quot;1&amp;quot;, 3))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in mean.default(c(&amp;quot;1&amp;quot;, 3)): argument is not numeric or logical:
+## returning NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] NA&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that this is not an error, but a &lt;code&gt;warning&lt;/code&gt; message. Anyway, the &lt;code&gt;NA&lt;/code&gt; is certainly not the desired output when trying to obtain the mean of two numbers. What happened? We’ll check it by using the code of &lt;code&gt;base::mean.default&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Definindo the vector which is the argument of the function
+x &amp;lt;- c(&amp;quot;1&amp;quot;, 3)
+
+# Code of  base::mean.default 
+if (!is.numeric(x) &amp;amp;&amp;amp; !is.complex(x) &amp;amp;&amp;amp; !is.logical(x)) {
+  
+  warning(&amp;quot;argument is not numeric or logical: returning NA&amp;quot;)
+  return(NA_real_)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: argument is not numeric or logical: returning NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] NA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We can stop here as the error was already found!&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the first line of the function, we have the indication of the problem: the vector is neither numeric, complex or logical. If we want the function to work, is must receive those types of objects. Well, now is easier to understand what was done wrong!&lt;/p&gt;
+&lt;div id=&#34;why-should-i-try-to-understand-the-errors&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Why should I try to understand the errors?&lt;/h1&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Making mistakes is a great way to learn.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Broadly, in my experience with searching errors in functions, I always end up learning something new. The own correction of the error generally leads me to know something that wasn’t quite obvious before. The errors make me look for a better understanding of their existence, which hence leads to an improvement in the comprehension about programming logic and R in general.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Your own independence.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Is always more efficient being able to solve your own problems. Not rarely, I see questions about R in the internet that take a long time to have a proper answer. With a little deeper search for the source of your errors and its consequent solution, this waiting will be avoided (not that you shouldn’t make questions, of course).&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Exposition to the diversity of “coding styles” we have in the community.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Particularly, I can comment that, since R packages are made by the community, there is a wide diversity in the ways they’re written. The contact with this diversity, aka going deep in how functions are coded, leads me not only to learn more about R but also about how to refine my own coding style.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;wrap-up&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Wrap-up&lt;/h1&gt;
+&lt;p&gt;In this blog post, I explained a bit about how to search for errors in R functions. We talked about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;how to see the source code of simple functions;&lt;/li&gt;
+&lt;li&gt;how to see the source code of the S3 class functions;&lt;/li&gt;
+&lt;li&gt;how to use these code for indentifying the erros;&lt;/li&gt;
+&lt;li&gt;how we can learn with our own mistakes;&lt;/li&gt;
+&lt;li&gt;how we can save time by learning about finding &amp;amp; fixing errors.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That’s it for now. I hope you liked it. Any questions can be addressed to me directly or here via comments!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>R-Ladies Curitiba</title>
       <link>/project/rladies/</link>
       <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>

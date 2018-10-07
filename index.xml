@@ -62,7 +62,7 @@ sum_vars &amp;lt;- x + y  # error found here!&lt;/code&gt;&lt;/pre&gt;
 base::mean&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## function (x, ...) 
 ## UseMethod(&amp;quot;mean&amp;quot;)
-## &amp;lt;bytecode: 0x7ff40ce019c0&amp;gt;
+## &amp;lt;bytecode: 0x7fa397d5ef90&amp;gt;
 ## &amp;lt;environment: namespace:base&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And how we interpret that? We’re actually looking at a generic function of the S3 class, that calls a method to use. There are different methods for different object types.&lt;/p&gt;
 &lt;p&gt;Let’s use &lt;code&gt;base::mean&lt;/code&gt; as an example. Which are the objects that can be used in this function? In general, we use numeric vectors, but the function can also deal with other types, such as dates. What we mean with this is that the &lt;strong&gt;same function can perform the same task with different object types&lt;/strong&gt;, by calling the specific &lt;strong&gt;methods&lt;/strong&gt;.&lt;/p&gt;
@@ -97,7 +97,7 @@ base::mean&lt;/code&gt;&lt;/pre&gt;
 ##     }
 ##     .Internal(mean(x))
 ## }
-## &amp;lt;bytecode: 0x7ff40f847c30&amp;gt;
+## &amp;lt;bytecode: 0x7fa3988e4430&amp;gt;
 ## &amp;lt;environment: namespace:base&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Let’s get back to the discovery of error sources. Say we run the following line of code, which won’t go so well:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;base::mean(c(&amp;quot;1&amp;quot;, 3))&lt;/code&gt;&lt;/pre&gt;
@@ -105,7 +105,7 @@ base::mean&lt;/code&gt;&lt;/pre&gt;
 ## returning NA&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] NA&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note that this is not an error, but a &lt;code&gt;warning&lt;/code&gt; message. Anyway, the &lt;code&gt;NA&lt;/code&gt; is certainly not the desired output when trying to obtain the mean of two numbers. What happened? We’ll check it by using the code of &lt;code&gt;base::mean.default&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Definindo the vector which is the argument of the function
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Defining the vector which is the argument of the function
 x &amp;lt;- c(&amp;quot;1&amp;quot;, 3)
 
 # Code of  base::mean.default 

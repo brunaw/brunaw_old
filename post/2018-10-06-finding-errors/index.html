@@ -195,7 +195,7 @@
   </span>
   
 
-  @map[is_list:0 content:Page(/post/2018-10-06-finding-errors.html)]
+  @map[content:Page(/post/2018-10-06-finding-errors.html) is_list:0]
   </span>
   
 
@@ -318,7 +318,7 @@ sum_vars &lt;- x + y  # error found here!</code></pre>
 base::mean</code></pre>
 <pre><code>## function (x, ...) 
 ## UseMethod(&quot;mean&quot;)
-## &lt;bytecode: 0x7ff40ce019c0&gt;
+## &lt;bytecode: 0x7fa397d5ef90&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>And how we interpret that? We’re actually looking at a generic function of the S3 class, that calls a method to use. There are different methods for different object types.</p>
 <p>Let’s use <code>base::mean</code> as an example. Which are the objects that can be used in this function? In general, we use numeric vectors, but the function can also deal with other types, such as dates. What we mean with this is that the <strong>same function can perform the same task with different object types</strong>, by calling the specific <strong>methods</strong>.</p>
@@ -353,7 +353,7 @@ base::mean</code></pre>
 ##     }
 ##     .Internal(mean(x))
 ## }
-## &lt;bytecode: 0x7ff40f847c30&gt;
+## &lt;bytecode: 0x7fa3988e4430&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>Let’s get back to the discovery of error sources. Say we run the following line of code, which won’t go so well:</p>
 <pre class="r"><code>base::mean(c(&quot;1&quot;, 3))</code></pre>
@@ -361,7 +361,7 @@ base::mean</code></pre>
 ## returning NA</code></pre>
 <pre><code>## [1] NA</code></pre>
 <p>Note that this is not an error, but a <code>warning</code> message. Anyway, the <code>NA</code> is certainly not the desired output when trying to obtain the mean of two numbers. What happened? We’ll check it by using the code of <code>base::mean.default</code>:</p>
-<pre class="r"><code># Definindo the vector which is the argument of the function
+<pre class="r"><code># Defining the vector which is the argument of the function
 x &lt;- c(&quot;1&quot;, 3)
 
 # Code of  base::mean.default 

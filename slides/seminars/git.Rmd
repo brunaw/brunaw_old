@@ -1,7 +1,9 @@
 ---
 title: "Git & GitHub"
-subtitle: "Bruna Wundervald"
-author: "October, 2018"
+date: "October, 2018"
+author: 
+  - "Bruna Wundervald"
+  - "PhD Candidate in Statistics, Hamilton Institute, Maynooth University"
 output:
   xaringan::moon_reader:
     css: [default, maynooth, maynooth-fonts]

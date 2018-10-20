@@ -190,4 +190,4 @@ class: center, middle, inverse
 
 <b>
 
-@brunaw 
+[@brunaw](https://github.com/brunaw)

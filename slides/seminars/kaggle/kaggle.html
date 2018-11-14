@@ -86,8 +86,7 @@ class: left
 
 class: left
 
-# The author 
-
+# The main author of the packages
 
 .pull-left[
 
@@ -297,9 +296,11 @@ Regression is a classic statistical method and the details can
 be actually extensive. The most important thing is that we
 can assume 
 
-$$ \hat \lambda = exp(\beta_0 + \beta_1 \phi(x_1) + \dots + 
+$$ \lambda = exp(\beta_0 + \beta_1 \phi(x_1) + \dots + 
 \beta_n \phi(x_n))$$`
-`$$log(\hat \lambda) = \beta_0 + \beta_1 \phi(x_1) + \dots + 
+`$$log(
+
+\lambda) = \beta_0 + \beta_1 \phi(x_1) + \dots + 
 \beta_n \phi(x_n) $$
 
 
@@ -471,12 +472,12 @@ Skim summary statistics
  n obs: 10886 
  n variables: 17 
 
-── Variable type:character ───────────────────────────────
+── Variable type:character ─────────────────────────────────────────────────
        variable missing complete     n min max empty n_unique
  class_register       0    10886 10886   3   6     0        3
             set       0    10886 10886   4   5     0        2
 
-── Variable type:integer ─────────────────────────────────
+── Variable type:integer ───────────────────────────────────────────────────
    variable missing complete     n    mean     sd p0 p25 p50 p75 p100
      casual       0    10886 10886  36.02   49.96  0   4  17  49  367
       count       0    10886 10886 191.57  181.14  1  42 145 284  977
@@ -500,7 +501,7 @@ Skim summary statistics
  ▇▁▃▁▁▁▁▁
  ▃▁▁▁▁▁▁▇
 
-── Variable type:numeric ─────────────────────────────────
+── Variable type:numeric ───────────────────────────────────────────────────
     variable missing complete     n  mean   sd   p0   p25   p50   p75
        atemp       0    10886 10886 23.66 8.47 0.76 16.66 24.24 31.06
  day_of_week       0    10886 10886  4    2.01 1     2     4     6   

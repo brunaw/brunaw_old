@@ -91,8 +91,7 @@ knitr::include_graphics("img/ds.png")
 
 class: left
 
-# The author 
-
+# The main author of the packages
 
 .pull-left[
 
@@ -284,9 +283,11 @@ Regression is a classic statistical method and the details can
 be actually extensive. The most important thing is that we
 can assume 
 
-$$ \hat \lambda = exp(\beta_0 + \beta_1 \phi(x_1) + \dots + 
+$$ \lambda = exp(\beta_0 + \beta_1 \phi(x_1) + \dots + 
 \beta_n \phi(x_n))$$
-$$log(\hat \lambda) = \beta_0 + \beta_1 \phi(x_1) + \dots + 
+$$log(
+
+\lambda) = \beta_0 + \beta_1 \phi(x_1) + \dots + 
 \beta_n \phi(x_n) $$
 
 

@@ -285,18 +285,16 @@ can assume
 
 $$ \lambda = exp(\beta_0 + \beta_1 \phi(x_1) + \dots + 
 \beta_n \phi(x_n))$$
-$$log(
-
-\lambda) = \beta_0 + \beta_1 \phi(x_1) + \dots + 
+$$log(\lambda) = \beta_0 + \beta_1 \phi(x_1) + \dots + 
 \beta_n \phi(x_n) $$
 
 
-Or, in words, that the $log(\hat \lambda)$ is equal to a sum of the
+Or, in words, that the $log(\lambda)$ is equal to a sum of the
 values of the covariables multiplied by a vector of coefficients
 and an intercept. Each coefficient measures what changes in the
-$log(\hat \lambda)$ when we add one unity of the each variable
+$log(\lambda)$ when we add one unity of the each variable
 (e.g. $\beta_1$ measures the difference that happens in 
-$log(\hat \lambda)$ when $x_1$ increases
+$log(\lambda)$ when $x_1$ increases
 by one). 
 
 Then we have some optimization methods to find values of 

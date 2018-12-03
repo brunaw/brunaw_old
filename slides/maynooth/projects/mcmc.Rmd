@@ -169,7 +169,7 @@ $\theta^{*}$ is accepted as the new value $\theta^t$.
 
 
 ```{r, echo=FALSE, fig.align='center', out.height="95%", out.width="95%", fig.height=2}
-knitr::include_graphics("img/metrop.png")
+knitr::include_graphics("img/metropolis.png")
 ```
 
 ---

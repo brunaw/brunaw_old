@@ -3,7 +3,7 @@
   <head>
     <title>Doing Markov Chain Monte Carlo by Hand</title>
     <meta charset="utf-8">
-    <meta name="author" content="Inglis, A., Ahmed, A., Wundervald, B. and Prado, E." />
+    <meta name="author" content="Inglis, A., Ali, A., Wundervald, B. and Prado, E." />
     <meta name="author" content="PhD Candidates, Hamilton Institute, Maynooth University" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/maynooth.css" rel="stylesheet" />
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 # Doing Markov Chain Monte Carlo by Hand
-### Inglis, A., Ahmed, A., Wundervald, B. and Prado, E.
+### Inglis, A., Ali, A., Wundervald, B. and Prado, E.
 ### PhD Candidates, Hamilton Institute, Maynooth University
 ### December, 2018
 
@@ -87,7 +87,7 @@ of a few bayesian models using Markov Chain Monte Carlo methods.
 ---
 ## MCMC methods
 
-Consist in, in summary:
+Consist of, in summary:
 
   1. Drawing values of `\(\theta\)` from approximate, known distributions;
   2. Correcting the draws in order to get a distribution closer to 
@@ -123,10 +123,10 @@ class: inverse, middle, center
 ## Gibbs sampler
 
 Suppose that a parameter vector `\(\theta\)` has been divided into 
-*d* componentes or subvectors, `\(\theta = (\theta_1,\dots,\theta_d)\)`.
+*d* components or subvectors, `\(\theta = (\theta_1,\dots,\theta_d)\)`.
 Each iteration of the Gibbs sampler cycles through the subvectors of
 `\(\theta\)`, 
-**drawing each subset conditional on the value of all the others, making it a iteration with *d* steps**.
+**drawing each subset conditional on the value of all the others, making it an iteration with *d* steps**.
 An ordering of
 the *d* subvectors of `\(\theta\)` is chosen and, in turn, 
 `\(\theta_{j}^{t}\)` is sampled from the conditional distribution 
@@ -174,7 +174,7 @@ sample from the unit uniform distribution, the
 ---
 ## Metropolis-Hastings
 
-For the Metropolis-Hastings algorithm, **the proposal distribution `\(J(\theta^*\mid\theta)\)` does not need to be symmetric**.  The speed of the random walk process is improved by the loose of the
+For the Metropolis-Hastings algorithm, **the proposal distribution `\(J(\theta^*\mid\theta)\)` does not need to be symmetric**.  The speed of the random walk process is improved by the loss of the
 symmetry constraint and the convergence to the target distribution
 is proved in the same way as for the basic Metropolis algortithm.
 
@@ -237,7 +237,8 @@ $$ Y = \alpha + \beta_1 X_1 $$
 for(i in 1:TotIter){
   
   sigma2 &lt;- 1/rgamma(1, a + N/2, rate = (t(y-X%*%MCMCBetasI)%*%(y-X%*%MCMCBetasI) 
-  + 2*b)/2) MCMCBetasC &lt;- mvrnorm(1, MCMCBetasI, V)
+  + 2*b)/2) 
+  MCMCBetasC &lt;- mvrnorm(1, MCMCBetasI, V)
   
   ratio &lt;- (-0.5*sigma2*(t(y-X%*%MCMCBetasC)%*%(y-X%*%MCMCBetasC)
   - sum(abs(MCMCBetasC - m)/v))) - (-0.5*sigma2*(t(y-X%*%MCMCBetasI)%*%(y-X%*%MCMCBetasI) 
@@ -332,7 +333,7 @@ f(\boldsymbol\beta | \textbf{X}, \textbf{y}) &amp; \propto \prod_{i=1}^{n} f(y_{
 ---
 ## Simulated data
 
-&lt;img src="img/logit.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/logit_data.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
 
 $$ logit(p) = \alpha + \beta_1 X_1 + \beta_2 X_2 $$
 ---
@@ -401,7 +402,7 @@ for i in tqdm(range(TotIter)):
 ]
 
 .pull-right[
-&lt;img src="img/python/logitb2.png" width="90%" height="90%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/python/logitb1.png" width="90%" height="90%" style="display: block; margin: auto;" /&gt;
 
 
 ]
@@ -451,7 +452,7 @@ f(\phi | \textbf{y}, \textbf{X}, \phi) &amp; \varpropto f(\textbf{y}|\mu_{i}, \p
 ---
 ## Simulated data
 
-&lt;img src="img/beta.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/beta_data.png" width="80%" height="80%" style="display: block; margin: auto;" /&gt;
 
 $$ logit(\mu) = \alpha + \beta_1 X_1$$
 
@@ -462,7 +463,7 @@ $$ logit(\mu) = \alpha + \beta_1 X_1$$
 for(i in 1:TotIter){
 
   MCMCBetasC &lt;- mvrnorm(1, MCMCBetasI, mprop)
-  mu_I &lt;- func_mu(MCMCBetasI)
+  mu_I &lt;- func_mu(MCMCBetasI) # logit function
   muC  &lt;- func_mu(MCMCBetasC)
   
   
@@ -603,8 +604,7 @@ class: inverse, middle, center
 ---
 # Final Remarks
 
-The implementation of MCMC by hand is both interesting and challenging
-regarding!
+The implementation of MCMC by hand is both interesting and challenging!
 
   - Improved our ability to understand and code our own models from the
 beginning to the evaluation of the results. 

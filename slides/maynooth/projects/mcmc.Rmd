@@ -2,7 +2,7 @@
 title: "Doing Markov Chain Monte Carlo by Hand"
 date: "December, 2018"
 author: 
-  - "Inglis, A., Ahmed, A., Wundervald, B. and Prado, E."
+  - "Inglis, A., Ali, A., Wundervald, B. and Prado, E."
   - "PhD Candidates, Hamilton Institute, Maynooth University"
 output:
   xaringan::moon_reader:
@@ -84,7 +84,7 @@ of a few bayesian models using Markov Chain Monte Carlo methods.
 ---
 ## MCMC methods
 
-Consist in, in summary:
+Consist of, in summary:
 
   1. Drawing values of $\theta$ from approximate, known distributions;
   2. Correcting the draws in order to get a distribution closer to 
@@ -120,10 +120,10 @@ class: inverse, middle, center
 ## Gibbs sampler
 
 Suppose that a parameter vector $\theta$ has been divided into 
-*d* componentes or subvectors, $\theta = (\theta_1,\dots,\theta_d)$.
+*d* components or subvectors, $\theta = (\theta_1,\dots,\theta_d)$.
 Each iteration of the Gibbs sampler cycles through the subvectors of
 $\theta$, 
-**drawing each subset conditional on the value of all the others, making it a iteration with *d* steps**.
+**drawing each subset conditional on the value of all the others, making it an iteration with *d* steps**.
 An ordering of
 the *d* subvectors of $\theta$ is chosen and, in turn, 
 $\theta_{j}^{t}$ is sampled from the conditional distribution 
@@ -175,7 +175,7 @@ knitr::include_graphics("img/metrop.png")
 ---
 ## Metropolis-Hastings
 
-For the Metropolis-Hastings algorithm, **the proposal distribution $J(\theta^*\mid\theta)$ does not need to be symmetric**.  The speed of the random walk process is improved by the loose of the
+For the Metropolis-Hastings algorithm, **the proposal distribution $J(\theta^*\mid\theta)$ does not need to be symmetric**.  The speed of the random walk process is improved by the loss of the
 symmetry constraint and the convergence to the target distribution
 is proved in the same way as for the basic Metropolis algortithm.
 
@@ -242,7 +242,8 @@ $$ Y = \alpha + \beta_1 X_1 $$
 for(i in 1:TotIter){
   
   sigma2 <- 1/rgamma(1, a + N/2, rate = (t(y-X%*%MCMCBetasI)%*%(y-X%*%MCMCBetasI) 
-  + 2*b)/2) MCMCBetasC <- mvrnorm(1, MCMCBetasI, V)
+  + 2*b)/2) 
+  MCMCBetasC <- mvrnorm(1, MCMCBetasI, V)
   
   ratio <- (-0.5*sigma2*(t(y-X%*%MCMCBetasC)%*%(y-X%*%MCMCBetasC)
   - sum(abs(MCMCBetasC - m)/v))) - (-0.5*sigma2*(t(y-X%*%MCMCBetasI)%*%(y-X%*%MCMCBetasI) 
@@ -345,7 +346,7 @@ f(\boldsymbol\beta | \textbf{X}, \textbf{y}) & \propto \prod_{i=1}^{n} f(y_{i}|p
 ## Simulated data
 
 ```{r, echo=FALSE, fig.align='center', out.height="80%", out.width="80%", fig.height=2}
-knitr::include_graphics("img/logit.png")
+knitr::include_graphics("img/logit_data.png")
 ```
 
 $$ logit(p) = \alpha + \beta_1 X_1 + \beta_2 X_2 $$
@@ -421,7 +422,7 @@ knitr::include_graphics(c("img/python/logit_alpha.png",
 
 .pull-right[
 ```{r, echo=FALSE, fig.align='center', out.height="90%", out.width="90%",  fig.show='hold', fig.pos='h'}
-knitr::include_graphics(c("img/python/logitb2.png"))
+knitr::include_graphics(c("img/python/logitb1.png"))
 ```
 
 
@@ -473,7 +474,7 @@ f(\phi | \textbf{y}, \textbf{X}, \phi) & \varpropto f(\textbf{y}|\mu_{i}, \phi) 
 ## Simulated data
 
 ```{r, echo=FALSE, fig.align='center', out.height="80%", out.width="80%", fig.height=2}
-knitr::include_graphics("img/beta.png")
+knitr::include_graphics("img/beta_data.png")
 ```
 
 $$ logit(\mu) = \alpha + \beta_1 X_1$$
@@ -485,7 +486,7 @@ $$ logit(\mu) = \alpha + \beta_1 X_1$$
 for(i in 1:TotIter){
 
   MCMCBetasC <- mvrnorm(1, MCMCBetasI, mprop)
-  mu_I <- func_mu(MCMCBetasI)
+  mu_I <- func_mu(MCMCBetasI) # logit function
   muC  <- func_mu(MCMCBetasC)
   
   
@@ -633,8 +634,7 @@ class: inverse, middle, center
 ---
 # Final Remarks
 
-The implementation of MCMC by hand is both interesting and challenging
-regarding!
+The implementation of MCMC by hand is both interesting and challenging!
 
   - Improved our ability to understand and code our own models from the
 beginning to the evaluation of the results. 

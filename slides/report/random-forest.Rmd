@@ -472,44 +472,19 @@ As for the trees, this function can be improved in various points.
 
 ```{r}
 library(tidyverse)
-library(progress)
-library(foreach)
-library(doParallel)
-library(doSNOW)
+library(parallel)
 options(warn=-1)
 
-# Creating function to be parallelized that just runs a tree
-not_to_change <- function(rf_data, formula){
-  trees <- my_trees(formula = formula, your_data = rf_data)
-  Sys.sleep(0.2)
-  return(trees)
-}
 
-rf <- function(formula, rf_data, number_of_trees = 15, 
-               func = 
-                 not_to_change(formula = formula, rf_data = rf_data)){
-  
-  # Setup parallel backend to use many processors
-  cores <- parallel::detectCores()
-  cl <- makeSOCKcluster(cores)
-  registerDoSNOW(cl)
-  
-  # Creating the text bar 
-  pb <- txtProgressBar(min = 0, max = number_of_trees, style = 3)
-  progress <- function(n) setTxtProgressBar(pb, n)
-  opts <- list(progress=progress)
-  
+rf <- function(formula, rf_data, number_of_trees = 15){
+
   # Paralellizing all the trees 
-  result <- 
-    foreach(i = 1:number_of_trees, .packages="tidyverse",
-            .options.snow = opts) %dopar% {
-              func
-            }
-  # Closing parallelization
-  
-  close(pb)
-  stopCluster(cl)
-  
+  result <- mclapply(1:number_of_trees, FUN = function(i, formula, rf_data){
+      trees <- my_trees(formula = formula, your_data = rf_data)
+      Sys.sleep(0.2)
+      return(trees)
+    }, rf_data = rf_data, formula = formula)
+
   # Calculating predictions by extracting it from the list of trees
   predictions <- result %>% map("model_data") %>% 
     map(`[`, c("prediction")) %>% 
@@ -520,7 +495,6 @@ rf <- function(formula, rf_data, number_of_trees = 15,
   # Returning results 
   return(list(trees_result = result, prediction = predictions))
 }
-
 
 ```
 
@@ -563,14 +537,12 @@ predict_rf(rf_cars, new_data)
 
 By varying the number of trees in the random forest, we can check what is 
 the residual sum of squares for each value. Figure 3 shows results for 
-different numbers of trees, but the plot does not seem to produce a
-reasonable conclusion. The image tells us that a small number of trees
-can either produce very good results or can be similar to a large number
-of trees. 
+different numbers of trees. The plot tells us that a small number of trees
+(around 15) produces as good results as a big amount of trees. 
 
 ```{r, results='hide'}
 # Evaluating the number of trees
-seq_number_trees <- seq(2, 100, by = 5)
+seq_number_trees <- seq(2, 50, by = 5)
 
 sequence_rf <- seq_number_trees %>% map(rf, formula = mpg ~ cyl + disp + hp + drat +
                                    wt + qsec + am + gear + carb, rf_data = mtcars)

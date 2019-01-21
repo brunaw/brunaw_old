@@ -18,9 +18,8 @@
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/home/about/</guid>
-      <description>About me I&amp;rsquo;m a Statistician and reproducible research enthusiast. An R and GIT lover and active user. I like statistical modelling in general, package and dashboards development, text mining and APIs. Also, I&amp;rsquo;m specially interested in multivariate analysis, feature extraction, probabilistic graphical models and data science.
-I&amp;rsquo;m an R-Lady. I have founded the R-Ladies Curitiba chapter, being also involved with the R-Ladies São Paulo group.
-Projects As as I am very interested in Music Information Retrieval, I developed, so far, two packages for R: vagalumeR, which is about lyrics data extraction, and chorrrds, a package that extracts music chords from the CifraClub website.</description>
+      <description>About me I&amp;rsquo;m a statistician, reproducible research enthusiast, R and git lover and active user. I like statistical modelling in general, package and dashboards development, text mining and APIs. Also, I&amp;rsquo;m specially interested in Bayesian inference, multivariate analysis, feature extraction and probabilistic graphical models.
+I&amp;rsquo;m a member of the R-Ladies, a non-profit organization that promotes gender minorities in the R/data science community. I have founded the R-Ladies Curitiba chapter, being also involved with the R-Ladies São Paulo and R-Ladies Dublin groups.</description>
     </item>
     
     <item>
@@ -33,7 +32,16 @@ Projects As as I am very interested in Music Information Retrieval, I developed,
     </item>
     
     <item>
-      <title>Next travelling, courses &amp; conferences</title>
+      <title>Talks &amp; Workshops</title>
+      <link>/home/talks/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/home/talks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Travelling, courses &amp; conferences of 2019</title>
       <link>/home/events/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
@@ -45,15 +53,6 @@ Projects As as I am very interested in Music Information Retrieval, I developed,
  APTS Courses week 2, Southampton, England, April 2019:
  Statistical Modelling Applied Stochastic Processes   IV Internacional Seminar on Statistics with R, Niterói, Brazil, May 2019. Talk: TBA
  APTS Courses week 3, Durham, England, July 2019</description>
-    </item>
-    
-    <item>
-      <title>Talks &amp; Workshops</title>
-      <link>/home/talks/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/home/talks/</guid>
-      <description></description>
     </item>
     
     <item>
@@ -81,8 +80,8 @@ Projects As as I am very interested in Music Information Retrieval, I developed,
       
       <guid>/home/packages/</guid>
       <description>Currently, I have two packages on CRAN
- vagalumeR chorrrds  They have the same subject: music data. vagalumeR is the package that extracts music lyrics from the Vagalume API. The second package, chorrrds, extracts music chords from the CifraClub website, through web scraping.
-Both these packages are in constantly development, are their most recent ones will be always available first at my github.</description>
+ vagalumeR chorrrds  They have pretty much the same subject: music data. vagalumeR is the package that extracts music lyrics from the Vagalume API. The second package, chorrrds, extracts music chords from the CifraClub website, through web scraping techniques.
+Both these packages are in constantly development, being that their new versions always come out first in the R-Music organization on GitHub.</description>
     </item>
     
     <item>

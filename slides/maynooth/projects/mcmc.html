@@ -53,15 +53,25 @@ different approaches: classical and Bayesian.
   between observations and parameters in a model: they are all
   considered random variables.
 
-We can assume prior distributions for the parameters and combine
-them with the distribution of the data using the Bayes' theorem 
-  
+
+Consider that `\(\mathbf{Y}\)` is random variable, 
+`\(P(\mathbf{Y} = \mathbf{y})\)` representing its probability distribution and 
+`\(P(\mathbf{Y} = \mathbf{y} | \theta)\)` the probability distribution 
+conditioned on the value of the parameter `\(\theta\)`, which is unknown. 
+The Bayesian approach assumes a distribution for both the 
+data and the parameter, including a `\(P(\theta)\)` in the analysis, which
+has a prior and a posterior form. 
+
+The assumed distribution for the data and the prior distribution for
+the parameters are combined through the Bayes' theorem, 
+resulting in  the posterior distribution of the parameters, obtained with
+
   \begin{equation}
   P(\theta | \mathbf{y}) = \frac{P(\mathbf{y} | \theta) P(\theta)}
   {P(\mathbf{y})}, 
   \end{equation}
   
-resulting in what we call the posterior distribution of the parameters. 
+resulting in the posterior distribution of the parameters. 
 
 
 ---
@@ -169,7 +179,7 @@ sample from the unit uniform distribution, the
 `\(\theta^{*}\)` is accepted as the new value `\(\theta^t\)`.
 
 
-&lt;img src="img/metropolis.png" width="95%" height="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/metrop.png" width="95%" height="95%" style="display: block; margin: auto;" /&gt;
 
 ---
 ## Metropolis-Hastings
@@ -194,33 +204,40 @@ class: inverse, middle, center
 ---
 # Linear Regression 
 
-Consider `\(\textbf{y} \sim \textbf{N}_{n}(\textbf{X}\boldsymbol\beta, \sigma^{2}\textbf{I})\)`, assuming that both `\(\boldsymbol\beta\)` and `\(\sigma^{2}\)` are unknown. First, consider a Laplace distribution as prior for each `\(\beta_{j}| \sigma^{2}\)` such as
+
+Consider a random variable `\(\mathbf{y}\)`, being assumed that `\(\textbf{y} \sim \textbf{N}_{n}(\textbf{X}\boldsymbol\beta, \sigma^{2}\textbf{I})\)`, assuming that both `\(\boldsymbol\beta\)` and `\(\sigma^{2}\)` are unknown. First, consider a Normal distribution as prior for each `\(\beta_{j}| \sigma^{2}\)` such as
+
+
 `\begin{align}
-     f(\beta_{j} | m_{j}, v_{j}) = (2v_{j})^{-d/2} \exp \Big\{- \sum_{j=1}^{d} \frac{|\beta_{j} - m_{j}|}{v_{j}}\Big\}, \nonumber
+     f(\beta_{j} | m_{j}, v_{j}) = (2 \pi v_{j})^{-1/2} \exp \Big\{- \frac{1}{2v_{j}} (\beta_{j} - m_{j})^{2} \Big\}, \nonumber
 \end{align}`
 
-where `\(\beta_{j} \in \mathbb{R}\)`, `\(m_{j} \in \mathbb{R}\)` and `\(v_{j} &gt; 0\)`. In this case, the posterior conditional distribution for `\(\boldsymbol\beta | \sigma^{2}\)` is given by
+
+where `\(\textbf{X}\)` is the design matrix, `\(\beta_{j} \in \mathbb{R}\)`, `\(m_{j} \in \mathbb{R}\)` and `\(v_{j} &gt; 0\)`. In this case, the posterior conditional distribution for `\(\boldsymbol\beta | \sigma^{2}\)` is given by
+
 `\begin{align}
     f(\boldsymbol\beta | \textbf{y}, \textbf{X}, \sigma^{2}) &amp; \varpropto f_{\text{y}}(\textbf{y}|\textbf{X}, \boldsymbol\beta) \prod_{i=1}^{d} f(\beta_{j} | m_{j}, v_{j}), \nonumber \\
-    &amp; \varpropto \exp \Big\{-\frac{1}{2\sigma^{2}} (\textbf{y} - \textbf{X}\boldsymbol\beta)^\top (\textbf{y} - \textbf{X}\boldsymbol\beta) - \sum_{j=1}^{d} \frac{|\beta_{j} - m_{j}|}{v_{j}} \Big\}. \nonumber
+    &amp; \varpropto \exp \Big\{-\frac{1}{2\sigma^{2}} (\textbf{y} - \textbf{X}\boldsymbol\beta)^\top (\textbf{y} - \textbf{X}\boldsymbol\beta) - \sum_{j=1}^{d} \frac{1}{2 v_{j}} (\beta_{j} - m_{j})^{2} \Big\}. \nonumber
 \end{align}`
 
 
 ---
 # Linear Regression 
 
+As for `\(\sigma^{2}\)`, consider as prior distribution an Uniform, 
+denoted by `\(\sigma^{2}| a, b \sim U(a, b)\)`, in the form of
 
-As for `\(\sigma^{2}\)`, consider as prior distribution an Inverse Gamma, 
-denoted by `\(\sigma^{2}| a, b \sim IG(a, b)\)`, in the form of
 `\begin{align}
-f(\sigma^{2}| a, b) &amp; = \frac{b^{a}}{\Gamma(a)} (\sigma^{2})^{-(a+1)} \exp \Big\{-\frac{b}{\sigma^{2}}\Big\}, \nonumber
+f(\sigma^{2}| a, b) &amp; = \frac{1}{b-a}, \nonumber
 \end{align}`
-where `\(a &gt;0\)` and `\(b &gt;0\)`. Hence, the posterior conditional distribution
-for `\(\sigma^{2}\)` is given by
+
+
+where `\(-\infty &lt; a &lt; b &lt; \infty\)`. Hence, the posterior conditional distribution for `\(\sigma^{2}\)` is given by
 
 `\begin{align}
-    f(\sigma^{2} | \textbf{y}, \textbf{X}, \boldsymbol\beta) &amp; \varpropto f_{\text{y}}(\textbf{y}|\textbf{X}, \boldsymbol\beta) f(\sigma^{2}| a, b), \nonumber \\
-    &amp; \varpropto (\sigma^{2})^{-(n/2 + a + 1)} \exp \Big\{-\frac{1}{2\sigma^{2}} [(\textbf{y} - \textbf{X}\boldsymbol\beta)^\top (\textbf{y} - \textbf{X}\boldsymbol\beta) + 2b] \Big\}. \nonumber
+f(\sigma^{2} | \textbf{y}, \textbf{X}, \boldsymbol\beta) &amp; \varpropto f_{\text{y}}(\textbf{y}|\textbf{X}, \boldsymbol\beta) f(\sigma^{2}| a, b), \nonumber \\
+    &amp; \varpropto (\sigma^{2})^{-(n/2 + a + 1)} \exp \Big\{-\frac{1}{2\sigma^{2}} [(\textbf{y} - \textbf{X}\boldsymbol\beta)^\top (\textbf{y} - \textbf{X}\boldsymbol\beta)] \Big\} \frac{1}{b-a}, 
+    \nonumber
 \end{align}`
 
 
@@ -233,23 +250,52 @@ $$ Y = \alpha + \beta_1 X_1 $$
 ---
 ## R Code
 
+
 ```
 for(i in 1:TotIter){
   
-  sigma2 &lt;- 1/rgamma(1, a + N/2, rate = (t(y-X%*%MCMCBetasI)%*%(y-X%*%MCMCBetasI) 
-  + 2*b)/2) 
+  # Proposal distribution for sigma2 
+  sigma2c = rgamma(1, (sigma2_^2)/var,  scale=1/(sigma2_ / var))
+  
+  
+  # Computing the ratio in the Metropolis-Hastings
+  ratio_sigma2 = (((-N/2) * log(sigma2c) - 0.5/sigma2c * 
+  (t(y - (X%*%MCMCBetasI))%*%(y-(X%*%MCMCBetasI))) - log(b - a) + 1/sigma2_ + 
+  dgamma(sigma2_, (sigma2c^2)/var, scale = 1/(sigma2c / var))) -
+  ((-N/2) * log(sigma2_) - 0.5/sigma2_ * (t(y - (X%*%MCMCBetasI))%*%(y-(X%*%MCMCBetasI))) - 
+  log(b - a) + 1/sigma2c + dgamma(sigma2c, (sigma2_^2)/var, scale = 1/(sigma2_ / var))))
+  
+  # Accept/Reject step for sigma2
+  if(runif(1) &lt; min(1, exp(ratio_sigma2)))
+  {
+    sigma2_ = sigma2c
+    js = js +1
+  }
+```
+
+---
+## R Code
+
+```
+  # Proposal distribution for beta
   MCMCBetasC &lt;- mvrnorm(1, MCMCBetasI, V)
   
-  ratio &lt;- (-0.5*sigma2*(t(y-X%*%MCMCBetasC)%*%(y-X%*%MCMCBetasC)
-  - sum(abs(MCMCBetasC - m)/v))) - (-0.5*sigma2*(t(y-X%*%MCMCBetasI)%*%(y-X%*%MCMCBetasI) 
-  - sum(abs(MCMCBetasI - m)/v)))
+  # Computing the ratio:
+  ratio_beta &lt;-  ((-0.5/sigma2_* (t(y - (X %*% MCMCBetasC)) %*% 
+  (y - (X %*% MCMCBetasC))  - 0.5/vi*sum(abs(MCMCBetasC - mi))^2)) -
+  (-0.5/sigma2_* (t(y - (X %*% MCMCBetasI)) %*% 
+  (y - (X %*% MCMCBetasI))  - 0.5/vi*sum(abs(MCMCBetasI - mi))^2)))
   
-  if(runif(1) &lt; min(1, exp(ratio)))
-  {MCMCBetasI &lt;- MCMCBetasC
-  j &lt;- j+1}
+  # Accept/Reject step for beta
+  if(runif(1) &lt; min(1, exp(ratio_beta)))
+  {
+    MCMCBetasI &lt;- MCMCBetasC
+    jb &lt;- jb+1
+  }
   
   if (i &gt; BurnIn){
-    SaveResults[AuxBurnIn,] &lt;- c(AuxBurnIn, MCMCBetasI, sigma2)
+  # Saving results
+    SaveResults[AuxBurnIn,] &lt;- c(AuxBurnIn, MCMCBetasI, sigma2_)
     AuxBurnIn &lt;- AuxBurnIn + 1
   }
 }
@@ -269,23 +315,47 @@ for(i in 1:TotIter){
 ```
 for i in tqdm(range(TotIter)):
     
-    sigma2 = scy.invgamma.rvs(a = a + N/2, 
-    scale = (2*b + (y - (X @ beta_)).T @ (y - (X @ beta_)))/2 , size=1)
+    # Proposal distribution for sigma2 
+    sigma2c = gamma.rvs((sigma2_**2)/var, scale=1/(sigma2_ / var), 
+    size=1, random_state=None)
+    
+    # Computing the ratio in the Metropolis-Hastings
+    ratio_sigma2 = (((-N/2) * np.log(sigma2c) - 0.5/sigma2c*
+    (y - (X @ beta_)).T @(y - (X @ beta_)) - np.log(b - a) + 1/sigma2_ +
+    gamma.pdf(sigma2_, (sigma2c**2)/var, scale = 1/(sigma2c / var))) -
+    ((-N/2) * np.log(sigma2_) - 0.5/sigma2_*(y - (X @ beta_)).T @(y - (X @ beta_)) 
+    - np.log(b - a) + 1/sigma2c + gamma.pdf(sigma2c, (sigma2_**2)/var, 
+    scale = 1/(sigma2_ / var))))
+    
+    # Accept/reject step for sigma2c (sigma2 candidate)
+    if (np.random.uniform(0, 1, 1) &lt; np.exp(ratio_sigma2)):
+        sigma2_ = sigma2c
+        if (i &gt; Burn):
+            js = js + 1
+
+    # Proposal distribution for beta (multivariate Normal)
     betac = np.random.multivariate_normal(list(itertools.chain(*beta_)), mprop,1).T
+```
 
-    ratio =  ((-0.5*sigma2*(y - (X @ betac)).T @(y - (X @ betac))  - 
-    sum(abs(betac - mi) / vi)) -(-0.5*sigma2*(y - (X @ beta_)).T 
-    @(y - (X @ beta_))  - sum(abs(beta_ - mi) / vi)))
+---
+## Python Code
 
-    if (np.random.uniform(0, 1, 1) &lt; np.exp(ratio)):
+```
+    # Computing the ratio stated in the Metropolis-Hastings algorithm
+    ratio_beta =  ((-0.5/sigma2_*(y - (X @ betac)).T @(y - (X @ betac))  - 
+    0.5/vi*sum(abs(betac - mi)**2)) - (-0.5/sigma2_*(y - 
+    (X @ beta_)).T @(y - (X @ beta_))  - 0.5/vi*sum(abs(beta_ - mi)**2)))
+
+    # Accept/reject step for betac (beta candidate)
+    if (np.random.uniform(0, 1, 1) &lt; np.exp(ratio_beta)):
         beta_ = betac
         if (i &gt; Burn):
-            j = j + 1
-    
-    if (i &gt; Burn):
-        sbeta.append(beta_.tolist())
-        ssigm.append(sigma2.tolist())
+            jb = jb + 1
 
+    # Storing the results
+    if (i &gt;= Burn):
+        sbeta.append(beta_.tolist())
+        ssigm.append(sigma2_.tolist())
 ```
 
 ---
@@ -340,26 +410,25 @@ $$ logit(p) = \alpha + \beta_1 X_1 + \beta_2 X_2 $$
 ## R Code
 
 ```
-
 for(i in 1:TotIter){
-
+  # Proposal distribution for beta
   MCMCBetasC &lt;- mvrnorm(1, MCMCBetasI, V)
-  
-  ratio &lt;- ((-k * sum(log(1 + exp(X%*%MCMCBetasC)))  + 
-  sum(y * X%*%MCMCBetasC) - (1/2) * t(MCMCBetasC - mu)%*%Sigma_inv%*%(MCMCBetasC 
-  - mu)) - ((-k * sum(log(1 + exp(X%*%MCMCBetasI)))) + 
+  # Metropolis ratio
+  ratio &lt;- ((-k * sum(log(1 + exp(X%*%MCMCBetasC)))  +
+  sum(y * X%*%MCMCBetasC) - (1/2) * t(MCMCBetasC - mu)%*%Sigma_inv%*%
+  (MCMCBetasC - mu)) - ((-k * sum(log(1 + exp(X%*%MCMCBetasI)))) +
   sum(y * X%*%MCMCBetasI) - (1/2) * t(MCMCBetasI - mu)%*%Sigma_inv%*%(MCMCBetasI - mu)))
-  
+  # Accept/reject step
   if(runif(1) &lt; min(1, exp(ratio)))
   {MCMCBetasI &lt;- MCMCBetasC
-  j &lt;- j+1}
   
+j &lt;- j+1}
+  # Saving results
   if (i &gt; BurnIn){
     SaveResults[AuxBurnIn,] &lt;- c(AuxBurnIn, MCMCBetasI)
     AuxBurnIn &lt;- AuxBurnIn + 1
   }
 }
-
 ```
 
 ---
@@ -374,21 +443,42 @@ for(i in 1:TotIter){
 
 ```
 for i in tqdm(range(TotIter)):
-    
+    # Proposal distribution for sigma2
+    sigma2c = gamma.rvs((sigma2_**2)/var, scale=1/(sigma2_ / var), 
+    size=1, random_state=None)
+    # Computing the ratio in the Metropolis-Hastings
+    ratio_sigma2 = (((-N/2) * np.log(sigma2c) - 0.5/sigma2c*
+    (y - (X @ beta_)).T @(y - (X @ beta_)) - np.log(b - a) + 1/sigma2_ +
+    gamma.pdf(sigma2_, (sigma2c**2)/var, scale = 1/(sigma2c / var))) -
+    ((-N/2) * np.log(sigma2_) - 0.5/sigma2_*(y - (X @ beta_)).T @(y - (X @ beta_)) -
+    np.log(b - a) + 1/sigma2c + gamma.pdf(sigma2c, (sigma2_**2)/var, 
+    scale = 1/(sigma2_ / var))))
+    # Accept/reject step for sigma2c (sigma2 candidate)
+    if (np.random.uniform(0, 1, 1) &lt; np.exp(ratio_sigma2)):
+        sigma2_ = sigma2c
+        if (i &gt; Burn):
+ js = js + 1
+```
+
+---
+## Python Code
+
+```
+# Proposal distribution for beta (multivariate Normal)
     betac = np.random.multivariate_normal(list(itertools.chain(*beta_)), mprop,1).T
-
-    ratio = ((-k * sum(np.log(1 + np.exp(X @ betac)))  + sum(y * X @ betac) - 
-    (1/2) * (betac - mu).T @ Sigma_inv @ (betac - mu)) - 
-    ((-k * sum(np.log(1 + np.exp(X @ beta_)))) + sum(y * X @ beta_) - 
-    (1/2) * (beta_ - mu).T @ Sigma_inv @ (beta_ - mu)))
-
-    if (np.random.uniform(0, 1, 1) &lt; np.exp(ratio)):
+    # Computing the ratio stated in the Metropolis-Hastings algorithm
+    ratio_beta =  ((-0.5/sigma2_*(y - (X @ betac)).T @(y - (X @ betac))  -
+    0.5/vi*sum(abs(betac - mi)**2)) -(-0.5/sigma2_*(y - (X @ beta_)).T @(y - (X @ beta_))
+    - 0.5/vi*sum(abs(beta_ - mi)**2)))
+    # Accept/reject step for betac (beta candidate)
+    if (np.random.uniform(0, 1, 1) &lt; np.exp(ratio_beta)):
         beta_ = betac
         if (i &gt; Burn):
-            j = j + 1
-    if (i &gt; Burn):
+jb = jb + 1
+    # Storing the results
+    if (i &gt;= Burn):
         sbeta.append(beta_.tolist())
-
+        ssigm.append(sigma2_.tolist()
 ```
 
 
@@ -410,43 +500,50 @@ for i in tqdm(range(TotIter)):
 ---
 ## Beta Regression 
 
-Let `\(\{Y_{i}\}_{i=1}^{n}\)` be independent and identically distributed 
-random variables. We assume that `\(Y_{i}\)` is distributed according to a 
-Beta distribution, denoted by `\(Y_{i} \sim \mbox{Beta}(\mu_{i}, \phi)\)`, 
-where the Beta distribution may be written in the form
+Let `\(\{Y_{i}\}_{i=1}^{n}\)` be independent and identically distributed random variables and `\(\textbf{x}_{i} = (1, x_{i,1},...,x_{i,1})\)` a line vector with all covariates of the individual `\(i\)`. We assume that `\(Y_{i}\)` is distributed according to a Beta distribution, denoted by `\(Y_{i} \sim \mbox{Beta}(\mu_{i}, \phi)\)`, where the Beta distribution may be written in the form
 
 `\begin{align}
 f(Y_{i}|\mu_{i}, \phi) = \frac{\Gamma(\phi)}{\Gamma(\mu_{i}\phi)\Gamma((1-\mu_{i})\phi)} Y_{i}^{\mu_{i}\phi - 1} (1- Y_{i})^{(1-\mu_{i})\phi -1}, \nonumber
 \end{align}`
 
-where `\(0 &lt; Y_{i} &lt; 1\)`, `\(0 &lt; \mu_{i} &lt; 1\)` and `\(\phi &gt;0\)`. 
-Thus, it is possible to model `\(g(\mu_{i}) = \textbf{x}_{i}\boldsymbol\beta\)`,
-where `\(\boldsymbol\beta\)` is the vector of unknown parameters and `\(g(\cdot)\)` is
-the link function that maps the unit interval into `\(\mathbb{R}\)`.
 
-To find the posterior conditional distributions for `\(\boldsymbol\beta\)` and `\(\phi\)`,
-we set the following priors: `\(\boldsymbol\beta \sim N(\textbf{m}, \textbf{V})\)`
-and `\(\phi \sim \mbox{IG}(a, b)\)`. Firstly, we introduce the posterior conditional distribution for `\(\boldsymbol\beta\)`.
+where `\(0 &lt; Y_{i} &lt; 1\)`, `\(\mathbb{E}(Y_{i}) = \mu_{i}\)`, `\(\mathbb{V}(Y_{i}) = \mu_{i}(1-\mu_{i})/(1+\phi)\)`, `\(0 &lt; \mu_{i} &lt; 1\)` and `\(\phi &gt;0\)`. Thus, it is possible to model `\(g(\mu_{i}) = \textbf{x}_{i}\boldsymbol\beta\)`, where `\(\boldsymbol\beta\)` is the vector of unknown parameters and `\(g(\cdot)\)` is the link function that maps the unit interval into `\(\mathbb{R}\)` , which must be strictly monotonic and twice differentiable. Considering the link function as logit, i.e., `\(g(\mu_{i}) = \log(\mu_{i}/(1-\mu_{i})) = \textbf{x}_{i}\boldsymbol\beta \Rightarrow \mu_{i} =  \exp\{\textbf{x}_{i}\boldsymbol\beta\} / (1+\exp\{\textbf{x}_{i}\boldsymbol\beta\})\)`, the likelihood function has the form of
+
+$$ 
 `\begin{align}
-f(\boldsymbol\beta | \textbf{y}, \textbf{X}, \phi) &amp; \varpropto f(\textbf{y}|\mu_{i}, \phi) \times f(\boldsymbol\beta),\nonumber \\
-&amp; \varpropto \frac{1}{\prod_{i=1}^{n} \Gamma(\mu_{i}\phi)\Gamma((1-\mu_{i})\phi)}  \prod_{i=1}^{n} Y_{i}^{\mu_{i}\phi - 1} \prod_{i=1}^{n} (1- Y_{i})^{(1-\mu_{i})\phi -1} \times \nonumber\\
-&amp; \times \exp \Big\{-\frac{1}{2} (\boldsymbol\beta - \textbf{m})^\top \textbf{V}^{-1} (\boldsymbol\beta - \textbf{m}) \Big\}. \nonumber
+f(\textbf{y}|\mu_{i}, \phi) = \prod_{i=1}^{n} f(Y_{i}|\mu_{i}, \phi) &amp; = \prod_{i=1}^{n}\frac{\Gamma(\phi)}{\Gamma(\mu_{i}\phi)\Gamma((1-\mu_{i})\phi)} Y_{i}^{\mu_{i}\phi - 1} (1- Y_{i})^{(1-\mu_{i})\phi -1}, \nonumber \\
+&amp; = \left(\frac{\Gamma(\phi)^{n}}{\prod_{i=1}^{n} \Gamma(\mu_{i}\phi)\Gamma((1-\mu_{i})\phi)} \right) \prod_{i=1}^{n} Y_{i}^{\mu_{i}\phi - 1} \prod_{i=1}^{n} (1- Y_{i})^{(1-\mu_{i})\phi -1}. \nonumber
 \end{align}`
+$$
+
+
+
 
 
 ---
 ## Beta Regression 
 
-The posterior conditional distribution for `\(\phi\)`, which is proportional
-to the multiplication of the likelihood function and its prior distribution (Inverse Gamma) is
+To find the posterior conditional distributions for `\(\boldsymbol\beta\)` and `\(\phi\)`, we set the following priors: `\(\boldsymbol\beta \sim N(\textbf{m}, \textbf{V})\)` and `\(\phi \sim \mbox{U}(a, b)\)`. Firstly, we introduce the posterior conditional distribution for `\(\boldsymbol\beta\)`.
 
+$$
+`\begin{align}
+f(\boldsymbol\beta | \textbf{y}, \textbf{X}, \phi) &amp; \varpropto f(\textbf{y}|\mu_{i}, \phi) \times f(\boldsymbol\beta),\nonumber \\
+&amp; \varpropto \frac{1}{\prod_{i=1}^{n} \Gamma(\mu_{i}\phi)\Gamma((1-\mu_{i})\phi)}  \prod_{i=1}^{n} Y_{i}^{\mu_{i}\phi - 1} \prod_{i=1}^{n} (1- Y_{i})^{(1-\mu_{i})\phi -1} \times \nonumber\\
+&amp; \times \exp \Big\{-\frac{1}{2} (\boldsymbol\beta - \textbf{m})^\top \textbf{V}^{-1} (\boldsymbol\beta - \textbf{m}) \Big\}. \nonumber
+\end{align}`
+$$
 
+Second, we present the posterior conditional distribution for `\(\phi\)`, which is proportional to the multiplication of the likelihood function and its prior distribution.
+
+$$
 `\begin{align}
 f(\phi | \textbf{y}, \textbf{X}, \phi) &amp; \varpropto f(\textbf{y}|\mu_{i}, \phi) \times f(\phi),\nonumber \\
 &amp; \varpropto \left(\frac{\Gamma(\phi)^{n}}{\prod_{i=1}^{n} \Gamma(\mu_{i}\phi)\Gamma((1-\mu_{i})\phi)} \right) \prod_{i=1}^{n} Y_{i}^{\mu_{i}\phi - 1} \prod_{i=1}^{n} (1- Y_{i})^{(1-\mu_{i})\phi -1} \times \nonumber\\
-&amp; \times \phi^{-(a+1)} \exp \Big\{-\frac{b}{\phi} \Big\}. \nonumber
+&amp; \times \frac{1}{b-a} \Big\}. \nonumber
 \end{align}`
+$$
 
+ 
 
 
 ---
@@ -463,42 +560,42 @@ $$ logit(\mu) = \alpha + \beta_1 X_1$$
 for(i in 1:TotIter){
 
   MCMCBetasC &lt;- mvrnorm(1, MCMCBetasI, mprop)
-  mu_I &lt;- func_mu(MCMCBetasI) # logit function
+  mu_I &lt;- func_mu(MCMCBetasI)
   muC  &lt;- func_mu(MCMCBetasC)
-  
-  
-  ratio_beta = ((- sum(log(gamma(muC * phi_I))) - sum(log(gamma((1 -
-  muC) * phi_I))) + sum((muC * phi_I - 1) * log(y)) + sum(((1 - muC) 
-  * phi_I - 1) *  log(1 - y)) - 0.5 * (t(MCMCBetasC - m) %*% V_1 %*%(MCMCBetasC - m))) - 
+
+# Computing the ratio stated in the Metropolis-Hastings algorithm
+  ratio_beta = ((- sum(log(gamma(muC * phi_I))) - sum(log(gamma((1 - muC) *
+  phi_I))) + sum((muC * phi_I - 1) * log(y)) + sum(((1 - muC) * phi_I - 1) *  
+  log(1 - y)) - 0.5 * (t(MCMCBetasC - m) %*% V_1 %*%(MCMCBetasC - m))) - 
   (- sum(log(gamma(mu_I * phi_I))) - sum(log(gamma((1 - mu_I) * phi_I))) + 
-  sum((mu_I * phi_I - 1) * log(y)) + sum(((1 - mu_I) * phi_I - 1) * 
-  log(1 - y)) - 0.5 * (t(MCMCBetasI - m) %*% V_1 %*%(MCMCBetasI - m))))         
-  
-                 
+  sum((mu_I * phi_I - 1) * log(y)) + sum(((1 - mu_I) * phi_I - 1)
+  log(1 - y)) - 0.5 * (t(MCMCBetasI - m) %*% V_1 %*%(MCMCBetasI - m))))
+   # Accept/Reject step for beta
   if(runif(1) &lt; min(1, exp(ratio_beta)))
   {MCMCBetasI &lt;- MCMCBetasC
   j_beta &lt;- j_beta +1}
-  
-  phiC &lt;- rnorm(1, phi_I, Vphi)
 ```
 
 ---
 ## R Code
 
 ```  
-  ratio_phi = ((N * log(gamma(phiC)) - sum(log(gamma(mu_I * phiC))) - 
+  # Proposal distribution for phi
+  phiC = rgamma(1, (phi_I^2)/var, scale=1/(phi_I / var))
+  # Computing the ratio stated in the Metropolis-Hastings algorithm
+  ratio_phi = ((N * log(gamma(phiC)) - sum(log(gamma(mu_I * phiC))) -
   sum(log(gamma((1 - mu_I) * phiC))) + sum((mu_I* phiC - 1) * log(y)) +
-  sum(((1 - mu_I) * phiC - 1) * log(1 - y)) - (a + 1) * phiC - b/phiC) - 
-  (N * log(gamma(phi_I)) - sum(log(gamma(mu_I * phi_I))) - 
-  sum(log(gamma((1 - mu_I) * phi_I))) + sum((mu_I* phi_I - 1) * 
-  log(y)) + sum(((1 - mu_I) * phi_I - 1) * log(1 - y)) - (a + 1) * phi_I - b/phi_I))                     
-  
-  
+  sum(((1 - mu_I) * phiC - 1) * log(1 - y)) - log(b - a) +
+  dgamma(phi_I, (phiC^2)/var,  scale = 1/(phiC / var))) - (N * log(gamma(phi_I)) -
+  sum(log(gamma(mu_I * phi_I)))
+  -sum(log(gamma((1 - mu_I) * phi_I))) +sum((mu_I* phi_I - 1) * log(y)) +
+  sum(((1 - mu_I) * phi_I - 1) * log(1 - y)) - log(b - a) +
+  dgamma(phiC,  (phi_I^2)/var, scale = 1/(phi_I / var))))
+  # Accept/Reject step for phi
   if(runif(1) &lt; min(1, exp(ratio_phi)))
   {phi_I &lt;- phiC
   j_phi &lt;- j_phi +1}
-  
-  
+  # Saving results
   if (i &gt; BurnIn){
     SaveResults[AuxBurnIn,] &lt;- c(AuxBurnIn, MCMCBetasI, phi_I)
     AuxBurnIn &lt;- AuxBurnIn + 1
@@ -515,52 +612,47 @@ for(i in 1:TotIter){
 ---
 ## Python Code
 
-
 ```
-def func_mu(beta):
-    return(np.exp(X @ beta)/(1+np.exp(X @ beta)))
-
 for i in tqdm(range(TotIter)):
-    
+    # Proposal distribution for beta (multivariate Normal)
     betac = np.random.multivariate_normal(list(itertools.chain(*beta_)), mprop, 1).T
-    
     mu_ = func_mu(beta_)
     muc = func_mu(betac)
-    
-    ratio_beta = ((- sum(np.log(Gamma(muc * phi_))) - sum(np.log(
-    Gamma((1 - muc) * phi_))) + sum((muc * phi_ - 1) * np.log(y)) + 
-    sum(((1 - muc) * phi_ - 1) * np.log(1 - y)) - 0.5 * (betac - m).T
-    @ V_1 @(betac - m)) - (- sum(np.log(Gamma(mu_ * phi_))) - sum(np.log(
-    Gamma((1 - mu_) * phi_))) + sum((mu_ * phi_ - 1) * np.log(y)) + 
-    sum(((1 - mu_) * phi_ - 1) * np.log(1 - y)) - 0.5 * (beta_ - m).T 
-    @ V_1 @(beta_ - m)))                       
-        
+    # Computing the ratio stated in the Metropolis-Hastings algorithm
+    ratio_beta = ((- sum(np.log(Gamma(muc * phi_))) - sum(np.log(Gamma((1 - muc) * phi_))) +
+    sum((muc * phi_ - 1) * np.log(y)) + sum(((1 - muc) * phi_ - 1) * np.log(1 - y)) - 0.5 *
+    (betac - m).T @ V_1 @(betac - m)) - (- sum(np.log(Gamma(mu_ * phi_))) -
+    sum(np.log(Gamma((1 - mu_) * phi_))) + sum((mu_ * phi_ - 1) * np.log(y)) +
+    sum(((1 - mu_) * phi_ - 1) * np.log(1 - y)) - 0.5 * (beta_ - m).T @ V_1 @(beta_ - m)))
+    # Accept/reject step for betac (beta candidate)
     if (np.random.uniform(0, 1, 1) &lt; np.exp(ratio_beta)):
         beta_ = betac
         if (i &gt; Burn):
-            j_beta = j_beta + 1
+        j_beta = j_beta + 1
 ```
-
 
 ---
 ## Python Code
 
 ```
-    phic = np.random.normal(phi_, Vphi, 1)
-    
+
+    # Proposal distribution for phi
+    phic = gamma.rvs((phi_**2)/var, scale=1/(phi_ / var), size=1, random_state=None)
+    # Computing the ratio stated in the Metropolis-Hastings algorithm
     ratio_phi = ((N * np.log(Gamma(phic)) - sum(np.log(Gamma(mu_ * phic))) -
-    sum(np.log(Gamma((1 - mu_) * phic))) + sum((mu_* phic - 1) * np.log(y)) + 
-    sum(((1 - mu_) * phic - 1) * np.log(1 - y)) - (a + 1) * phic - b/phic) - 
-    (N * np.log(Gamma(phi_)) - sum(np.log(Gamma(mu_ * phi_))) - 
-    sum(np.log(Gamma((1 - mu_) * phi_))) + sum((mu_* phi_ - 1) * np.log(y)) + 
-    sum(((1 - mu_) * phi_ - 1) * np.log(1 - y)) - (a + 1) * phi_ - b/phi_))                     
-   
+    sum(np.log(Gamma((1 - mu_) * phic))) + sum((mu_* phic - 1) * np.log(y)) +
+    sum(((1 - mu_) * phic - 1) * np.log(1 - y)) - np.log(b-a) +
+    gamma.pdf(phi_, (phic**2)/var, scale = 1/(phic / var))) - (N * np.log(Gamma(phi_)) -
+    sum(np.log(Gamma(mu_ * phi_))) - sum(np.log(Gamma((1 - mu_) * phi_))) +
+    sum((mu_* phi_ - 1) * np.log(y)) + sum(((1 - mu_) * phi_ - 1) *
+    np.log(1 - y)) - np.log(b-a) + gamma.pdf(phic, (phi_**2)/var, scale = 1/(phi_ / var))))
+    # Accept/reject step for phic (phi candidate)
     if (np.random.uniform(0, 1, 1) &lt; np.exp(ratio_phi)):
         phi_ = phic
         if (i &gt; Burn):
             j_phi = j_phi + 1
-
-    if (i &gt; Burn):
+    # Storing the results
+    if (i &gt;= Burn):
         sbeta.append(beta_.tolist())
         sphi.append(phi_)
 ```

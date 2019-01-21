@@ -157,7 +157,7 @@ class: inverse, middle, center
   
   - Teaching: private classes of R & statistics. 
   
-  - Some freelance statistical consulting.
+  - Some statistical consulting.
   
   - Statistician at Priced: Analysis of expenditure 
   data in São Paulo - data wrangling, product 

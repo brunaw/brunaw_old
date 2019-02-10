@@ -94,8 +94,12 @@ table {
   border-bottom: none;
 }
 
-table thead th { border-bottom: none; }
-thead, tfoot, tr:nth-child(even) { background: none; }
+/* table thead th { border-bottom: none; } */ 
+/*  thead, tfoot, tr:nth-child(even) { background: none; } */
+
+.remark-slide table thead th { border-bottom: 1px solid #ddd; }
+th, td { padding: 5px; }
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #fff }
 
 /* leave this alone */
 @page { margin: 0; }

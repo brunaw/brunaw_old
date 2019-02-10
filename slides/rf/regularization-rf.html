@@ -57,7 +57,7 @@ subset selection.
 &lt;img src="img/arrow.png" width="8%" height="8%" style="display: block; margin: auto;" /&gt;
 
 &lt;p style="text-align: center;"&gt;&lt;b&gt;
-In shrinkage, the idea is to 'shrunk' the regression coefficients towards zero &lt;/b&gt;&lt;/p&gt;
+In shrinkage, the idea is to 'shrink' the regression coefficients towards zero. &lt;/b&gt;&lt;/p&gt;
 
 
 - Shrinkage *can*  lead to variable selection.
@@ -178,7 +178,7 @@ algorithm will be less variable and, hence, more reliable
 ## Random Forests
 
 - One characteristic of the random forest model
-is that feature importance plots can be constructed is a very easy way:
+is that feature importance plots can be constructed in a very easy way:
   - At each split in a tree, the improvement in the splitting criterion
   is the importance measure attributed to the respective variable. 
   - Those values are accumulated over all of the trees in the forest, 
@@ -256,8 +256,8 @@ Imp_{i}^{'}  = \frac{Imp_i}{max_{j=1}^{P} Imp_j},
 \end{equation}`
 
 where `\(Imp_i\)` is the importance from an standard random forest model and 
-`\(0 \leq Imp_{i}^{'} \leq 1\)`. 
-
+`\(0 \leq Imp_{i}^{'} \leq 1\)` and `\(P\)` is the number of columns of the
+features matrix. 
 
 ---
 ## Guided regularization in random forests
@@ -355,6 +355,10 @@ the `rBayesianOptimization` packages to test four model in this data:
 \min\limits_{\gamma, \lambda \rightarrow (0, 1]^{2}}\{ MSR_{\gamma, \lambda} + 0.8 \times (\text{# of variables})_{\gamma, \lambda} \}.
 \end{equation}`
 
+
+*Bayesian optimisation: uses Bayesian models based on Gaussian 
+processes to predict good tuning parameters, by creating a 
+a relationship between the minimized measure and the parameters.*
 
 ---
 
@@ -554,10 +558,17 @@ variable selection is the key point of the analysis.
   &gt; The extension consists in giving priority to variables highly 
   correlated to the response, having a baseline threshold to decide 
   which are those variables.
-  
+
+---
+#  5. Conclusions and Final Remarks
+
 - We need to  notice that categorical predictor variables were not
 addressed here, demonstrating that such details still need to be determined. 
 
+- Next steps include compare the method with variable selection, 
+increase the size of model reruns and using cross-validation. 
+
+Code at: `https://github.com/brunaw/regularization-rf` 
 
 
 ---

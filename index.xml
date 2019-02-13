@@ -11,11 +11,65 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Machine learning and chord based feature engineering for genre prediction in popular Brazilian music. Article in arXiv.</title>
+      <link>/publication/genre-classification/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/genre-classification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regularization methods in Random Forests - PhD Project</title>
+      <link>/publication/regularization-rf/</link>
+      <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/regularization-rf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>The steps of a Kaggle project</title>
       <link>/talk/kaggle/</link>
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/talk/kaggle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayesian Linear Regression - PhD Project</title>
+      <link>/publication/bayes-regression/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/bayes-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Doing Random Forests by Hand - PhD Project</title>
+      <link>/publication/rf-by-hand/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/rf-by-hand/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Just Another Gibbs Sampler - PhD Project</title>
+      <link>/publication/jags/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/jags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Monte Carlo Markov Chain - PhD Project</title>
+      <link>/publication/mcmc/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/mcmc/</guid>
       <description></description>
     </item>
     
@@ -222,422 +276,6 @@ if (!is.numeric(x) &amp;amp;&amp;amp; !is.complex(x) &amp;amp;&amp;amp; !is.logi
       <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>/project/r_music/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Non Linear Modelling</title>
-      <link>/project/nlmset/</link>
-      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/nlmset/</guid>
-      <description>
-
-&lt;h1 id=&#34;targeting-core-symptoms-of-autism-spectrum-disorders-asd-is-a-key-treatment-goal-for-parents-of-children-with-asd-while-many-efficacious-treatments-for-asd-have-been-developed-a-major-obstacle-in-evaluating-these-treatments-among-children-with-asd-has-been-the-lack-of-adequate-outcome-measures-anagnostou-et-al-2014-bolte-diehl-2013-kanne-et-al-2014-most-treatment-studies-have-relied-on-informant-based-measures-i-e-parent-or-clinician-report-that-either-place-a-high-burden-on-families-or-require-significant-training-and-time-to-administer-moreover-measures-are-often-re-purposed-from-existing-measures-intended-for-screening-or-diagnosis-and-do-not-provide-continuous-measures-of-symptoms-that-are-responsive-to-change-thus-there-is-a-clear-need-to-develop-asd-outcome-measures-that-are-reliable-valid-and-sensitive-to-change-in-the-absence-of-such-outcome-measures-our-understanding-of-the-efficacy-of-treatments-for-asd-will-continue-to-be-limited&#34;&gt;Targeting core symptoms of Autism Spectrum Disorders (ASD) is a key treatment goal for parents of children with ASD. While many efficacious treatments for ASD have been developed, a major obstacle in evaluating these treatments among children with ASD has been the lack of adequate outcome measures (Anagnostou et al., 2014; Bolte &amp;amp; Diehl, 2013; Kanne et al., 2014). Most treatment studies have relied on informant-based measures (i.e., parent or clinician report) that either place a high burden on families, or require significant training and time to administer. Moreover, measures are often re-purposed from existing measures intended for screening or diagnosis, and do not provide continuous measures of symptoms that are responsive to change. Thus, there is a clear need to develop ASD outcome measures that are reliable, valid, and sensitive to change. In the absence of such outcome measures, our understanding of the efficacy of treatments for ASD will continue to be limited.&lt;/h1&gt;
-
-&lt;h1 id=&#34;at-the-same-time-automated-methods-for-quantifying-behavior-have-become-more-advanced-less-intrusive-and-more-cost-effective-and-could-provide-reliable-and-sensitive-measures-of-behavioral-change-however-these-methods-have-yet-to-be-translated-into-a-viable-outcome-measure-for-use-in-treatment-studies-for-example-recent-research-has-shown-that-autism-symptoms-can-be-objectively-measured-with-automated-methods-such-as-eye-tracking-rice-moriuchi-jones-klin-2012-natural-language-processing-gorman-et-al-2016-rouhizadeh-et-al-2014-van-santen-sproat-hill-2013-and-quantitative-facial-emotion-analysis-metallinou-grossman-narayanan-2013-and-that-such-measures-are-interpretable-and-meaningful-for-the-everyday-lives-of-children-and-their-families&#34;&gt;At the same time, automated methods for quantifying behavior have become more advanced, less intrusive, and more cost-effective, and could provide reliable and sensitive measures of behavioral change. However, these methods have yet to be translated into a viable outcome measure for use in treatment studies. For example, recent research has shown that autism symptoms can be objectively measured with automated methods such as eye-tracking (Rice, Moriuchi, Jones, &amp;amp; Klin, 2012), natural language processing (Gorman et al., 2016; Rouhizadeh et al., 2014; van Santen, Sproat, &amp;amp; Hill, 2013), and quantitative facial emotion analysis (Metallinou, Grossman, &amp;amp; Narayanan, 2013), and that such measures are interpretable and meaningful for the everyday lives of children and their families.&lt;/h1&gt;
-
-&lt;h1 id=&#34;the-goal-of-this-project-is-to-develop-and-validate-a-novel-objective-measurement-tool-the-multi-modal-autism-phenotype-snapshot-maps-for-use-in-clinical-trials-targeting-core-symptoms-of-autism-maps-uses-automated-methods-to-measure-autism-relevant-behaviors-across-multiple-modalities-gaze-tracking-natural-language-processing-facial-expression-analysis-while-children-watch-and-respond-to-audiovisual-stimuli-presented-on-a-laptop-this-project-was-funded-by-a-catalyst-award-from-the-oregon-clinical-translational-research-institute&#34;&gt;The goal of this project is to develop and validate a novel objective measurement tool, the Multi-modal Autism Phenotype Snapshot (MAPS), for use in clinical trials targeting core symptoms of autism. MAPS uses automated methods to measure autism-relevant behaviors across multiple modalities (gaze-tracking, natural language processing, facial expression analysis) while children watch and respond to audiovisual stimuli presented on a laptop. This project was funded by a Catalyst Award from the Oregon Clinical &amp;amp; Translational Research Institute.&lt;/h1&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Shiny Applications for Teaching &amp; Learning</title>
-      <link>/project/shiny_education/</link>
-      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/shiny_education/</guid>
-      <description>&lt;p&gt;Statistical concepts are not always easy to absorb. Many students remain without fully understanding them, even after spending a good time studying the subject. Sometimes, this can be due to the level of abstraction needed to perceive the behavior of mathematical functions. With this in mind, this project has as one of its main goals to provide a set of interactive applications to help with both teaching and learning of statistics.&lt;/p&gt;
-
-&lt;p&gt;Our intention is to build applications where the users can interact with data, summaries, plots, tables, and so on. Those features will show, for example, how a curve of a probability distribution changes when we vary its parameters and what does that mean for the results. Many topics are included:  data exploring and visualisation, continuous and discrete probability distributions, hypothesis testing, regression models, non-linear models, network analysis, machine learning techniques, and others.&lt;/p&gt;
-
-&lt;p&gt;Shiny applications are simple, easy to build interactive apps. They are made directly from R, and can be available on the web for community access. This way, the combination of interactivity and statistical concepts can be a very useful tool for the general study of statistics.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Construction and Implementation of Multivariate Dispersion Models</title>
-      <link>/talk/rbras_2018/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/talk/rbras_2018/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Music Data Analysis in R</title>
-      <link>/talk/1st_rday/</link>
-      <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/talk/1st_rday/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>chorrrds: Analisando acordes de músicas brasileiras</title>
-      <link>/post/2018-04-25-chorrrds/</link>
-      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-04-25-chorrrds/</guid>
-      <description>&lt;p&gt;Olá! Tudo bem? Eu sou a &lt;a href=&#34;https://github.com/brunaw&#34;&gt;Bruna&lt;/a&gt;,
-e talvez você já me conheça de algum grupo de R no Telegram
-ou Facebook, ou mesmo pelo meu outro pacote, o&lt;br /&gt;
-&lt;a href=&#34;https://cran.r-project.org/web/packages/vagalumeR/index.html&#34;&gt;vagalumeR&lt;/a&gt;. Eu estou prestes a me formar em Estatística na
-UFPR, e esse post vai ter muito a ver com o tema do meu
-trabalho de conclusão de curso, que está sendo feito
-sob orientação do Professor
-&lt;a href=&#34;https://github.com/walmes&#34;&gt;Walmes Zeviani&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Recentemente, eu fiz a primeira versão do pacote do meu TCC,
-o &lt;code&gt;chorrrds&lt;/code&gt;. Ainda tem muito a ser feito nele, mas os primeiros
-resultados já são bem legais. O pacote &lt;code&gt;chorrrds&lt;/code&gt; pode ser
-utilizado para a obtenção acordes de músicas, através da
-raspagem do site &lt;a href=&#34;https://www.cifraclub.com.br/&#34;&gt;CifraClub&lt;/a&gt;.
-Junto com o pacote já vêm diversos bancos de dados
-relativos à música brasileira. Ele já está disponível no
-CRAN, mas as próximas atualizações devem sair em
-primeira mão nesse repositório: &lt;a href=&#34;https://github.com/brunaw/chorrrds&#34; class=&#34;uri&#34;&gt;https://github.com/brunaw/chorrrds&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Instalação
-devtools::install_github(&amp;quot;brunaw/chorrrds&amp;quot;)
-# ou
-install.packages(&amp;quot;chorrrds&amp;quot;) # do CRAN
-data(package = &amp;quot;chorrrds&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A base de dados chamada &lt;code&gt;all&lt;/code&gt;, presente no pacote, contém dados
-referentes a 106 artistas nacionais, dos genêros: “rock”, “pop”,
-“sertanejo”, “MPB”, “bossa nova”, “forró”, “reggae” e “samba”.
-Ela já contém, além das variáveis extraídas com o pacote,
-as datas de lançamento e a popularidade das músicas, obtidas
-através da API do
-&lt;a href=&#34;https://github.com/tiagomendesdantas/Rspotify&#34;&gt;Spotify&lt;/a&gt;. Os
-detalhes sobre a seleção dos artistas e combinação dos
-dados com os do Spotify serão omitidos por enquanto, mas
-quem quiser falar sobre isso comigo, pode ficar a vontade :)&lt;/p&gt;
-&lt;p&gt;Então vamos lá. Eu vou começar acertando alguns pontos
-sobre os dados, já que eles não estão perfeitos, como:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Deixar apenas os anos de lançamento das músicas, e não a
-data completa;&lt;/li&gt;
-&lt;li&gt;Encontrar as formas mais simples dos acordes (sem acidentes
-ou extensões);&lt;/li&gt;
-&lt;li&gt;Conectar a base original com a dos genêros dos artistas;&lt;/li&gt;
-&lt;li&gt;Consertar enarmonias, ou seja, transformar as diferentes
-versões de um acorde com as mesmas notas em uma coisa só
-(por exemplo, Gb passa a ser F#, já que na prática eles
-são iguais).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
-
-# Base de gêneros
-genre &amp;lt;- chorrrds::genre
-
-da &amp;lt;- chorrrds::all %&amp;gt;% 
-  dplyr::mutate(date = stringr::str_extract(date, 
-                                            pattern = &amp;quot;[0-9]{4,}&amp;quot;)) %&amp;gt;%
-  # Extrai apenas os anos
-  dplyr::mutate(date = as.numeric(date), # Deixa as datas como valores numéricos
-                acorde = stringr::str_extract(chord, # Extrai as partes fundamentais dos
-                                              pattern = &amp;quot;^([A-G]#?b?)&amp;quot;)) %&amp;gt;%  # acordes
-  dplyr::filter(date &amp;gt; 1900) %&amp;gt;% # Mantém apenas os anos que fazem sentido
-  dplyr::left_join(genre, by = &amp;quot;artist&amp;quot;) %&amp;gt;%  # Traz os gêneros dos artistas
-  dplyr::mutate(acorde = case_when( # Contribuição do Julio 
-    acorde == &amp;quot;Gb&amp;quot; ~ &amp;quot;F#&amp;quot;,
-    acorde == &amp;quot;C#&amp;quot; ~ &amp;quot;Db&amp;quot;,          
-    acorde == &amp;quot;G#&amp;quot; ~ &amp;quot;Ab&amp;quot;,
-    acorde == &amp;quot;A#&amp;quot; ~ &amp;quot;Bb&amp;quot;,
-    acorde == &amp;quot;D#&amp;quot; ~ &amp;quot;Eb&amp;quot;,
-    acorde == &amp;quot;E#&amp;quot; ~ &amp;quot;F&amp;quot;,
-    acorde == &amp;quot;B#&amp;quot; ~ &amp;quot;C&amp;quot;,
-    TRUE ~ acorde)) # Conversão de enarmonias
-
-head(da)&lt;/code&gt;&lt;/pre&gt;
-&lt;table&gt;
-&lt;colgroup&gt;
-&lt;col width=&#34;5%&#34; /&gt;
-&lt;col width=&#34;41%&#34; /&gt;
-&lt;col width=&#34;6%&#34; /&gt;
-&lt;col width=&#34;6%&#34; /&gt;
-&lt;col width=&#34;4%&#34; /&gt;
-&lt;col width=&#34;21%&#34; /&gt;
-&lt;col width=&#34;7%&#34; /&gt;
-&lt;col width=&#34;6%&#34; /&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;right&#34;&gt;date&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;music&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;popul&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;chord&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;key&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;artist&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;acorde&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;genre&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1992&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto a fabrica do poema&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;51&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Cm&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;D#&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;MPB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1992&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto a fabrica do poema&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;51&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Ab&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;D#&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Ab&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;MPB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1992&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto a fabrica do poema&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;51&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Db7&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;D#&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Db&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;MPB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1992&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto a fabrica do poema&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;51&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Db7/9&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;D#&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Db&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;MPB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1992&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto a fabrica do poema&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;51&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Cm&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;D#&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;MPB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1992&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto a fabrica do poema&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;51&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Fm&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;D#&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;adriana calcanhotto&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;F&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;MPB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;A base está no formato longo, ou seja, temos uma linha para cada
-acorde da música, mantendo a sequência na qual eles aparecem
-no site.&lt;/p&gt;
-&lt;p&gt;Muito se fala sobre o quanto as músicas no Brasil andam ficando mais
-“simples”, ou que alguns genêros musicais são mais ricos que
-outros. Com os dados que temos, será que é possível concluir
-algo sobre isso olhando simplesmente para a quantidade média
-de acordes por música ao longo dos anos? Vejamos o gráfico a
-seguir.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;da_g &amp;lt;- da %&amp;gt;% 
-  # 2018 ainda não é um ano completo
-  dplyr::mutate(date &amp;lt; 2018) %&amp;gt;%  
-  # Agrupamento por data + acorde + musica
-  dplyr::group_by(date, genre, music, chord) %&amp;gt;% 
-  # Mantém os acordes distintos/ano
-  dplyr::summarise(distintos = n_distinct(chord)) %&amp;gt;% 
-  dplyr::summarise(cont = n()) %&amp;gt;% 
-  # Média de acordes distintos nas músicas/ano
-  dplyr::summarise(media = mean(cont), contagem = n()) 
-
-
-# grafico
-p &amp;lt;- da_g %&amp;gt;% 
-  ggplot(aes(x = date, y = media)) +
-  geom_point(colour = &amp;quot;skyblue3&amp;quot;) +
-  facet_wrap(&amp;quot;genre&amp;quot;) +
-  scale_fill_hue(c = 55, l = 75) +
-  geom_smooth(aes(group = genre), span = 0.65, colour = &amp;quot;white&amp;quot;, 
-              fill = &amp;quot;tan&amp;quot;, method = &amp;quot;loess&amp;quot;) +
-  labs(x = &amp;quot;Anos&amp;quot;, y = &amp;quot;Média de acordes/música&amp;quot;)
-
-# tema para deixar o gráfico bonitinho
-tema &amp;lt;- theme(
-  legend.position=&amp;#39;none&amp;#39;, 
-  axis.line = element_line(size = 0.5, colour = &amp;quot;tan&amp;quot;),
-  panel.grid.major = element_line(
-    colour = &amp;quot;black&amp;quot;, size = 0.08, linetype = &amp;quot;dotted&amp;quot;),
-  panel.border = element_blank(),
-  panel.background = element_blank(),
-  strip.background = element_rect(colour = &amp;quot;tan&amp;quot;, fill = &amp;quot;white&amp;quot;, size = 0.6), 
-  strip.text = element_text(size = 14),
-  axis.title = element_text(size = 14),
-  axis.text = element_text(size = 12))
-  
-p + tema&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/blog/2018-04-25-chorrrds/media-acordes-musicas.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Claramente, gêneros como o samba, MPB e bossa nova têm, em geral,
-uma quantidade média de acordes distintos por música muito
-maior do que os outros. E eles têm mais variação ao longo dos
-anos também, o que pode ser um reflexo da maior criatividade
-envolvida nestes genêros. Os menores valores, como é
-esperado, estão principalmente no sertanejo, que é um
-genêro conhecidamente mais uniforme na questão harmônica.&lt;/p&gt;
-&lt;p&gt;Nós podemos avançar um pouco e olhar para os próprios artistas.
-Quem será que usa as maiores quantidades de acordes
-distintos em suas composições? Vamos ver o próximo gráfico,
-que mostra apenas os artistas com mediana maior do que 8
-acordes diferentes por música.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;da_g &amp;lt;- da %&amp;gt;%   
-  dplyr::mutate(artist = stringr::str_to_title(artist)) %&amp;gt;% 
-  # Agrupamento por artista + música
-  dplyr::group_by(artist, genre, music) %&amp;gt;% 
-  # Mantém os acordes distintos
-  dplyr::summarise(distintos = n_distinct(chord)) %&amp;gt;% 
-  # Obtém a mediana e quantis de acordes distintos por música/artistas
-  dplyr::summarise(med = median(distintos), 
-                   contagem = n(),
-                   inf = quantile(distintos)[2],
-                   sup = quantile(distintos)[4])
-
-
-# grafico
-p &amp;lt;- da_g %&amp;gt;%
-  dplyr::filter(med &amp;gt; 8) %&amp;gt;% 
-  ggplot(aes(x = reorder(artist, med), y = med)) +
-  geom_pointrange(aes(ymin = inf, ymax = sup, colour = genre), size = 0.7) + 
-  scale_colour_hue(c = 55, l = 75) +
-  coord_flip() +
-  labs(colour = &amp;quot;Gênero&amp;quot;, 
-       x = &amp;quot;Artistas&amp;quot;, 
-       y = &amp;quot;Primeiro quartil, mediana e terceiro quartil&amp;quot;)
-
-# tema
-tema &amp;lt;- theme(
-  axis.line = element_line(size = 0.5, 
-                           colour = &amp;quot;tan&amp;quot;),
-  panel.grid.major = element_line(colour = &amp;quot;black&amp;quot;, 
-                                  size = 0.08, 
-                                  linetype = &amp;quot;dotted&amp;quot;),
-  panel.border = element_blank(),
-  panel.background = element_blank(),
-  axis.text = element_text(size = 12), 
-  axis.title.x = element_text(size = 16),
-  axis.title.y = element_text(size = 16))
-
-p + tema&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/blog/2018-04-25-chorrrds/stats-artistas.png&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;E &lt;em&gt;voilá&lt;/em&gt;. A primeira posição é ocupada por um dos maiores
-musicistas brasileiros, que é referência internacional em questões
-de harmonia: Chico Buarque. Logo em seguida, temos o Reinaldo,
-um dos maiores sambistas que o Brasil já conheceu, e o
-Pixinguinha, um gênio do choro. E assim a lista segue, com
-artistas principalmente da bossa nova, samba e MPB. Demora
-até que apareça o primeiro dos rockeiros nesta lista, que
-é a Rita Lee. Dos membros do sertanejo, nenhum chega a
-aparecer no gráfico, mostrando que a “variedade” harmônica
-deste gênero musical é mesmo bem baixa.&lt;/p&gt;
-&lt;p&gt;Até agora está legal mas, com música, sempre pode
-ficar ainda mais. A ideia mais recente que o meu caro
-orientador &lt;a href=&#34;https://github.com/walmes&#34;&gt;Walmes Zeviani&lt;/a&gt;
-teve para o nosso trabalho é de
-encadear as transições entre os acordes em um diagrama
-de cordas. Vocês já ouviram falar desse diagrama? Eu
-mal o conheço e já considero pacas.&lt;/p&gt;
-&lt;p&gt;O diagrama de cordas é um método gráfico (e lindo)
-de explicitar relações entre grupos ou
-indivíduos. Os grupos ficam arranjados de forma radial/circular,
-e as cordas que aparecem dentro do círculo demonstram
-as conexões entre eles e suas forças. Pra quem sabe um pouquinho
-sobre harmonia, vai ser sensacional ver o quanto isso faz
-sentido (mas também não vou entrar nesse mérito agora).&lt;/p&gt;
-&lt;p&gt;O exemplo que eu vou mostrar aqui é extremamente simples.
-Antes eu separei, dos acordes “crus” retirados do CifraClub,
-apenas a parte fundamental deles. Isto é, desconsiderei
-se um acorde tem notas extras, acidentes e maior/menor.
-Ou seja, aqui nós só veremos acordes como C, D, B, A#, o
-miolo da coisa. Podemos perder informação fazendo isso? Sim,
-e bastante. Mas como eu disse, esse caso é pra ser bem simples mesmo.&lt;/p&gt;
-&lt;p&gt;Enfim, vamos voltar ao exemplo. A seguir, eu considero como
-uma “transição” quando um acorde aparece em sequência do outro
-(exemplo de transição muito comum: dó-sol). O código abaixo
-constrói o diagrama de cordas através do pacote &lt;code&gt;chordiag&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;mattflor/chorddiag&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Ordenando por círculo das quintas
-ordem &amp;lt;- c(&amp;quot;G&amp;quot;, &amp;quot;D&amp;quot;, &amp;quot;A&amp;quot;, &amp;quot;E&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;F#&amp;quot;, 
-           &amp;quot;Db&amp;quot;, &amp;quot;Ab&amp;quot;, &amp;quot;Eb&amp;quot;, &amp;quot;Bb&amp;quot;, &amp;quot;F&amp;quot;, &amp;quot;C&amp;quot;)
-
-da$acorde &amp;lt;- factor(da$acorde, levels = ordem)
-
-comp &amp;lt;- data.frame(
-  acorde = da$acorde, 
-  seq = dplyr::lead(da$acorde)) %&amp;gt;% # Pega o acorde &amp;quot;seguinte&amp;quot;
-  dplyr::group_by(acorde, seq) %&amp;gt;%  # Agrupa por cada transição
-  dplyr::summarise(contagem = n()) # Conta quantas são as transições
-
-mat_comp &amp;lt;- reshape2::dcast(comp,   # Arranja em do tipo matriz quadrada
-                            acorde ~ seq, value.var = &amp;quot;contagem&amp;quot;) 
-mm &amp;lt;- as.matrix(mat_comp[ ,-1]) # Converte o df em matriz (exigência do pacote)
-mm[is.na(mm)] &amp;lt;- 0 # Substitui na por 0 (exigência do pacote)
-dimnames(mm) &amp;lt;- list(acorde = unique(mat_comp$acorde),
-                     seq = unique(mat_comp$acorde))
-
-# Constrói o diagrama interativo
-chorddiag::chorddiag(mm, showTicks = FALSE,
-                     palette = &amp;quot;Set2&amp;quot;, palette2 = &amp;quot;#Set3&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;center&gt;
-&lt;iframe src=&#34;https://r-music.github.io/rday-2018/docs/chorrrds&#34; width=&#34;100%&#34; height=&#34;650&#34; frameborder=&#34;0&#34; scrolling=&#34;no&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;
-&lt;/iframe&gt;
-&lt;/center&gt;
-&lt;p&gt;Vejam que interessante. Como eu disse antes, uma das
-relações mais fortes do diagrama é o C-G (ou dó-sol),
-que é justificada teoricamente, já que o G é a quinta do
-C. O mesmo acontece com D-A, A-E, F-C e assim por diante.
-Quem quiser saber mais sobre esse comportamento, pode
-dar uma olhada &lt;a href=&#34;https://ledgernote.com/columns/music-theory/circle-of-fifths-explained/&#34;&gt;aqui&lt;/a&gt;.
-Transições meio malucas, como
-B-Bb, também acontecem. “Maluca” porque um acorde
-bemol, indicado pelo “b”, é aquele cuja raíz esta
-meio tom abaixo do indicado pela letra anterior,
-que neste caso é o B (si), então esse acontecimento não
-faz muito sentido.&lt;/p&gt;
-&lt;div id=&#34;consideracoes-finais&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Considerações Finais&lt;/h1&gt;
-&lt;p&gt;O que vimos aqui é um pedaço da análise inicial do meu TCC,
-que ainda não está nem um pouco pronto. São exemplos
-simples das informações podemos extrair com o pacote &lt;code&gt;chorrrds&lt;/code&gt;,
-e o universo de possibilidades é infinito. Isso que nós nem
-começamos a falar sobre as conexões que podem ser feitas
-com a API do Spotify, o pacote &lt;code&gt;music21&lt;/code&gt;, que é do próprio
-Julio Trecenti, com as letras das músicas,…&lt;/p&gt;
-&lt;p&gt;Além disso, om certeza, meu objetivo com os gráficos apresentados
-não é fazer nenhum tipo de juízo de valor sobre os genêros
-por conta de “complexidade harmônica”. Diga-se de passagem,
-eu mesma sou bem fã de todos esses genêros, desde a MPB
-até o sertanejo :D&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;agradecimentos&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Agradecimentos&lt;/h1&gt;
-&lt;p&gt;Ao meu orientador, &lt;a href=&#34;https://github.com/walmes&#34;&gt;Walmes Zeviani&lt;/a&gt;,
-que fez eu me apaixonar pelo R, e ao
-&lt;a href=&#34;http://curso-r.com/author/julio/&#34;&gt;Julio Trecenti&lt;/a&gt;, que é tão
-entusiasta do meu TCC quanto eu, e já fez diversas contribuições
-valiosas.&lt;/p&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>RMarkdown Course</title>
-      <link>/talk/markdown-course/</link>
-      <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/talk/markdown-course/</guid>
       <description></description>
     </item>
     

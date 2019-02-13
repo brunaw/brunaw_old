@@ -5,8 +5,62 @@
     
     <url>
     
+      <loc>/publication/genre-classification/</loc>
+      <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication/regularization-rf/</loc>
+      <lastmod>2019-02-01T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/talk/kaggle/</loc>
       <lastmod>2018-11-14T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication/bayes-regression/</loc>
+      <lastmod>2018-11-01T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication/rf-by-hand/</loc>
+      <lastmod>2018-11-01T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication/jags/</loc>
+      <lastmod>2018-11-01T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication/mcmc/</loc>
+      <lastmod>2018-11-01T00:00:00+00:00</lastmod>
     </url>
     
   
@@ -132,7 +186,7 @@
     <url>
     
       <loc>/talk/markdown-course/</loc>
-      <lastmod>2017-10-15T00:00:00+00:00</lastmod>
+      <lastmod>2017-08-15T00:00:00+00:00</lastmod>
     </url>
     
   
@@ -160,6 +214,26 @@
     
       <loc>/talk/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication_types/2/</loc>
+      <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication_types/4/</loc>
+      <lastmod>2019-02-01T00:00:00+00:00</lastmod>
+      <priority>0</priority>
     </url>
     
   
@@ -288,6 +362,7 @@
     <url>
     
       <loc>/publication_types/</loc>
+      <lastmod>2019-02-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -296,8 +371,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
+      <loc>/publication/</loc>
+      <lastmod>2019-02-12T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -308,6 +383,16 @@
     
       <loc>/categories/r/</loc>
       <lastmod>2018-04-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/r/</loc>
+      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

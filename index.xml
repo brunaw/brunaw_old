@@ -47,6 +47,15 @@
     </item>
     
     <item>
+      <title>Regularization Methods in Random Forests</title>
+      <link>/talk/rrf/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/rrf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Machine learning and chord based feature engineering for genre prediction in popular Brazilian music. Article in arXiv.</title>
       <link>/publication/genre-classification/</link>
       <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
@@ -263,20 +272,6 @@ if (!is.numeric(x) &amp;amp;&amp;amp; !is.complex(x) &amp;amp;&amp;amp; !is.logi
       
       <guid>/talk/personal-presentation/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>R-Ladies Curitiba</title>
-      <link>/project/rladies/</link>
-      <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/rladies/</guid>
-      <description>&lt;p&gt;The R community suffers from an underrepresentation of minority genders (including but not limited to cis/trans women, trans men, non-binary, genderqueer, agender) in every role and area of participation, whether as leaders, package developers, conference speakers, conference participants, educators, or users (see recent stats).&lt;/p&gt;
-
-&lt;p&gt;As a diversity initiative, the mission of R-Ladies is to achieve proportionate representation by encouraging, inspiring, and empowering people of genders currently underrepresented in the R community. R-Ladies’ primary focus, therefore, is on supporting minority gender R enthusiasts to achieve their programming potential, by building a collaborative global network of R leaders, mentors, learners, and developers to facilitate individual and collective progress worldwide.&lt;/p&gt;
-
-&lt;p&gt;The chapter in &lt;a href=&#34;https://github.com/rladies/meetup-presentations_curitiba&#34; target=&#34;_blank&#34;&gt;Curitiba&lt;/a&gt;, (state of Paraná, Brazil), was founded in June 2018.&lt;/p&gt;
-</description>
     </item>
     
   </channel>

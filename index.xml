@@ -11,6 +11,42 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>An Introduction to Bayesian Regression Trees</title>
+      <link>/talk/intro_bart/</link>
+      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/intro_bart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chord Based Feature Engineering for Genre Classification in Popular Brazilian Music</title>
+      <link>/talk/genre_classification_eng/</link>
+      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/genre_classification_eng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Construction and implementation of multivariate dispersion models</title>
+      <link>/talk/mv/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/mv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Meetup R-Ladies São Paulo</title>
+      <link>/talk/rladies-purrr-ga/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/rladies-purrr-ga/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Machine learning and chord based feature engineering for genre prediction in popular Brazilian music. Article in arXiv.</title>
       <link>/publication/genre-classification/</link>
       <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
@@ -241,42 +277,6 @@ if (!is.numeric(x) &amp;amp;&amp;amp; !is.complex(x) &amp;amp;&amp;amp; !is.logi
 
 &lt;p&gt;The chapter in &lt;a href=&#34;https://github.com/rladies/meetup-presentations_curitiba&#34; target=&#34;_blank&#34;&gt;Curitiba&lt;/a&gt;, (state of Paraná, Brazil), was founded in June 2018.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>1st Meetup R-Ladies São Paulo</title>
-      <link>/talk/rladies-sp/</link>
-      <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/talk/rladies-sp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>1st Meetup R-Ladies Curitiba</title>
-      <link>/talk/rladies-dplyr/</link>
-      <pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/talk/rladies-dplyr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Chord Based Feature Engineering for Genre Classification in Popular Brazilian Music</title>
-      <link>/talk/genre_classification/</link>
-      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/talk/genre_classification/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Music Information Retrieval in R</title>
-      <link>/project/r_music/</link>
-      <pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/r_music/</guid>
-      <description></description>
     </item>
     
   </channel>

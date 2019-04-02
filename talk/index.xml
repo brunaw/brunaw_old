@@ -13,6 +13,42 @@
     
     
     <item>
+      <title>An Introduction to Bayesian Regression Trees</title>
+      <link>/talk/intro_bart/</link>
+      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/intro_bart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chord Based Feature Engineering for Genre Classification in Popular Brazilian Music</title>
+      <link>/talk/genre_classification_eng/</link>
+      <pubDate>Wed, 27 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/genre_classification_eng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Construction and implementation of multivariate dispersion models</title>
+      <link>/talk/mv/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/mv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Meetup R-Ladies São Paulo</title>
+      <link>/talk/rladies-purrr-ga/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/rladies-purrr-ga/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>The steps of a Kaggle project</title>
       <link>/talk/kaggle/</link>
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>

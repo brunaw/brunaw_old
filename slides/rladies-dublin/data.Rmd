@@ -1,5 +1,5 @@
 ---
-title: "R Packages Workshop"
+title: "Develop Packages in `R` Workshop"
 date: April, 2019
 output:
   rmarkdown::html_vignette:
@@ -114,3 +114,13 @@ glimpse(df)
 names(df)
 ```
 
+
+
+Some analysis sugestions for this data are:
+
+  - Sentiment analysis with the lyrics; 
+  - Topic modelling of the lyrics; 
+  - Finding frequent words or sentences in the lyrics;
+  - Plotting the distributions of the Spotify variables;
+  - Chord diagramas with the chords sequences;
+  - Finding common chord transitions; 

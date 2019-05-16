@@ -223,7 +223,7 @@ class: inverse, middle, center
 - Our next results are using the GRRF with three main configurations:
 
   1. Fixing `\(\gamma = 0.9\)`,  `\(\lambda_0(v) = 1\)` and `\(g(X_i) = Imp_{i}^{'}\)`, or
-  `$$\lambda_i = (1 - 0.9) 0.8 + 0.9 Imp_{i}^{'}$$`
+  `$$\lambda_i = (1 - 0.9) 1 + 0.9 Imp_{i}^{'}$$`
   
   2. Fixing `\(\gamma = 1\)`, `\(\lambda_0(v) = 0\)` and `\(g(X_i) = |corr(X_i, y)|\)`, or 
   `$$\lambda_i = (1 - 1) 0 + 1 |corr(X_i, y)|$$`
@@ -231,7 +231,7 @@ class: inverse, middle, center
   3.  Fixing `\(\gamma = 0.9\)`, `\(\lambda_0(v) = 0\)` and 
 `\(\begin{equation} g(X_i) =  \begin{cases} |corr(X_i, y)| Imp_{i}^{'} \textbf{,   if } |corr(X_i, y)| &gt; 0.5 \text{ and} \\ Imp_{i}^{'} 0.2 \textbf{,   if } |corr(X_i, y)| \leq 0.5 \end{cases} \end{equation}\)`, or 
 
-`$$\begin{equation} \lambda_i =  \begin{cases} (1 - 0.9) 0 + 0.9 Imp_{i}^{'}  |corr(X_i, y)| \textbf{,   if } |corr(X_i, y)| &gt; 0.5  \\  (1 - 0.9) 0 + 0.9 Imp_{i}^{'} 0.3 \textbf{,   if } |corr(X_i, y)| \leq 0.5  \\ \end{cases} \end{equation}$$`
+`$$\begin{equation} \lambda_i =  \begin{cases} (1 - 0.9) 0 + 0.9 Imp_{i}^{'}  |corr(X_i, y)| \textbf{,   if } |corr(X_i, y)| &gt; 0.5  \\  (1 - 0.9) 0 + 0.9 Imp_{i}^{'} 0.2 \textbf{,   if } |corr(X_i, y)| \leq 0.5  \\ \end{cases} \end{equation}$$`
 
 we &lt;b&gt;weigh down&lt;/b&gt; the variables that were not much correlated to the
 response, using the Spearman correlation.

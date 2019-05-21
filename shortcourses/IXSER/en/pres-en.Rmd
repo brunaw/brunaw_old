@@ -48,7 +48,7 @@ knitr::include_graphics("img/bruna.jpg")
 ]
 
 ---
-# Quem somos
+# Who are we
 
 .pull-left[
 ```{r, echo = FALSE, out.width="70%", eval = TRUE}

@@ -19,7 +19,7 @@ editor_options:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       warning = FALSE, message = FALSE, 
-                      cache = TRUE, fig.align='center')
+                      cache = FALSE, fig.align='center')
 library(tidyverse)
 ```
 
@@ -86,7 +86,7 @@ class: center, middle, inverse
 - The models can not cover all elements related to the observed data:
   - Variability due to model limitation
   
-- Probability accomodates the **uncertainty** we have about the problem:
+- Probability accomodates the **uncertainty**:
   - Noisy observations 
   - Model assumptions 
 
@@ -98,9 +98,9 @@ class: center, middle, inverse
 #  $\underbrace{\text{Graphical}}_{}$ 
 
 - Graphs are a computer science tool used in many different areas; 
-- They allow us to represent complex systems that have many variables; 
-- Those complex systems are provenient of the models we assume:
-  - They can have thousands or millions of parameters. 
+- Represent complex systems that have many variables; 
+- The systems can be provenient of the models we assume:
+  - thousands or millions of parameters. 
   
 ```{r, out.height="30%", out.width="30%", fig.height=5}
 knitr::include_graphics("img/graph.png")
@@ -128,10 +128,9 @@ knitr::include_graphics("img/bnlearn.png")
 
 ---
 
-## Data
+## Example
 
-Consider an example that wants to investigate the usage
-patterns of different means of transport
+- We want to investigate the usage patterns of different means of transport
 
 
 ```{r, echo = FALSE, out.width="80%", eval = TRUE}
@@ -141,7 +140,7 @@ knitr::include_graphics("img/transport.jpg")
 
 ---
 
-## Data
+## Example
 
 
 .pull-left[
@@ -169,43 +168,20 @@ The **nature of the variables** suggests how they may be related with each other
 - For each node $X_i$, there exists a conditional probability distribution $P(X_i |Par_G(X_i))$ 
 - The CPDs will denote the dependences existing in the graph 
 
-
-## How do we find the joint distribution? 
-
 - By the chain rule of probability, we can always represent a joint distribution
 as follows, in any order:
 
 $$P(x_1:V) = p(x_1) p(x_2 | x_1) p(x_3 | x_2, x_1) \dots p(x_V | x_{1:V})$$
 
-being $V$ the total number of variables. 
-
----
-
-## How do we find the joint distribution? 
-
-.pull-left[
-```{r, echo = FALSE, out.width="80%", eval = TRUE}
-knitr::include_graphics("img/net.png")
-```
-].pull-right[
-
-- Graphs give us intuitive relationships between the variables and write
-down their joint distributions. 
-
-- Knowledge and dependences are well represented:
-  - Great when there is a complex system of many causal relationships
-
-
-We can write the joint probability 
-distribution of the graph as: 
-]
+being $V$ the total number of variables. For the example, we have: 
 
 $$P(A, S, E, O, R, T) = P(A) P(S) P(E| A, S) P(O | E)  P(R | E) P(T | O, R) $$
 $$ P(A, S, E, O, R, T) = P(A) P(S) P(E| A, S) P(O, R | E) P(T | O, R)$$
 
+
 ---
 
-## Some CPDs 
+## Some CPDs (using the data)
 
 .pull-left[
 $$ P(A) = $$
@@ -224,7 +200,6 @@ da %>%
                 full_width = FALSE) %>% 
   column_spec(2, width = "4cm") 
 ```
-].pull-right[
 
 $$ P(S) = $$
 ```{r, echo = FALSE, results='asis'}
@@ -241,10 +216,9 @@ da %>%
 
 ```
 
-]
 
 
-
+].pull-right[
 
 $$P(E | S,  A) =$$ 
 
@@ -261,12 +235,13 @@ da %>%
                 full_width = FALSE) %>% 
   column_spec(2, width = "4cm") 
 ```
-
+]
 
 
 ---
 
 ## Training the BN in `R` 
+- `bnlearn` package 
 - We build the network structure first, and then pass the data into the fit function
 
 ```{r, echo = TRUE}
@@ -314,7 +289,9 @@ test <- da %>% filter(set == "test") %>% select(-set) %>%
 
 The survey train data:
 ```{r}
-glimpse(train)
+train %>% 
+  head(3) %>% 
+  knitr::kable()
 ```
 
 Using the network structure:
@@ -372,6 +349,9 @@ scales::percent(sum(predict(rf, test) ==  test$T)/nrow(test)) # Accuracy
 ---
 
 ## Training the BN in `python` 
+ 
+ - `pgmpy` package
+
 
 ```{python, engine.path = "/Users/brunawundervald/anaconda3/bin/python3", echo = TRUE}
 from pgmpy.models import BayesianModel
@@ -382,18 +362,20 @@ from pgmpy.estimators import MaximumLikelihoodEstimator, BayesianEstimator
 import numpy
 import pandas as pd
 
-da =  pd.read_csv('talk/data/survey.txt', sep=" ", header=0)
-numpy.random.seed(2019)
-rnd = numpy.random.uniform(size = 500)
-da['set'] = numpy.where(rnd > 0.85, "test", "train")
-train = da[da.set == 'train'].drop(labels = 'set',  axis=1)
-test = da[da.set == 'test'].drop(labels = ['set', 'T'],  axis=1)
+# da =  pd.read_csv('talk/data/survey.txt', sep=" ", header=0)
+#numpy.random.seed(2019)
+#rnd = numpy.random.uniform(size = 500)
+#da['set'] = numpy.where(rnd > 0.85, "test", "train")
+#train = da[da.set == 'train'].drop(labels = 'set',  axis=1)
+#test = da[da.set == 'test'].drop(labels = ['set', 'T'],  axis=1)
+train =  pd.read_csv('talk/data/train.txt', sep=" ", header=0)
+test =  pd.read_csv('talk/data/test.txt', sep=" ", header=0)
 ```
 
 ```{python, engine.path = "/Users/brunawundervald/anaconda3/bin/python3", echo = TRUE}
 
 model = BayesianModel([('A', 'E'), ('S', 'E'), ('E', 'O'), ('E', 'R'),('R', 'T'), ('O', 'T')])
-model.fit(da, estimator = MaximumLikelihoodEstimator)
+model.fit(train, estimator = MaximumLikelihoodEstimator)
 print(model.get_cpds('A'))
 ```
 
@@ -409,12 +391,12 @@ print(model.get_cpds('T'))
 ```{python, engine.path = "/Users/brunawundervald/anaconda3/bin/python3", echo = TRUE}
 
 ## BN predictions for the test set
-test_response = da[da.set == 'test']['T'] 
-pred = model.predict(test)
+test_response = test['T'] 
+pred = model.predict(test.drop(labels = 'T',  axis=1))
 
 df = pd.DataFrame({'pred' : pred['T'], 'test' : test_response} ) 
-df[df.pred == df.test].shape[0]/test.shape[0]
 
+'{:.1%}'.format(df[df.pred == df.test].shape[0]/test.shape[0])
 ```
 
 ---
@@ -445,7 +427,7 @@ class:  middle
 ## Some real life examples
 
 - **Medical diagnosis**: which characteristics of a patient influence in the presence of a disease?
-- **Spam filter**: how likely is a email to be a span given its content?
+- **Spam filter**: how likely is an email to be a spam given its content?
 
 - **Google Page Rank**: what are the more relevant pages in a Google search? 
 
@@ -458,16 +440,25 @@ class:  middle
 
 # Resources
 
- - `bnlearn`: http://www.bnlearn.com/book-crc/
+
+> https://github.com/search?p=2&q=probabilistic+models&type=Repositories
+
+.pull-left[
+```{r, echo = FALSE, out.width="70%", eval = TRUE}
+knitr::include_graphics("img/github.png")
+```
+] .pull-right[
+
+- `bnlearn`: http://www.bnlearn.com/book-crc/
   - data & tutorials  
- - CRAN task `GR`: gRaphical Models in R
-  - Representation
-  - Modelling
-  - Miscellaneous
+- CRAN task `GR`: gRaphical Models in R
+  - Representation & Modelling
   - https://cran.r-project.org/web/views/gR.html
   
 - `pgmpy` page: http://pgmpy.org/
 
+- many, **many** more packages for both `R` and `python`
+]
 ---
 
 # References

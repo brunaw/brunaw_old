@@ -84,7 +84,7 @@ class: center, middle, inverse
 - The models can not cover all elements related to the observed data:
   - Variability due to model limitation
   
-- Probability accomodates the **uncertainty** we have about the problem:
+- Probability accomodates the **uncertainty**:
   - Noisy observations 
   - Model assumptions 
 
@@ -96,9 +96,9 @@ class: center, middle, inverse
 #  `\(\underbrace{\text{Graphical}}_{}\)` 
 
 - Graphs are a computer science tool used in many different areas; 
-- They allow us to represent complex systems that have many variables; 
-- Those complex systems are provenient of the models we assume:
-  - They can have thousands or millions of parameters. 
+- Represent complex systems that have many variables; 
+- The systems can be provenient of the models we assume:
+  - thousands or millions of parameters. 
   
 &lt;img src="img/graph.png" width="30%" height="30%" style="display: block; margin: auto;" /&gt;
 
@@ -120,10 +120,9 @@ class: middle, center
 
 ---
 
-## Data
+## Example
 
-Consider an example that wants to investigate the usage
-patterns of different means of transport
+- We want to investigate the usage patterns of different means of transport
 
 
 &lt;img src="img/transport.jpg" width="80%" style="display: block; margin: auto;" /&gt;
@@ -131,7 +130,7 @@ patterns of different means of transport
 
 ---
 
-## Data
+## Example
 
 
 .pull-left[
@@ -157,41 +156,20 @@ The **nature of the variables** suggests how they may be related with each other
 - For each node `\(X_i\)`, there exists a conditional probability distribution `\(P(X_i |Par_G(X_i))\)` 
 - The CPDs will denote the dependences existing in the graph 
 
-
-## How do we find the joint distribution? 
-
 - By the chain rule of probability, we can always represent a joint distribution
 as follows, in any order:
 
 `$$P(x_1:V) = p(x_1) p(x_2 | x_1) p(x_3 | x_2, x_1) \dots p(x_V | x_{1:V})$$`
 
-being `\(V\)` the total number of variables. 
-
----
-
-## How do we find the joint distribution? 
-
-.pull-left[
-&lt;img src="img/net.png" width="80%" style="display: block; margin: auto;" /&gt;
-].pull-right[
-
-- Graphs give us intuitive relationships between the variables and write
-down their joint distributions. 
-
-- Knowledge and dependences are well represented:
-  - Great when there is a complex system of many causal relationships
-
-
-We can write the joint probability 
-distribution of the graph as: 
-]
+being `\(V\)` the total number of variables. For the example, we have: 
 
 $$P(A, S, E, O, R, T) = P(A) P(S) P(E| A, S) P(O | E)  P(R | E) P(T | O, R) $$
 $$ P(A, S, E, O, R, T) = P(A) P(S) P(E| A, S) P(O, R | E) P(T | O, R)$$
 
+
 ---
 
-## Some CPDs 
+## Some CPDs (using the data)
 
 .pull-left[
 $$ P(A) = $$
@@ -211,7 +189,6 @@ $$ P(A) = $$
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-].pull-right[
 
 $$ P(S) = $$
 &lt;table class="table table-condensed table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
@@ -229,10 +206,9 @@ $$ P(S) = $$
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-]
 
 
-
+].pull-right[
 
 `$$P(E | S,  A) =$$` 
 
@@ -284,12 +260,13 @@ $$ P(S) = $$
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-
+]
 
 
 ---
 
 ## Training the BN in `R` 
+- `bnlearn` package 
 - We build the network structure first, and then pass the data into the fit function
 
 
@@ -342,17 +319,44 @@ skeleton(survey.dag)
 
 
 The survey train data:
-
-```
-## Observations: 432
-## Variables: 6
-## $ A &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, young, adult,…
-## $ R &lt;fct&gt; big, small, big, big, big, small, big, big, big, big, big, big…
-## $ E &lt;fct&gt; high, uni, uni, high, high, high, high, uni, high, high, high,…
-## $ O &lt;fct&gt; emp, emp, emp, emp, emp, emp, emp, emp, emp, emp, emp, emp, em…
-## $ S &lt;fct&gt; F, M, F, M, M, F, F, F, F, M, F, F, F, M, F, F, M, F, F, F, F,…
-## $ T &lt;fct&gt; car, car, train, car, car, train, car, train, car, train, trai…
-```
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; A &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; R &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; E &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; O &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; S &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; T &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; adult &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; big &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; high &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; emp &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; car &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; adult &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; small &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; uni &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; emp &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; car &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; adult &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; big &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; uni &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; emp &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; train &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 Using the network structure:
 
@@ -488,6 +492,9 @@ scales::percent(sum(predict(rf, test) ==  test$T)/nrow(test)) # Accuracy
 ---
 
 ## Training the BN in `python` 
+ 
+ - `pgmpy` package
+
 
 
 ```python
@@ -501,18 +508,18 @@ from pgmpy.estimators import MaximumLikelihoodEstimator, BayesianEstimator
 ```python
 
 model = BayesianModel([('A', 'E'), ('S', 'E'), ('E', 'O'), ('E', 'R'),('R', 'T'), ('O', 'T')])
-model.fit(da, estimator = MaximumLikelihoodEstimator)
+model.fit(train, estimator = MaximumLikelihoodEstimator)
 print(model.get_cpds('A'))
 ```
 
 ```
-## ╒══════════╤═══════╕
-## │ A(adult) │ 0.472 │
-## ├──────────┼───────┤
-## │ A(old)   │ 0.208 │
-## ├──────────┼───────┤
-## │ A(young) │ 0.32  │
-## ╘══════════╧═══════╛
+## ╒══════════╤══════════╕
+## │ A(adult) │ 0.479167 │
+## ├──────────┼──────────┤
+## │ A(old)   │ 0.208333 │
+## ├──────────┼──────────┤
+## │ A(young) │ 0.3125   │
+## ╘══════════╧══════════╛
 ```
 
 --- 
@@ -525,17 +532,17 @@ print(model.get_cpds('T'))
 ```
 
 ```
-## ╒══════════╤═════════════════════╤═════════════════════╤═════════════════════╤══════════╕
-## │ O        │ O(emp)              │ O(emp)              │ O(self)             │ O(self)  │
-## ├──────────┼─────────────────────┼─────────────────────┼─────────────────────┼──────────┤
-## │ R        │ R(big)              │ R(small)            │ R(big)              │ R(small) │
-## ├──────────┼─────────────────────┼─────────────────────┼─────────────────────┼──────────┤
-## │ T(car)   │ 0.5846994535519126  │ 0.5470085470085471  │ 0.6923076923076923  │ 0.75     │
-## ├──────────┼─────────────────────┼─────────────────────┼─────────────────────┼──────────┤
-## │ T(other) │ 0.1994535519125683  │ 0.07692307692307693 │ 0.15384615384615385 │ 0.25     │
-## ├──────────┼─────────────────────┼─────────────────────┼─────────────────────┼──────────┤
-## │ T(train) │ 0.21584699453551912 │ 0.37606837606837606 │ 0.15384615384615385 │ 0.0      │
-## ╘══════════╧═════════════════════╧═════════════════════╧═════════════════════╧══════════╛
+## ╒══════════╤═════════════════════╤═════════════════════╤═════════╤══════════╕
+## │ O        │ O(emp)              │ O(emp)              │ O(self) │ O(self)  │
+## ├──────────┼─────────────────────┼─────────────────────┼─────────┼──────────┤
+## │ R        │ R(big)              │ R(small)            │ R(big)  │ R(small) │
+## ├──────────┼─────────────────────┼─────────────────────┼─────────┼──────────┤
+## │ T(car)   │ 0.5664556962025317  │ 0.5673076923076923  │ 0.6     │ 0.5      │
+## ├──────────┼─────────────────────┼─────────────────────┼─────────┼──────────┤
+## │ T(other) │ 0.21518987341772153 │ 0.0673076923076923  │ 0.2     │ 0.5      │
+## ├──────────┼─────────────────────┼─────────────────────┼─────────┼──────────┤
+## │ T(train) │ 0.21835443037974683 │ 0.36538461538461536 │ 0.2     │ 0.0      │
+## ╘══════════╧═════════════════════╧═════════════════════╧═════════╧══════════╛
 ```
 
 
@@ -543,15 +550,16 @@ print(model.get_cpds('T'))
 ```python
 
 ## BN predictions for the test set
-test_response = da[da.set == 'test']['T'] 
-pred = model.predict(test)
+test_response = test['T'] 
+pred = model.predict(test.drop(labels = 'T',  axis=1))
 
 df = pd.DataFrame({'pred' : pred['T'], 'test' : test_response} ) 
-df[df.pred == df.test].shape[0]/test.shape[0]
+
+'{:.1%}'.format(df[df.pred == df.test].shape[0]/test.shape[0])
 ```
 
 ```
-## 0.5822784810126582
+## '66.2%'
 ```
 
 ---
@@ -582,7 +590,7 @@ class:  middle
 ## Some real life examples
 
 - **Medical diagnosis**: which characteristics of a patient influence in the presence of a disease?
-- **Spam filter**: how likely is a email to be a span given its content?
+- **Spam filter**: how likely is an email to be a spam given its content?
 
 - **Google Page Rank**: what are the more relevant pages in a Google search? 
 
@@ -595,16 +603,23 @@ class:  middle
 
 # Resources
 
- - `bnlearn`: http://www.bnlearn.com/book-crc/
+
+&gt; https://github.com/search?p=2&amp;q=probabilistic+models&amp;type=Repositories
+
+.pull-left[
+&lt;img src="img/github.png" width="70%" style="display: block; margin: auto;" /&gt;
+] .pull-right[
+
+- `bnlearn`: http://www.bnlearn.com/book-crc/
   - data &amp; tutorials  
- - CRAN task `GR`: gRaphical Models in R
-  - Representation
-  - Modelling
-  - Miscellaneous
+- CRAN task `GR`: gRaphical Models in R
+  - Representation &amp; Modelling
   - https://cran.r-project.org/web/views/gR.html
   
 - `pgmpy` page: http://pgmpy.org/
 
+- many, **many** more packages for both `R` and `python`
+]
 ---
 
 # References

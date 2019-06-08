@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 # Probabilistic Graphical Models in <code>R</code> and <code>python</code>
-## IV Internacional Seminar on Statistics with R
+## IV International Seminar on Statistics with R
 ### Bruna Wundervald
 ### May, 2019
 
@@ -72,7 +72,7 @@ class: center, middle, inverse
 #  `\(\underbrace{\text{Models}}_{}\)` 
 
 
-- The models represent our understanding about events;  
+- The models represent our understanding of events;  
 - Declarative representation:
   - Each model has its own unique assumptions. 
 - Can be deterministic (physical models) or involve random elements (statistical models) 
@@ -97,13 +97,13 @@ class: center, middle, inverse
 
 - Graphs are a computer science tool used in many different areas; 
 - Represent complex systems that have many variables; 
-- The systems can be provenient of the models we assume:
+- The systems can be a result of the models we assume:
   - thousands or millions of parameters. 
   
 &lt;img src="img/graph.png" width="30%" height="30%" style="display: block; margin: auto;" /&gt;
 
 
----&gt;  Representation, inference and learning: critical components in intelligent systems
+---&gt;  Representation, inference, and learning: critical components in intelligent systems
 ---
 
 class: middle, center
@@ -143,10 +143,10 @@ between 30 and 60 years, and old for people &gt; 60.
 - **Education (E)**: up to high school or university degree.
 - **Occupation (O)**: employee or self-employed.
 - **Residence (R)**: the size of the city, as small or big.
-- **Travel (T)**: the means of transport favoured by the individual (car, train or other).
+- **Travel (T)**: the means of transport favored by the individual (car, train or other).
 ]
 
-The **nature of the variables** suggests how they may be related with each other.
+The **nature of the variables** suggests how they may be related to each other.
 
 ---
 
@@ -154,7 +154,7 @@ The **nature of the variables** suggests how they may be related with each other
 
 - A Bayesian Network is a directed acyclic graph (DAG) G whose nodes represent random variables `\(X_1,\dots,X_p\)`
 - For each node `\(X_i\)`, there exists a conditional probability distribution `\(P(X_i |Par_G(X_i))\)` 
-- The CPDs will denote the dependences existing in the graph 
+- The CPDs will denote the dependencies existing in the graph 
 
 - By the chain rule of probability, we can always represent a joint distribution
 as follows, in any order:
@@ -267,7 +267,7 @@ $$ P(S) = $$
 
 ## Training the BN in `R` 
 - `bnlearn` package 
-- We build the network structure first, and then pass the data into the fit function
+- We build the network structure first and then pass the data into the fit function
 
 
 ```r
@@ -513,13 +513,13 @@ print(model.get_cpds('A'))
 ```
 
 ```
-## ╒══════════╤══════════╕
-## │ A(adult) │ 0.479167 │
-## ├──────────┼──────────┤
-## │ A(old)   │ 0.208333 │
-## ├──────────┼──────────┤
-## │ A(young) │ 0.3125   │
-## ╘══════════╧══════════╛
+## +----------+----------+
+## | A(adult) | 0.479167 |
+## +----------+----------+
+## | A(old)   | 0.208333 |
+## +----------+----------+
+## | A(young) | 0.3125   |
+## +----------+----------+
 ```
 
 --- 
@@ -532,17 +532,17 @@ print(model.get_cpds('T'))
 ```
 
 ```
-## ╒══════════╤═════════════════════╤═════════════════════╤═════════╤══════════╕
-## │ O        │ O(emp)              │ O(emp)              │ O(self) │ O(self)  │
-## ├──────────┼─────────────────────┼─────────────────────┼─────────┼──────────┤
-## │ R        │ R(big)              │ R(small)            │ R(big)  │ R(small) │
-## ├──────────┼─────────────────────┼─────────────────────┼─────────┼──────────┤
-## │ T(car)   │ 0.5664556962025317  │ 0.5673076923076923  │ 0.6     │ 0.5      │
-## ├──────────┼─────────────────────┼─────────────────────┼─────────┼──────────┤
-## │ T(other) │ 0.21518987341772153 │ 0.0673076923076923  │ 0.2     │ 0.5      │
-## ├──────────┼─────────────────────┼─────────────────────┼─────────┼──────────┤
-## │ T(train) │ 0.21835443037974683 │ 0.36538461538461536 │ 0.2     │ 0.0      │
-## ╘══════════╧═════════════════════╧═════════════════════╧═════════╧══════════╛
+## +----------+---------------------+---------------------+---------+----------+
+## | O        | O(emp)              | O(emp)              | O(self) | O(self)  |
+## +----------+---------------------+---------------------+---------+----------+
+## | R        | R(big)              | R(small)            | R(big)  | R(small) |
+## +----------+---------------------+---------------------+---------+----------+
+## | T(car)   | 0.5664556962025317  | 0.5673076923076923  | 0.6     | 0.5      |
+## +----------+---------------------+---------------------+---------+----------+
+## | T(other) | 0.21518987341772153 | 0.0673076923076923  | 0.2     | 0.5      |
+## +----------+---------------------+---------------------+---------+----------+
+## | T(train) | 0.21835443037974683 | 0.36538461538461536 | 0.2     | 0.0      |
+## +----------+---------------------+---------------------+---------+----------+
 ```
 
 
@@ -552,7 +552,148 @@ print(model.get_cpds('T'))
 ## BN predictions for the test set
 test_response = test['T'] 
 pred = model.predict(test.drop(labels = 'T',  axis=1))
+```
 
+```
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+## 
+0it [00:00, ?it/s]
+```
+
+```python
 df = pd.DataFrame({'pred' : pred['T'], 'test' : test_response} ) 
 
 '{:.1%}'.format(df[df.pred == df.test].shape[0]/test.shape[0])
@@ -567,7 +708,7 @@ df = pd.DataFrame({'pred' : pred['T'], 'test' : test_response} )
 ## BN details
   - Way faster algorithm
     - The simplest version just uses the CPDs
-  - It can accomodate millions of variables and parameters 
+  - It can accommodate millions of variables and parameters 
 
 
 ##  Why do we need PGMs?
@@ -587,10 +728,10 @@ df = pd.DataFrame({'pred' : pred['T'], 'test' : test_response} )
 
 class:  middle
 
-## Some real life examples
+## Some real-life examples
 
-- **Medical diagnosis**: which characteristics of a patient influence in the presence of a disease?
-- **Spam filter**: how likely is an email to be a spam given its content?
+- **Medical diagnosis**: which characteristics of a patient influence in the presence of disease?
+- **Spam filter**: how likely is an email to be spam given its content?
 
 - **Google Page Rank**: what are the more relevant pages in a Google search? 
 
@@ -620,6 +761,17 @@ class:  middle
 
 - many, **many** more packages for both `R` and `python`
 ]
+
+---
+class: center, middle
+
+## Acknowledgments
+
+This work was supported by a Science Foundation Ireland Career Development Award grant number: 17/CDA/4695
+
+&lt;img src="img/SFI_logo.jpg" width="50%" height="40%" style="display: block; margin: auto;" /&gt;
+
+
 ---
 
 # References

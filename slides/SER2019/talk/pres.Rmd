@@ -1,6 +1,6 @@
 ---
 title: "Probabilistic Graphical Models in `R` and `python`"
-subtitle: "IV Internacional Seminar on Statistics with R"
+subtitle: "IV International Seminar on Statistics with R"
 author: Bruna Wundervald 
 date: May, 2019
 output:
@@ -74,7 +74,7 @@ class: center, middle, inverse
 #  $\underbrace{\text{Models}}_{}$ 
 
 
-- The models represent our understanding about events;  
+- The models represent our understanding of events;  
 - Declarative representation:
   - Each model has its own unique assumptions. 
 - Can be deterministic (physical models) or involve random elements (statistical models) 
@@ -99,7 +99,7 @@ class: center, middle, inverse
 
 - Graphs are a computer science tool used in many different areas; 
 - Represent complex systems that have many variables; 
-- The systems can be provenient of the models we assume:
+- The systems can be a result of the models we assume:
   - thousands or millions of parameters. 
   
 ```{r, out.height="30%", out.width="30%", fig.height=5}
@@ -107,7 +107,7 @@ knitr::include_graphics("img/graph.png")
 ```
 
 
---->  Representation, inference and learning: critical components in intelligent systems
+--->  Representation, inference, and learning: critical components in intelligent systems
 ---
 
 class: middle, center
@@ -155,10 +155,10 @@ between 30 and 60 years, and old for people > 60.
 - **Education (E)**: up to high school or university degree.
 - **Occupation (O)**: employee or self-employed.
 - **Residence (R)**: the size of the city, as small or big.
-- **Travel (T)**: the means of transport favoured by the individual (car, train or other).
+- **Travel (T)**: the means of transport favored by the individual (car, train or other).
 ]
 
-The **nature of the variables** suggests how they may be related with each other.
+The **nature of the variables** suggests how they may be related to each other.
 
 ---
 
@@ -166,7 +166,7 @@ The **nature of the variables** suggests how they may be related with each other
 
 - A Bayesian Network is a directed acyclic graph (DAG) G whose nodes represent random variables $X_1,\dots,X_p$
 - For each node $X_i$, there exists a conditional probability distribution $P(X_i |Par_G(X_i))$ 
-- The CPDs will denote the dependences existing in the graph 
+- The CPDs will denote the dependencies existing in the graph 
 
 - By the chain rule of probability, we can always represent a joint distribution
 as follows, in any order:
@@ -189,7 +189,7 @@ $$ P(A) = $$
 library(kableExtra)
 library(formattable)
 
-da <- read.table("talk/data/survey.txt", header = TRUE)
+da <- read.table("data/survey.txt", header = TRUE)
 
 da %>% 
   janitor::tabyl(A) %>% 
@@ -242,7 +242,7 @@ da %>%
 
 ## Training the BN in `R` 
 - `bnlearn` package 
-- We build the network structure first, and then pass the data into the fit function
+- We build the network structure first and then pass the data into the fit function
 
 ```{r, echo = TRUE}
 library(bnlearn)
@@ -274,7 +274,7 @@ skeleton(survey.dag)
 
 ```{r}
 set.seed(2019)
-da <- read.table("talk/data/survey.txt", header = TRUE) %>% 
+da <- read.table("data/survey.txt", header = TRUE) %>% 
   group_by_all() %>% 
   mutate(set = ifelse(runif(n()) > 0.85, "test", "train")) %>% 
   ungroup()
@@ -353,12 +353,12 @@ scales::percent(sum(predict(rf, test) ==  test$T)/nrow(test)) # Accuracy
  - `pgmpy` package
 
 
-```{python, engine.path = "/Users/brunawundervald/anaconda3/bin/python3", echo = TRUE}
+```{python, engine.path = "/anaconda3/bin/python3", echo = TRUE}
 from pgmpy.models import BayesianModel
 from pgmpy.estimators import MaximumLikelihoodEstimator, BayesianEstimator
 ```
 
-```{python, engine.path = "/Users/brunawundervald/anaconda3/bin/python3", echo = FALSE}
+```{python, engine.path = "/anaconda3/bin/python3", echo = FALSE}
 import numpy
 import pandas as pd
 
@@ -368,8 +368,8 @@ import pandas as pd
 #da['set'] = numpy.where(rnd > 0.85, "test", "train")
 #train = da[da.set == 'train'].drop(labels = 'set',  axis=1)
 #test = da[da.set == 'test'].drop(labels = ['set', 'T'],  axis=1)
-train =  pd.read_csv('talk/data/train.txt', sep=" ", header=0)
-test =  pd.read_csv('talk/data/test.txt', sep=" ", header=0)
+train =  pd.read_csv('data/train.txt', sep=" ", header=0)
+test =  pd.read_csv('data/test.txt', sep=" ", header=0)
 ```
 
 ```{python, engine.path = "/Users/brunawundervald/anaconda3/bin/python3", echo = TRUE}
@@ -404,7 +404,7 @@ df = pd.DataFrame({'pred' : pred['T'], 'test' : test_response} )
 ## BN details
   - Way faster algorithm
     - The simplest version just uses the CPDs
-  - It can accomodate millions of variables and parameters 
+  - It can accommodate millions of variables and parameters 
 
 
 ##  Why do we need PGMs?
@@ -424,10 +424,10 @@ df = pd.DataFrame({'pred' : pred['T'], 'test' : test_response} )
 
 class:  middle
 
-## Some real life examples
+## Some real-life examples
 
-- **Medical diagnosis**: which characteristics of a patient influence in the presence of a disease?
-- **Spam filter**: how likely is an email to be a spam given its content?
+- **Medical diagnosis**: which characteristics of a patient influence in the presence of disease?
+- **Spam filter**: how likely is an email to be spam given its content?
 
 - **Google Page Rank**: what are the more relevant pages in a Google search? 
 
@@ -459,13 +459,26 @@ knitr::include_graphics("img/github.png")
 
 - many, **many** more packages for both `R` and `python`
 ]
+
+---
+class: center, middle
+
+## Acknowledgments
+
+This work was supported by a Science Foundation Ireland Career Development Award grant number: 17/CDA/4695
+
+```{r, echo=FALSE, fig.align='center', out.height="40%", out.width="50%", fig.height=2, eval = TRUE}
+knitr::include_graphics("img/SFI_logo.jpg")
+```
+
+
 ---
 
 # References
 
 ```{r, echo = FALSE, eval = TRUE, results='asis'}
 library(RefManageR)
-bibs <- ReadBib("talk/refs.bib", check = FALSE)
+bibs <- ReadBib("refs.bib", check = FALSE)
 print(bibs, 
       .opts = list(check.entries = FALSE, 
                    style = "html", 

@@ -5,6 +5,33 @@
     
     <url>
     
+      <loc>/talk/ser-talk/</loc>
+      <lastmod>2019-05-23T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/talk/ser-shortcourse/</loc>
+      <lastmod>2019-05-21T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/talk/rrf-casi/</loc>
+      <lastmod>2019-05-16T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/talk/intro_bart/</loc>
       <lastmod>2019-03-28T00:00:00+00:00</lastmod>
     </url>
@@ -426,8 +453,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
+      <loc>/categories/r/</loc>
+      <lastmod>2018-04-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -436,8 +463,8 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
-      <lastmod>2018-04-25T00:00:00+00:00</lastmod>
+      <loc>/tags/r/</loc>
+      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

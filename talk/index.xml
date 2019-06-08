@@ -13,6 +13,33 @@
     
     
     <item>
+      <title>Probabilistic Graphical Models in R and python</title>
+      <link>/talk/ser-talk/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/ser-talk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Music Data Analysis in R - Shortcourse</title>
+      <link>/talk/ser-shortcourse/</link>
+      <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/ser-shortcourse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regularization Methods in Random Forests</title>
+      <link>/talk/rrf-casi/</link>
+      <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/rrf-casi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>An Introduction to Bayesian Regression Trees</title>
       <link>/talk/intro_bart/</link>
       <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>

@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Music Data Analysis in `R` - Shortcouse Technical Report</title>
+      <link>/publication/mda-tech-report/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/mda-tech-report/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Probabilistic Graphical Models in R and python</title>
       <link>/talk/ser-talk/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
@@ -133,15 +142,6 @@
       <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/publication/jags/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Monte Carlo Markov Chain - PhD Project</title>
-      <link>/publication/mcmc/</link>
-      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/mcmc/</guid>
       <description></description>
     </item>
     

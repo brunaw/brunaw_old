@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018 Bruna Wundervald</copyright>
-    <lastBuildDate>Fri, 01 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/publication_types/4/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Music Data Analysis in `R` - Shortcouse Technical Report</title>
+      <link>/publication/mda-tech-report/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/mda-tech-report/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Regularization methods in Random Forests - PhD Project</title>

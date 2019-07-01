@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>An introduction to Random Forests using R, R-Ladies Dublin Meetup</title>
+      <link>/talk/intro_rf/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/intro_rf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Music Data Analysis in R - Short-course Technical Report</title>
       <link>/publication/mda-tech-report/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
@@ -133,15 +142,6 @@
       <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/publication/rf-by-hand/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Just Another Gibbs Sampler - PhD Project</title>
-      <link>/publication/jags/</link>
-      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/jags/</guid>
       <description></description>
     </item>
     

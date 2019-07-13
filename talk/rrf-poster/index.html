@@ -36,13 +36,13 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="/talk/intro_rf/">
+  <link rel="canonical" href="/talk/rrf-poster/">
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Montserrat:300,400">
   
 
-<title>An introduction to Random Forests using R, R-Ladies Dublin Meetup - Bruna Wundervald</title>
-<meta property="og:title" content="An introduction to Random Forests using R, R-Ladies Dublin Meetup - Bruna Wundervald">
+<title>Regularization Methods in Random Forests - Bruna Wundervald</title>
+<meta property="og:title" content="Regularization Methods in Random Forests - Bruna Wundervald">
 <meta property="og:type" content="article">
 
   
@@ -51,14 +51,14 @@
   
   
 
-<meta property="description" content="Article posted by %!s(&lt;nil&gt;), on Monday, June 24nd, 2019">
-<meta property="og:description" content="Article posted by %!s(&lt;nil&gt;), on Monday, June 24nd, 2019">
+<meta property="description" content="Article posted by %!s(&lt;nil&gt;), on Tuesday, July 16nd, 2019">
+<meta property="og:description" content="Article posted by %!s(&lt;nil&gt;), on Tuesday, July 16nd, 2019">
 
 
 <meta name="twitter:creator" content="">
 <meta name="twitter:site" content="">
 
-  <title>An introduction to Random Forests using R, R-Ladies Dublin Meetup | Bruna Wundervald</title>
+  <title>Regularization Methods in Random Forests | Bruna Wundervald</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -183,7 +183,7 @@
   <div class="article-container">
 
     <div class="pub-title">
-      <h1 itemprop="name">An introduction to Random Forests using R, R-Ladies Dublin Meetup</h1>
+      <h1 itemprop="name">Regularization Methods in Random Forests</h1>
       <span class="pub-authors" itemprop="author">
         
       </span>
@@ -193,35 +193,35 @@
   <ul class="share">
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2ftalk%2fintro_rf%2f"
+         href="https://www.facebook.com/sharer.php?u=%2ftalk%2frrf-poster%2f"
          target="_blank">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=An%20introduction%20to%20Random%20Forests%20using%20R%2c%20R-Ladies%20Dublin%20Meetup&amp;url=%2ftalk%2fintro_rf%2f"
+         href="https://twitter.com/intent/tweet?text=Regularization%20Methods%20in%20Random%20Forests&amp;url=%2ftalk%2frrf-poster%2f"
          target="_blank">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2ftalk%2fintro_rf%2f&amp;title=An%20introduction%20to%20Random%20Forests%20using%20R%2c%20R-Ladies%20Dublin%20Meetup"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2ftalk%2frrf-poster%2f&amp;title=Regularization%20Methods%20in%20Random%20Forests"
          target="_blank">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2ftalk%2fintro_rf%2f&amp;title=An%20introduction%20to%20Random%20Forests%20using%20R%2c%20R-Ladies%20Dublin%20Meetup"
+         href="http://service.weibo.com/share/share.php?url=%2ftalk%2frrf-poster%2f&amp;title=Regularization%20Methods%20in%20Random%20Forests"
          target="_blank">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=An%20introduction%20to%20Random%20Forests%20using%20R%2c%20R-Ladies%20Dublin%20Meetup&amp;body=%2ftalk%2fintro_rf%2f">
+         href="mailto:?subject=Regularization%20Methods%20in%20Random%20Forests&amp;body=%2ftalk%2frrf-poster%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -234,7 +234,7 @@
 
     
       <h3>Abstract</h3>
-      <p class="pub-abstract" itemprop="text">This talk-workshop is suited to all levels of `R`. What you can expect from it? 1. An overview of the theory of tree based models: decisiobn trees and random forests; 2. Learn how to implement and interpret random forests in R</p>
+      <p class="pub-abstract" itemprop="text">Shrinkage is still a hard task to perform in tree-based methods. In this work, we evaluated and extended the current methods. Our extension has demonstrated to be better than what was proposed in (Deng and Runger, 2012), since we ended up with fewer variables but still a good performance. Nevertheless, we see that the method still has a lot of room for improvement, which defines our next steps.</p>
     
 
     <div class="row">
@@ -243,7 +243,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-3 pub-row-heading">Date</div>
           <div class="col-xs-12 col-sm-9" itemprop="datePublished">
-            Mon, Jun 24, 2019
+            Tue, Jul 16, 2019
           </div>
         </div>
       </div>
@@ -257,9 +257,9 @@
         <div class="row">
           <div class="col-xs-12 col-sm-3 pub-row-heading">Event</div>
           <div class="col-xs-12 col-sm-9">
-            
-            
-            
+            <a href="https://sites.google.com/view/mlss-2019/" target="_blank">
+            Machine Learning Summer School 2019
+            </a>
           </div>
         </div>
       </div>
@@ -267,6 +267,18 @@
     </div>
     <div class="visible-xs space-below"></div>
 
+    
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col-xs-12 col-sm-3 pub-row-heading">Location</div>
+          <div class="col-xs-12 col-sm-9">London, UK</div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="visible-xs space-below"></div>
     
 
     
@@ -283,14 +295,14 @@
 
 
 
-<a class="btn btn-primary btn-outline" href="/slides/rladies-dublin/RF/intro-to-rf.html">
-  Slides
+
+
+<a class="btn btn-primary btn-outline" href="https://github.com/brunaw/regularization-rf">
+  GitHub
 </a>
 
-
-
-<a class="btn btn-primary btn-outline" href="https://github.com/brunaw/intro-to-RF">
-  Site
+<a class="btn btn-primary btn-outline" href="/posters/MLSS_poster.pdf">
+  Poster
 </a>
 
 
@@ -316,13 +328,10 @@
   <nav>
   <ul class="pager">
     
-    <li class="previous"><a href="/talk/ser-talk/"><span
-      aria-hidden="true">&larr;</span> Probabilistic Graphical Models in R and python</a></li>
+    <li class="previous"><a href="/talk/intro_rf/"><span
+      aria-hidden="true">&larr;</span> An introduction to Random Forests using R, R-Ladies Dublin Meetup</a></li>
     
 
-    
-    <li class="next"><a href="/talk/rrf-poster/">Regularization Methods in Random Forests <span
-      aria-hidden="true">&rarr;</span></a></li>
     
   </ul>
 </nav>

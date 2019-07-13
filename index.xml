@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Regularization Methods in Random Forests</title>
+      <link>/talk/rrf-poster/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/rrf-poster/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>An introduction to Random Forests using R, R-Ladies Dublin Meetup</title>
       <link>/talk/intro_rf/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
@@ -133,15 +142,6 @@
       <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/publication/bayes-regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Doing Random Forests by Hand - PhD Project</title>
-      <link>/publication/rf-by-hand/</link>
-      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/rf-by-hand/</guid>
       <description></description>
     </item>
     

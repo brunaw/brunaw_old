@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Bayesian Optimization &#43; Regularization Paths in Random Forests</title>
+      <link>/talk/bayesian-optimization-&#43;-regularization-paths/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/bayesian-optimization-&#43;-regularization-paths/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Regularization Methods in Random Forests</title>
       <link>/talk/rrf-poster/</link>
       <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
@@ -133,15 +142,6 @@
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/talk/kaggle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bayesian Linear Regression - PhD Project</title>
-      <link>/publication/bayes-regression/</link>
-      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/bayes-regression/</guid>
       <description></description>
     </item>
     

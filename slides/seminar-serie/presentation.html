@@ -333,7 +333,7 @@ covariables, based on some characteristic of interest
 
 - **Entropy/Mutual Information:** a way of giving more weight to variables that have lower uncertainties, or 
 
-`$$g(\mathbf{x}_i) = 1 - \frac{\mathbb{H}(\mathbf{x}_{i})}{max_{j=1}^{P} \mathbb{H}(\mathbf{x}_{i)}} \text{ or  } g(\mathbf{x}_i) = \frac{\text{MutInf}(\mathbf{x}_i; \mathbf{y})}{max_{j=1}^{P}\text{MutInf}(\mathbf{x}_i; \mathbf{y})}$$`
+`$$g(\mathbf{x}_i) = 1 - \frac{\mathbb{H}(\mathbf{x}_{i})}{max_{j=1}^{P} \mathbb{H}(\mathbf{x}_{i)}} \text{ or  } g(\mathbf{x}_i) = \frac{\text{MutInf}(\mathbf{y}, \mathbf{x}_i)}{max_{j=1}^{P}\text{MutInf}( \mathbf{y}, \mathbf{x}_j)}$$`
 
 - **Boosting:** to use the normalized importance values obtained from a previously
 run Machine Learning model (Random Forests, SVM, GLMs, etc), or 
@@ -455,7 +455,7 @@ class: middle
 background-image: url(img/results_corr.png)
 background-size: contain
 
-### `\(g(\mathbf{x_i}) = |corr(\mathbf{y}|\)`
+### `\(g(\mathbf{x_i}) = |corr(\mathbf{y}, \mathbf{x}_i)|\)`
 
 ---
 
@@ -816,7 +816,7 @@ to the chosen **acquisition function**
 
 &lt;img src="img/utility.gif" width="75%" style="display: block; margin: auto;" /&gt;
 
-Source: adapted from `https://github.com/glouppe/talk-bayesian-optimisation`
+Adapted from: `https://github.com/glouppe/talk-bayesian-optimisation`
 
 
 ---

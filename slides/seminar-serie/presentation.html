@@ -20,7 +20,7 @@ class: title-slide, center, bottom
 
 # Regularization in Random Forests
 
-## and a little bit of Bayesian Optimisation
+## and a little bit of Bayesian Optimization
 
 ### Bruna Wundervald &amp;#183; Ph.D. Candidate in Statistics
 
@@ -33,7 +33,7 @@ class: inverse, left, middle
 
 # Summary 
   - Trees and Random Forests
-  - Regularisation in Random Forests 
+  - Regularization in Random Forests 
   - Implementation
   - Results 
   - Bayesian Optimization 
@@ -50,10 +50,11 @@ So actually,
 
 # Summary 
   - Trees and Random Forests (this part was fine)
-  - &lt;del&gt; Regularisation in Random Forests &lt;/del&gt; The lack of 
-  references about Regularisation in Random Forests
-  - We finally understood what Regularisation in Random Forests means
-  - New ideas about Regularisation in Random Forests
+  - &lt;del&gt; Regularization in Random Forests &lt;/del&gt; The lack of 
+  references about Regularization in Random Forests
+  - "Regularization" or "Regularisation"?
+  - We finally understood what Regularization in Random Forests means
+  - New ideas about Regularization in Random Forests
   - &lt;del&gt; Implementation &lt;/del&gt;  Suffering, so much suffering 
   - &lt;del&gt; Results  &lt;/del&gt; Some results from the many many models I had to run
   - &lt;del&gt; Bayesian Optimization &lt;/del&gt; Trying to solve a problem we ourselves
@@ -70,8 +71,6 @@ class: center, inverse, middle
 
 # Problem setup 
 
-  - Statisticians really like to model things
-  
 Consider a set of train response-covariates pairs 
 `\((Y_i, \mathbf{x}_i) \in \mathbb{R} \times \mathbb{R}^{p}\)`, 
 with `\(i = 1, \dots, N\)` indexing the observations, and `\(p\)` being 
@@ -85,9 +84,9 @@ y_i = f(\mathbf{x}_i) + \epsilon, \thinspace \epsilon_i
 \end{equation}`
 
 where `\(f\)` is the unknown regression function to be estimated as
-`\(\hat f\)`. 
+`\(f\)`. 
 
- - Usually a prediction task
+ - Frequently a prediction task
  - Not all covariates need to be involved in `\(\hat f\)`
  - Especially for tree-based models, the occurrence of noisy or correlated variables
  is usually not detected
@@ -97,7 +96,7 @@ where `\(f\)` is the unknown regression function to be estimated as
 
 # Regularization
 
-- Regularized regression consists in estimating a penalized function 
+- Regularized regression consists of estimating a penalized function 
 of the form
 
 `\begin{equation}
@@ -108,15 +107,16 @@ L(y_i, f(x_i)) + \lambda J(f) \Big ],
 
 where `\(L(y, f(x))\)` is the chosen loss function, `\(J(f)\)` is a penalty
 functional, and `\(H\)` is a space of functions on which `\(J(f)\)` is defined
-(Hastie, Tibshirani, and Friedman, 2009).
+(Hastie, Tibshirani, and Friedman, 2009)
 
-&gt; Goal: to produce models that are more parsimonious (use less variables)
-and have similar prediction error as the full model. 
+&gt; Goal: to produce models that are more parsimonious (use fewer variables)
+and have similar prediction error as the full model
 
-- Usually robust enough to not be influenced by the correlated variables. 
+- Robust enough to not be influenced by the correlated variables
 
 
 ---
+class: middle
 
 # Trees 
 
@@ -125,17 +125,22 @@ Tree-based models are a composition of adaptive basis functions of the form
 
 `\begin{equation}
 f(\mathbf{x}) = \mathbb{E}[y \mid \mathbf{x}] = 
-\sum_{d = 1}^{\mathbb{D}} w_d \mathbb{I}(\mathbf{x} \in \mathbb{D}) = 
+\sum_{d = 1}^{\mathbb{D}} w_d \mathbb{I}(\mathbf{x} \in R_{d}) = 
 \sum_{d = 1}^{\mathbb{D}} w_d \phi_d(\mathbf{x}; \mathbf{v}_d),
 \end{equation}`
 
 where 
-  - `\(\mathbb{D}\)` is the `\(d\)`-th estimated region in the predictors'space , 
+  - `\(R_d\)` is the `\(d\)`-th estimated region in the predictors'space , 
   - `\(w_d\)` is the prediction given to each region, 
-  - and `\(\mathbf{v}_r\)` represents the variable chosen to split on and the correspondent splitting value (Murphy, 2012).
+  - and `\(\mathbf{v}_d\)` represents the variable and correspondent splitting value (Murphy, 2012).
 
-Usually fitted using a greedy procedure, which computes 
-a locally optimal maximum likelihood estimator. The splits are made in order to minimize a previously determined cost function, as
+---
+class: middle
+
+# Trees 
+
+Normally fitted using a greedy procedure, which computes 
+a locally optimal maximum likelihood estimator. The splits are made in order to minimize the cost function, as
 
 `\begin{equation}
 (i*, t*)  =  arg  \min_{i \in \{1, \dots, P\}}
@@ -143,11 +148,11 @@ a locally optimal maximum likelihood estimator. The splits are made in order to 
 \end{equation}`
 
 where  `\(i\)` represents the `\(i\)`-th feature, with its correspondent
-`\(\mathbb{T}_j\)` possible split thresholds for region `\(\mathbb{D}\)`,
+`\(\mathbb{T}_j\)` possible split thresholds for region `\(D\)`.
 
 ---
 
-# Trees 
+# Trees - Graphical description
 
 .pull-left[
 &lt;img src="img/trees.png" width="80%" style="display: block; margin: auto;" /&gt;
@@ -162,41 +167,45 @@ where  `\(i\)` represents the `\(i\)`-th feature, with its correspondent
 
 
 ---
-
-# Trees 
-
+class: middle
+# Trees  - Cost functions 
 
 
 For regression, the cost used in a tree-based model is frequently defined as 
 
 `\begin{equation}
-cost(\mathbb{D}) = \sum_{i \in \mathbb{D}} (y_i - \bar{y})^{2}, 
+cost(D) = \sum_{i \in D} (y_i - \bar{y})^{2}, 
 \label{eq:error}
 \end{equation}`
 
-where `\(\bar{y} = (\sum_{i \in \mathbb{D}} y_i) |\mathbb{D}|^{-1}\)`
+where `\(\bar{y} = (\sum_{i \in D} y_i) |D|^{-1}\)`
 is the mean of the training observations in the specified region,
 while for classification this function gets replaced by the
 missclassification rate
 
 `\begin{equation}
-cost(\mathbb{D}) = \frac{1}{|\mathbb{D}|}
-\sum_{i \in \mathbb{D}} \mathbb{I}(y_i \neq \hat y).
+cost(D) = \frac{1}{|D|}
+\sum_{i \in D} \mathbb{I}(y_i \neq \hat y).
 \end{equation}`
+
+
+---
+class: middle
+# Trees  - Importance values 
 
 
 The gain of making a new split is a normalized
-measure of the reduction in the cost, given by
+measure of the reduction in the cost, 
 
 `\begin{equation}
-\Delta(i, t) = cost(\mathbb{D}) - 
+\Delta(i, t) = cost(D) - 
 \Big(
-\frac{|\mathbb{D}_{LN_{(i, t)}}|}{|\mathbb{D}|} cost (\mathbb{D}_{LN_{(i, t)}}) +
-\frac{|\mathbb{D}_{RN_{(i, t)}}|}{|\mathbb{D}|} cost (\mathbb{D}_{RN_{(i, t)}})\Big), 
+\frac{|D_{LN_{(i, t)}}|}{|D|} cost (D_{LN_{(i, t)}}) +
+\frac{|D_{RN_{(i, t)}}|}{|D|} cost (D_{RN_{(i, t)}})\Big), 
 \label{eq:cost_tree}
 \end{equation}`
 
-for variable `\(i\)` at the splitting point `\(t\)`, and `\(\mathbb{D}\)` is relative 
+for variable `\(i\)` at the splitting point `\(t\)`, and `\(D\)` is relative 
 to the previous estimated split. When we accumulate this gain over a variable, 
 `\(\mathbf{\Delta}(i) = \sum_{t \in \mathbb{S}_i} \Delta(i, t)\)`,  we obtain its **importance value**.
 
@@ -205,7 +214,7 @@ to the previous estimated split. When we accumulate this gain over a variable,
 # Random Forests
 
   - Trees are known to be high variance estimators
-    - This means that they are unstable: small changes in the data can lead 
+    - They are unstable: small changes in the data can lead 
 to the estimation of a completely different tree 
 
 - An average of many estimates has smaller variance than only one estimate 
@@ -222,16 +231,16 @@ decorrelate the learners  (Breiman, 2001)
 
 ---
 
-# Random Forests
+# Random Forests - Importance values
 
 The importance values are accumulated over all the trees of a 
 Random Forest, forming
 
 `\begin{equation}
-Imp_{j} = \sum_{n = 1}^{N_{tree}} \mathbf{\Delta}(j)_{n},
+Imp_{i} = \sum_{n = 1}^{N_{tree}} \mathbf{\Delta}(i)_{n},
 \end{equation}`
 
-for the feature `\(\mathbf{x}_{j}\)`
+for the feature `\(\mathbf{x}_{i}.\)`
 
 
 .pull-left[
@@ -248,10 +257,11 @@ for the feature `\(\mathbf{x}_{j}\)`
 
 
 ---
+class: middle
 
 # Regularization in Random Forests 
 
-In Deng and Runger (2012), the authors first discuss the idea of regularising 
+In Deng and Runger (2012), the authors discuss the idea of regularising 
 Random Forests models by penalizing the gain of each 
 variable, or 
 
@@ -266,9 +276,12 @@ and `\(t\)` the respective splitting point.
 
   - To enter `\(\mathbb{U}\)` a variable needs to improve upon the gain of 
   all the currently selected variables, even after its gain is penalized 
+
+---
+class: middle
   
 ## Drawbacks   
-  - A very simple framework with no warrantees
+  - A very simple framework with no warranties
   - Does not considers the effects of `mtry` in the models
   - Not many examples/references/maths reasoning behind it 
   - How should we set `\(\lambda_{i}\)`?
@@ -297,15 +310,15 @@ where
 
   - `\(\lambda_0 \in [0, 1)\)` can be interpreted as the 
 baseline regularization, 
-  - `\(g(X_i)\)` is a function of the respective `\(j\)`-th covariate,
-  - `\(\gamma \in [0, 1)\)` is their mixture parameter, under the resctriction that `\(\lambda_i \in [0, 1)\)`.
+  - `\(g(X_i)\)` is a function of the respective `\(i\)`-th feature,
+  - `\(\gamma \in [0, 1)\)` is their mixture parameter, under the resctriction that `\(\lambda_i \in [0, 1)\)`
   
 
 The `\(g(\mathbf{x}_i)\)` 
 should be set in a way that will represent relevant information about the 
-covariables, based on some characteristic of interest. 
+covariables, based on some characteristic of interest
   - This has inspiration on the use of priors made in Bayesian methods:
-  -  we seek to introduce previous information between the covariables and the response to guide the model
+    -  introduces previous information between the covariables and the response to guide the model
 
   
 ---
@@ -313,14 +326,14 @@ covariables, based on some characteristic of interest.
 ## Suggestions for `\(g(\mathbf{x}_i)\)` 
 
 
-- **Correlation:** uses the absolute values of the marginal correlations
-(Pearson's, Kendall's or Spearman's) of each covariable and the response
+- **Correlation:** the absolute values of the marginal correlations
+(Pearson's, Kendall's or Spearman's) of each feature and the response
 (continuous cases),  or 
 `$$g(\mathbf{x}_i) = |corr(\mathbf{y}, \mathbf{x}_i)|$$` 
 
-- **Entropy/Mutual Information:** a way of giving more more weight to variables that have lower uncertainties, or 
+- **Entropy/Mutual Information:** a way of giving more weight to variables that have lower uncertainties, or 
 
-`$$g(\mathbf{x}_i) = 1 - \frac{\mathbb{H}(\mathbf{x}_{i})}{max_{j=1}^{P} \mathbb{H}(\mathbf{x}_{i)}}$$`
+`$$g(\mathbf{x}_i) = 1 - \frac{\mathbb{H}(\mathbf{x}_{i})}{max_{j=1}^{P} \mathbb{H}(\mathbf{x}_{i)}} \text{ or  } g(\mathbf{x}_i) = \frac{\text{MutInf}(\mathbf{x}_i; \mathbf{y})}{max_{j=1}^{P}\text{MutInf}(\mathbf{x}_i; \mathbf{y})}$$`
 
 - **Boosting:** to use the normalized importance values obtained from a previously
 run Machine Learning model (Random Forests, SVM, GLMs, etc), or 
@@ -328,22 +341,20 @@ run Machine Learning model (Random Forests, SVM, GLMs, etc), or
 `$$g(\mathbf{x}_i)  = \frac{Imp_i}{max_{j = 1}^{P} Imp_j}$$`
 
 
-- Each different function will be preferable for different types of problems 
 ---
 
 ## Depth parameter
 
 
-- We introduce the idea of increasing a penalisation considering the current depth 
-of a tree
+- We introduce the idea of increasing a penalisation considering the current depth  of a tree as
 `$$Gain_{R}(\mathbf{X}_{i}, t, \mathbb{T}) = 
 \begin{cases} \lambda_{i}^{d_{\mathbb{T}}} \Delta(i, t), \thinspace i \notin \mathbb{U} \text{ and} \\ \Delta(i, t), \thinspace i \in  \mathbb{U}, 
 \end{cases}$$`
 
 where `\(d_{\mathbb{T}}\)` is the current depth of the `\(\mathbb{T}\)` tree. 
 
-- The idea is inspiered by Chipman, George, and McCulloch (2010), that uses 
-prior distributions for wether a new variable should be considered or not for a new split
+- The idea is inspired by Chipman, George, and McCulloch (2010), that uses 
+prior distributions for whether a new variable should be considered or not for a new split
 in a Bayesian Regression Tree, taking into account their current depth
 
 ---
@@ -379,13 +390,11 @@ in a Bayesian Regression Tree, taking into account their current depth
 
 
 Note: `https://github.com/regularization-rf/ranger` 
-not merged into the `ranger` package yet 
+not merged yet 
 
 ---
 
-# Experiments
-
-## Regression 
+# Experiments - Regression 
 
 Let us consider now a set  `\(\mathbf{X} = (\mathbf{x_{1}},\dots, \mathbf{x_{p}})\)` of
 covariates, all sampled from a Uniform[0, 1] distribution, and
@@ -399,6 +408,8 @@ producing
 - decreasing importances  in `\(i=(6,\dots,205)\)`
 - correlation between the variables in `\(i=(5, 206,\dots,250)\)`
 
+
+- Standardized `\(\mathbf{y}\)`
 
 ---
 class: middle
@@ -414,7 +425,7 @@ class: middle
 - The models keep attributing high importances to the 
 correlated variables 
 
-**Not great so far**
+**Not great so far!**
 
 ]
 .pull-right[
@@ -426,33 +437,32 @@ correlated variables
 
 ---
 
-.pull-left[
+class: middle
+
 ## Regularized Random Forests
 
 - Same 10 datasets as before
 
-- Evaluted the effects of
+- Evaluated the effects of
   - `mtry` = (15, 45, 75, 105, 135, 165, 195, 225, 250)
   - `\(\lambda_0 = (0.1, 0.3, 0.5, 0.7, 0.9)\)`
   - `\(\gamma = (0.001, 0.25, 0.5, 0.75, 0.99)\)`
   - `\(g(\mathbf{x_i}) = (|corr(\mathbf{y}, \mathbf{x}_i)|, \thinspace  \text{Boosted}_{RF}, \thinspace \text{Boosted}_{SVM})\)`
   
-  ]
+
 ---
-
-
 
 background-image: url(img/results_corr.png)
 background-size: contain
 
-## `\(g(\mathbf{x_i}) = |corr(\mathbf{y}|\)`
+### `\(g(\mathbf{x_i}) = |corr(\mathbf{y}|\)`
 
 ---
 
 background-image: url(img/results_guided.png)
 background-size: contain
 
-## `\(g(\mathbf{x_i}) = \text{Boosted}_{RF}\)`
+### `\(g(\mathbf{x_i}) = \text{Boosted}_{RF}\)`
 
 
 
@@ -461,31 +471,19 @@ background-size: contain
 background-image: url(img/results.png)
 background-size: contain
 
-## `\(g(\mathbf{x_i}) = \text{Boosted}_{SVM}\)`
+### `\(g(\mathbf{x_i}) = \text{Boosted}_{SVM}\)`
 ---
 
 
-# Experiments
-
-## Classification 
+# Experiments - Classification 
 
 .pull-left[
-  - 10 different Gene classification  datasets from Diaz-Uriarte and de Andres (2006), where P &gt;&gt; n
-    - Split into train (2/3) and test (1/3) sets
-
-- Used `\(\gamma = \lambda_0 = 0.5\)`, `mtry` = `\((\sqrt{p}, 0.15p, 0.40p, 0.75p,  0.95p)\)` and  `\(g(\mathbf{x_i}) = (\text{MutInf}(\mathbf{y}, \mathbf{x}_i), \thinspace  \text{Boosted}_{RF}, \thinspace \text{Boosted}_{SVM})\)`
-
-
-- **Regularized Random Forests as a variable selection procedure**
-  - Extract the variables selected by each model and run a Standard
-  Random Forest with them 
-  - 10 different reruns for each model
-
-]
-
-.pull-right[
+  - 8 Gene classification  datasets from Diaz-Uriarte and de Andres (2006), where P &gt;&gt; n, split into train (2/3) and 
+  test (1/3) sets
+  
+  
 &lt;table class="table table-condensed table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
-&lt;caption&gt;Classification datasets especifications&lt;/caption&gt;
+&lt;caption&gt;Classification datasets'specifications&lt;/caption&gt;
  &lt;thead&gt;
   &lt;tr&gt;
    &lt;th style="text-align:left;"&gt; dataset &lt;/th&gt;
@@ -545,19 +543,36 @@ background-size: contain
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+
+
+]
+
+.pull-right[
+
+  - Used `\(\gamma = \lambda_0 = 0.5\)`, `mtry` = `\((\sqrt{p}, 0.15p, 0.40p, 0.75p,  0.95p)\)` and  `\(g(\mathbf{x_i}) = (\text{MutInf}(\mathbf{y}, \mathbf{x}_i), \thinspace  \text{Boosted}_{RF})\)`, compared to a
+Standard Random Forest 
+
+
+- **Regularized Random Forests as a variable selection procedure:**
+  - Extract the variables selected by each model and run a Standard
+  Random Forest with them 
+  - 10 different reruns for each model
+
+
 ]
 
 ---
 
 ## Classification - Results
 
-- From the optimal resulting models of the runs: 
+- From the optimal resulting models: 
 
 .pull-left[
 &lt;table class="table table-condensed table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
 &lt;caption&gt;Mean error rates in the test set&lt;/caption&gt;
  &lt;thead&gt;
   &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; dataset &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; Standard RF &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; Boosted (RF) &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; Boosted (MI) &lt;/th&gt;
@@ -565,43 +580,51 @@ background-size: contain
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;5.56%&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; 8.33% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; brain &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;5.56%&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 8.33% &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;5.56%&lt;/span&gt; &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;40.0%&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; 50.0% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; breast.2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;40.0%&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 50.0% &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 45.0% &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;29.6%&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; 35.2% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; breast.3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;29.6%&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 35.2% &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 38.9% &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;50.0%&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; 53.3% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; colon &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;50.0%&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 53.3% &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 53.3% &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; leukemia &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;15.8%&lt;/span&gt; &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;15.8%&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;15.8%&lt;/span&gt; &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;15.8%&lt;/span&gt; &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; lymphoma &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;0%&lt;/span&gt; &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;0%&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;0%&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;0%&lt;/span&gt; &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;0%&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;0%&lt;/span&gt; &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;0%&lt;/span&gt; &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;3.33%&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; 6.67% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; prostate &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;0%&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;0%&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;0%&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; srbct &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen"&gt;3.33%&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6.67% &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 8.33% &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -613,6 +636,7 @@ background-size: contain
 &lt;caption&gt;Mean number of variables used&lt;/caption&gt;
  &lt;thead&gt;
   &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; dataset &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; Standard RF &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; Boosted (RF) &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; Boosted (MI) &lt;/th&gt;
@@ -620,43 +644,51 @@ background-size: contain
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 479.9 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; 208.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; brain &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; 479.9 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 208.2 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;207.3&lt;/span&gt; &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 1302.5 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;8.2&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; breast.2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; 1302.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;8.2&lt;/span&gt; &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 14.5 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 901.6 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;40.8&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; breast.3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; 901.6 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;40.8&lt;/span&gt; &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 280.2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 1492.2 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; 310.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; colon &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; 1492.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 310.5 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;310.3&lt;/span&gt; &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 474.2 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;7.6&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; leukemia &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; 474.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;7.6&lt;/span&gt; &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 14.4 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 178.8 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; 17.4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; lymphoma &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; 178.8 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17.4 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;13.9&lt;/span&gt; &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 589.3 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;12.9&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; prostate &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; 589.3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;12.9&lt;/span&gt; &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 13.3 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; 741.6 &lt;/td&gt;
-   &lt;td style="text-align:left;width: 3cm; "&gt; 321.8 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; srbct &lt;/td&gt;
+   &lt;td style="text-align:left;width: 4cm; "&gt; 741.6 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 321.8 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; &lt;span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: lightgreen; width: 100.00%"&gt;320.5&lt;/span&gt; &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -674,7 +706,7 @@ class: middle
 - Variable selection in Random Forests is still a topic to be explored
 
 - Using "prior" knowledge about the features to regularize the 
-Random Forests seem to produce good results results in terms
+Random Forests seem to produce good results in terms
 of the (number of variables) x (prediction error) trade-off
 
 - This knowledge can be balanced combined with a baseline
@@ -689,7 +721,7 @@ Random Forests
 ---
 class: center, inverse, middle
 
-# II) Bayesian Optimisation 
+# II) Bayesian Optimization 
 
 ---
 class: middle
@@ -700,25 +732,23 @@ class: middle
   - `\(\lambda_0\)`, `\(\gamma\)`, `mtry` and maybe even `\(g(\mathbf{x_i})\)`
   
 - Options: Expert experience, rules of thumb or even brute force
-    - Migh take a lot of time
+    - Might take a lot of time
     
 ---
 
 
-# Bayesian Hyperparameter Optimisation
+# Bayesian Hyperparameter Optimization
 
   - **We are interested in finding the minimum of a function `\(f(x)\)` on some bounded `\(\mathcal{X} \in \mathbb{R}^{D}\)`, or**
   
   `$$x^* = \underset{x \in \mathcal{X}}{\text{arg min}} f(x)$$`
 
 
-Basically, &lt;b&gt; we build a probability model of the objective function and use it to select the most promising parameters. &lt;/b&gt; 
+Basically, &lt;b&gt; we build a probability model of the objective function and use it to select the most promising parameters, &lt;/b&gt; 
 
 $$ P(\text{objective } | \text{ hyperparameters})$$
 where the objectives are, e.g., the RMSE , misclassification rate, etc.
-
-
-For doing Bayesian optimisation, we need:
+We need:
 
 `$$\underbrace{\text{Prior over } f(x)}_{\text{Our assumptions about the  functions being optmized}} + \underbrace{\text{Acquisition function}}_{\text{Determines the next point to evaluate}}$$`
 
@@ -726,16 +756,20 @@ For doing Bayesian optimisation, we need:
 
 
 ---
+class: middle
 
 ## Prior over `\(f(x)\)`: Gaussian Processes 
 
-- The classical prior in Bayesian Optimisation
+- The classical prior in Bayesian Optimization
 - The GPs are defined by the property that any finite set of `\(N\)` points
 induces a Multivariate Gaussian distribution on `\(\mathbb{R}^{N}\)`
   - Mean function `\(m: \mathcal{X} \rightarrow \mathbb{R}\)` and 
     covariance function `\(K: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}\)`
 - Convenient and powerful as a prior: very flexible
 
+
+---
+class: middle
 
 ## Acquisition Function 
 
@@ -750,6 +784,30 @@ determines what point in `\(\mathcal{X}\)` should be the next evaluated
 Best current value:
 
 `$$\mathbf{x}_{best} = \underset{\mathbf{x}_n}{\text{arg min}} f(\mathbf{x}_n)$$`
+Most popular: &lt;b&gt; Expected improvement&lt;/b&gt;
+
+  `$$a_{\text{EI}}(\mathbf{x}; {\mathbf{x}_n, y_n}, \theta) = \sigma(\mathbf{x}; {\mathbf{x}_n, y_n}, \theta)[\gamma(\mathbf{x})\Phi(\gamma(\mathbf{x}) + \mathcal{N}(\gamma(\mathbf{x}); 0, 1)]$$`
+---
+
+# Algorithm 
+
+
+.content-box-grey[
+
+1. Choose some **prior** over the space of possible objectives `\(f\)`
+
+2. Combine prior and likelihood to get a **posterior** over the objective,
+given some observations
+
+3. Use the posterior to find the next value to be evaluated, according
+to the chosen **acquisition function**
+
+4. Augment the data (with the new best value)
+
+]
+
+&gt; Iterate between 2 and 4 until you are satisfied
+
 
 
 ---
@@ -763,19 +821,21 @@ Source: adapted from `https://github.com/glouppe/talk-bayesian-optimisation`
 
 ---
 
-# Bayesian Hyperparameter Optimisation in Regularized Random Forests
+# BHO in Regularized Random Forests
 
 What we want to find is 
 
-$$ P(\text{Error}_{test} / \text{# Variables Used } | \lambda_0, \gamma, \texttt{mtry}), $$
+$$ P(\text{Error}_{test} / \text{# Variables Used } | \lambda_0, \gamma, \texttt{mtry}) $$
 
 ## Some results
   - Input: the resulting `\(\text{RMSE}_{test} / \text{# Variables Used}\)`
   of the models using the combinations of 
-    - `\(\gamma = (0.001, 0.12575, 0.2505, 0.37525, 0.50) \times \lambda_0 = (0.5, 0.6, 0.7, 0.8, 0.9) \times \texttt{mtry} = (0.05p, 0.2125p, 0.375p, 0.5375p, 0.7p)\)` and  `\(g(\mathbf{x_i}) = \text{Boosted}_{SVM})\)` for the 
+  
+    - `\(\gamma = (0.001, 0.12575, 0.2505, 0.37525, 0.50) \times \lambda_0 = (0.5, 0.6, 0.7, 0.8, 0.9)\)` 
+    `\(\times \texttt{mtry} = (0.05p, 0.2125p, 0.375p, 0.5375p, 0.7p)\)` and  `\(g(\mathbf{x_i}) = \text{Boosted}_{SVM}\)` for the 
 Regression simulated data
 
-- Used the best predicted values as hyperparameters in the next 20 models 
+- Used the best-predicted values as hyperparameters in the next 20 models 
 
 ---
 
@@ -789,11 +849,11 @@ Regression simulated data
 .pull-right[
 ## Conclusions (so far)
 
-- Bayesian Hyperparameter Optimisation is useful when we need
+- Bayesian Hyperparameter Optimization is useful when we need
 to set hyperparameters in a model but do not have much knowledge
 about it
 
-- It can be applied to the Regularized Random Forests by optimising
+- It can be applied to the Regularized Random Forests for optimizing
 the trade-off between the number of variables used and the prediction
 error
 

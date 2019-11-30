@@ -4,3 +4,5 @@ _site
 .sass-cache
 .jekyll-metadata
 **.orig
+slides/satrday-sp/tidyverse-para-AM_cache
+slides/satrday-sp/tidyverse-for-ml_cache

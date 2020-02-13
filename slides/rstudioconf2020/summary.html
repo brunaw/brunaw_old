@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>rstudio::conf 2020: Summary</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Bruna Wundervald" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/my-theme.css" type="text/css" />
+    <link rel="stylesheet" href="css/my-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# rstudio::conf 2020: Summary
+### Bruna Wundervald
+### February, 2020
+
+---
+
+
+
+
+class: middle
+
+# What is the conference?
+
+  - It's a conference about all things `R` &amp; `RStudio` 
+  - 2 days of workshops + 2 days of conference
+  - Includes various social moments: party, themed lunches, R-Ladies
+  reception
+
+
+## Why go?
+  - Networking &amp; getting in touch with the community  
+  - Improving on your `R`/programming skills  
+  - Fun
+
+*Videos of the talks: https://resources.rstudio.com/*
+
+---
+class: middle, center, inverse
+
+# ✨   Highlights   ✨
+
+---
+
+# Talks 
+
+  - JJ Allaire and [The Open Source Software for Data Science](): 
+  the origin &amp; philosophy of RStudio as a company and a community 
+  
+  - Will Chase and [the Glamour of Graphics](https://www.williamrchase.com/slides/assets/player/KeynoteDHTMLPlayer.html):
+  about how details like colours, titles, scales, and fonts can make the whole
+  difference in a plot
+  
+  
+  - [Object of type 'closure' is not subsettable](https://github.com/jennybc/debugging#readme), by Jenny Brian: 
+  general debugging methods in `R`
+
+---
+
+# Packages
+
+  - My favorite, [{tune}](https://tidymodels.github.io/tune/): 
+  for tuning algorithms, it belongs to the `tidymodels` ecossystem 
+    - Includes Bayesian Optimization options
+    
+  - [What's new in TensorFlow for `R`](https://dfalbel.github.io/talks/2020-01-rstudio-conf/), by Daniel Falbel: 
+   getting very good on the Deep Learning side 
+    - Includes `tfprobability` for TensorFlow Probability
+    
+  - [Interactivity and Programming in the tidyverse](https://speakerdeck.com/lionelhenry/interactivity-and-programming-in-the-tidyverse), by Lionel Henry: advances on tidy eval and the `rlang` package
+
+
+
+
+---
+
+
+class: bottom, center, inverse
+
+&lt;font size="30"&gt;Thanks! &lt;/font&gt;
+
+&lt;img src= "https://s3.amazonaws.com/kleebtronics-media/img/icons/github-white.png", width="50", height="50",  align="middle"&gt; 
+
+&lt;b&gt;
+
+ &lt;color="FFFFFF"&gt;  https://github.com/brunaw &lt;/color&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

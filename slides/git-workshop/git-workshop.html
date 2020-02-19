@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>git-workshop.utf8</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Bruna Wundervald &amp; Jo Niec" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/my-theme.css" type="text/css" />
+    <link rel="stylesheet" href="css/my-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: title-slide, center, bottom
+
+
+# 
+
+## I'm a Data Scientist, Git me out of here!
+
+### Bruna Wundervald &amp; Jo Niec &amp;#183; R-Ladies Dublin
+
+#### 20 February, 2020
+
+---
+
+class: inverse, center, middle
+
+Find this presentation at: brunaw.com/slides/git-workshop/git-workshop.html
+
+and the source code in our [GitHub](https://github.com/rladies/meetup-presentations_dublin)
+
+---
+
+# Who Are We
+
+.pull-left[
+
+&lt;img src="https://avatars3.githubusercontent.com/u/18500161?s=460&amp;v=4" width="40%" style="display: block; margin: auto;" /&gt;
+
+### Bruna Wundervald
+  - Ph.D. Candidate in Statistics at Maynooth University
+  - GitHub: [@brunaw](https://github.com/brunaw)
+  - Twitter: [@bwundervald](https://twitter.com/bwundervald)
+  
+  
+]
+
+
+.pull-right[
+
+
+&lt;img src="https://avatars1.githubusercontent.com/u/39118415?s=400&amp;v=4" width="40%" style="display: block; margin: auto;" /&gt;
+
+### Jo Niec
+  -  Product Analyst at Intercom
+  - GitHub: [@jo-niec](https://github.com/jo-niec)
+  - Twitter: [@joannaniec](https://twitter.com/joannaniec)
+  
+
+]
+
+---
+.pull-left[
+# Why use Git?
+
+  - To share your work/build your portfolio
+    - Many tech companies ask candidates for their GitHub page
+
+  - To create your own [code archive](https://github.com/ivelasq/r-data-recipes)
+  
+  - To make your results reproducible
+    - For yourself and others - to allow people to validate and extend
+    your code and results
+
+]
+
+.pull-right[
+&lt;img src="https://images.wallpaperscraft.com/image/code_programming_text_140050_1350x2400.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+
+]  
+
+
+
+  
+    
+
+---
+
+class: middle
+# What are git and GitHub?
+
+  - [**Git**](https://git-scm.com/): the most widely used modern 
+  version control system in the world today
+    - Originally developed in 2005 by Linus Torvalds
+    
+  - [**GitHub**](https://github.com/): a web-based hosting service 
+  for version control using git
+    - It's like a "social network" for git 
+
+---&gt; [Git cheatsheet here!](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
+
+---
+
+&lt;img src="https://github.com/brunaw/git-workshop/blob/master/presentation/img/github.png?raw=true" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="https://github.com/brunaw/git-workshop/blob/master/presentation/img/gh_jo_priv.png?raw=true" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="https://github.com/brunaw/git-workshop/blob/master/presentation/img/gh_intercom_jo.png?raw=true" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, middle
+
+## Schedule:
+
+0. Creating your GitHub account and installing Git 
+1. Creating and Cloning a Repository ('repo')
+2. Connecting your local Git to GitHub via an SSH Key
+3. Pushing to Your Repositories
+4. Adding a `.gitignore` File
+5. Contributing to Existing Repositories
+6. Using Branches
+7. Final Remarks 
+
+---
+
+# Set-up
+
+## 1. Creating your GitHub account and installing Git 
+
+- [Download](https://git-scm.com/downloads) and
+[install](https://happygitwithr.com/install-git.html) git (If you use Linux or MacOS you might already have it)
+
+- Create a [GitHub](http://github.com) account
+  - Give your [username](https://happygitwithr.com/github-acct.html#username-advice) some consideration
+  - [Students](https://education.github.com/) are eligible for one year
+  of premium account for free (+ their student pack)
+  - GitHub offers discounted accounts for [non-profits](https://github.com/nonprofit)
+
+---
+
+# 2. Creating and Cloning a Repository
+
+  - To create a repository in GitHub, go to the `+` sign on
+  the upper right corner and click "New Repository" 
+
+&lt;img src="https://github.com/brunaw/git-workshop/blob/master/presentation/img/new_repo.png?raw=true" width="50%" height="35%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# 2. Creating and Cloning a Repository
+
+  - To clone a repository, first, copy your repository URL, 
+  open a terminal window in the folder where you want to clone and 
+  type:
+  
+    `git clone "your-repository-url-here"`
+    
+    or 
+    
+    `git clone "username/repositoryname"`
+    
+  - You'll note a new folder with the name of your repository appeared.
+  You can start editing it! 
+  
+  - You can clone any repository you want, not only yours 
+    - You might not have permission to push to other people's
+    repository 
+    - Explore GitHub to find interesting repositories! 
+
+
+---
+
+# Pro-tip: You can connect your local git to your GitHub account with an SSH key.
+
+&gt; An SSH key is an access credential in the SSH protocol. Its function is similar to that of user names and passwords, but the keys are primarily used for automated processes and for implementing single sign-on by system administrators and power users.
+
+You don't need to use SSH, but it provides an extra security layer.
+
+There are other methods of [authentication](https://happygitwithr.com/credential-caching.html#credential-caching).
+
+
+---
+
+# 3. Connecting your local Git to GitHub via an SSH Key
+
+  - Step 1. Open GitHub and go to `Settings` -&gt; `SSH and GPG keys` -&gt; `New SSH key` 
+  
+  - Step 2. Open terminal and run: 
+  `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"` (with your email, of course)
+  
+  - Step 3. Press enter until the end of the process
+  
+  - Step 4. On terminal, run `eval "$(ssh-agent -s)"`
+  and `ssh-add ~/.ssh/id_rsa`. You have **generated the key**. Use `ssh-add -K ...` to save it to Keychain.
+
+  - Step 4. Copy and paste it to GH: open the `id_rsa.pub` file created in `~/.ssh` and copy it
+  to GitHub. Alternatively type: `pbcopy &lt; ~/.ssh/id_rsa.pub`
+  
+[More details here!](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+
+---
+
+# 4. Pushing to Your Repositories
+
+To push your changes to git, there are basically four steps, all
+done in a terminal open at your git repository:
+
+  - Step 1. Check what changed with `git status`
+    - The changed files will be listed in 
+    &lt;font color="red"&gt;red&lt;/font&gt; and have a status: modified, 
+    added or deleted
+    
+
+&lt;img src="https://github.com/brunaw/git-workshop/blob/master/presentation/img/git-status.png?raw=true" width="40%" height="35%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# 4. Pushing to Your Repositories
+
+
+  - Step 2. Add your changes with `git add 'changed_file.extension'`
+    - You can use `git add .` to add all changes at the same time
+    - If you run `git status` you'll see that the added files turned 
+    &lt;font color="green"&gt;green&lt;/font&gt;
+    
+    
+&lt;img src="https://github.com/brunaw/git-workshop/blob/master/presentation/img/git-status2.png?raw=true" width="40%" height="35%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: center, middle
+
+## ⚠️ **Warning** ⚠️
+
+GitHub has a few file size constraints: it won't let you upload
+big files or have heavy repositories. **Rule of thumb: 1GB per repository, 
+100MB per file.** 
+
+There is way around it, through git itself, with [Git Large File Storage](https://help.github.com/en/github/managing-large-files/configuring-git-large-file-storage), but we're not going to cover it by now. You can
+also save such files in other places (like drives) and read it from there
+when needed. 
+
+
+---
+
+# 4. Pushing to Your Repositories
+
+    
+  - Step 3. Commit your changes with `git commit -m "my commit message"`
+  
+  - Step 4. Push your changes with `git push`. Done! You should be able
+to see the changes on your GitHub profile now. 
+
+&gt; Note: it's a good habit to try to use useful commit [messages](https://chris.beams.io/posts/git-commit/), which
+will help you remember what you were doing when you committed the 
+changes
+
+---
+
+Not this:
+&lt;img src="https://github.com/brunaw/git-workshop/blob/master/presentation/img/commits.png?raw=true" width="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: middle, center
+
+# I don't want all files to go to GitHub. Can I ignore some of them?
+
+
+&lt;img src="https://media2.giphy.com/media/3o7buirYcmV5nSwIRW/giphy.gif?cid=790b761109306fddac1ab85bb6e49057902f4e02a1c0e076&amp;rid=giphy.gif" style="display: block; margin: auto;" /&gt;
+
+# Yes, you can do that using a `.gitignore` file 
+
+---
+
+# 5. Adding a `.gitignore` File
+
+  - Open the terminal at your git repository and run 
+  `touch .gitignore` (this will be a hidden file)
+  - Open this file with `open .gitignore`
+  - Add there the names (with the paths) of the 
+  files you don't want to be "seen" by git
+
+Now, whenever you run `git status` you won't even see the ignored
+files listed there 
+
+---
+
+
+# 6. Contributing to Existing Repositories
+
+
+Suppose you want to add changes to an existing repository - example:
+to discontinuated `R` packages. The steps to do that are:
+
+  - Step 1.  `fork` the repository into your GitHub account:
+  
+  
+&lt;img src="https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
+
+
+  - Step 2. Clone it (from your github account, e.g. `github.com/your_user/forked_repository`), set upstream to be able to propose changes `git remote add upstream &lt;repo_url&gt;`. 
+  
+  - Step 3. Commit changes and create a `pull request` into the original repository (ask for your changes to be added by the owner of the repository). 
+
+**Some repositories have their own contributing guide!**
+
+---
+
+
+# Contributing scheme
+&lt;img src="http://jlord.us/git-it/assets/imgs/clone.png" width="65%" height="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# 7. Using Branches
+
+  - Branches are used to develop isolated functionalities
+  in a git repository
+  - They can be extra useful when there's more than one person
+  working in the same Git repository
+  
+&lt;img src="https://cdn-images-1.medium.com/max/1600/1*iB8lNrITmLvKeL8mnp3qAA.png" width="50%" height="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7. Using Branches
+
+
+  - Step 1. Create a new branch with `git checkout -b &lt;branch_name&gt;`. Now you're working on this branch (use `git branch` to see what branch you're on)
+    
+  - Step 2. Propose your changes and commit as usual except the push step: 
+  now you need to use `git push origin &lt;branch_name&gt;` to identify where 
+  the changes are coming from
+  
+
+---
+
+# 7. Using Branches
+
+- Step 4. Return to the master branch with `git checkout master`
+  
+**At this point, the changes made using the branch are not
+available in the master folder.  You can `merge` ("accept") the
+branch with `git merge &lt;branch_name&gt;`**
+  
+  - This depends on the branch having no conflicts with the
+  master branch. If conflicts exist, you might need to deal
+  with them manually 
+  
+It is possible to check the differences between branches with
+`git diff &lt;origin branch&gt; &lt;destin branch&gt;`
+
+---
+
+# Pro tip: You can just use a Git client
+
+Git can be daunting and the learning curve is steep. 
+Just use a Git client. It'll help you grasp the concepts of version control faster.
+
+&gt; [SourceTree](https://confluence.atlassian.com/get-started-with-sourcetree/install-sourcetree-847359094.html) gets a lot of praises among Data Engineers on Jo's team.
+
+---
+
+
+# 8. Final Remarks 
+
+  - Git and GitHub can be very useful tools for many tasks
+  - What we learned today is enough for:
+    - Creating and pushing to your repositories
+    - Creating branches (which can be used by groups)
+    - Contributing to other repositories
+  
+  but Git and GitHub have many more features that you'll learn when practicing it :)
+    
+---
+
+# Resources
+
+- [Happy Git with R](https://happygitwithr.com/) - Jenny Bryan, Jim Hester
+- [Oh shit git](https://ohshitgit.com/) / [Dang it git](https://dangitgit.com/)
+- HubSpot's [Intro to Git and GitHub for Beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
+
+
+
+---
+
+
+class: middle, center, inverse
+
+&lt;font size="45"&gt; Thank you! &lt;/font&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "dracula",
+"highlightLanguage": ["r", "yaml", "markdown"],
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

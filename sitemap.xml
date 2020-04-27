@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/material/</loc>
+      <lastmod>2020-04-04T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/talk/satrday-sp-2019/</loc>
       <lastmod>2019-11-30T00:00:00+00:00</lastmod>
     </url>
@@ -284,6 +293,15 @@
     
     <url>
     
+      <loc>/material/1st_rday/</loc>
+      <lastmod>2018-05-21T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/talk/1st_rday/</loc>
       <lastmod>2018-05-21T00:00:00+00:00</lastmod>
     </url>
@@ -498,8 +516,8 @@
     
     <url>
     
-      <loc>/categories/r/</loc>
-      <lastmod>2018-04-25T00:00:00+00:00</lastmod>
+      <loc>/tags/r/</loc>
+      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -508,8 +526,8 @@
     
     <url>
     
-      <loc>/tags/r/</loc>
-      <lastmod>2018-10-06T00:00:00+00:00</lastmod>
+      <loc>/categories/r/</loc>
+      <lastmod>2018-04-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

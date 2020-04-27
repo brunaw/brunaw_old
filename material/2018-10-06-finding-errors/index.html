@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.49" />
+  <meta name="author" content="Bruna Wundervald">
+  <meta name="description" content="PhD Candidate in Bayesian Machine Learning">
+
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/atom-one-light.min.css">
+    
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather%7CRoboto+Mono">
+  <link rel="stylesheet" href="/css/hugo-academic.css">
+  
+  <link rel="stylesheet" href="/css/blue.css">
+  
+
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Bruna Wundervald">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Bruna Wundervald">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="/material/2018-10-06-finding-errors/">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Montserrat:300,400">
+  
+
+<title>Finding errors in R - Bruna Wundervald</title>
+<meta property="og:title" content="Finding errors in R - Bruna Wundervald">
+<meta property="og:type" content="article">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="http://xvrdm.github.io/images/" >
+  
+  
+
+<meta property="description" content="Article posted by [Bruna Wundervald], on Saturday, October 6nd, 2018">
+<meta property="og:description" content="Article posted by [Bruna Wundervald], on Saturday, October 6nd, 2018">
+
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:site" content="">
+
+  <title>Finding errors in R | Bruna Wundervald</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Bruna Wundervald</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#packages">
+            
+            <span>R Packages</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#talks">
+            
+            <span>Talks &amp; Workshops</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/docs/curriculum_vitae.pdf">
+            
+            <span>Curriculum Vitae</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/material/">
+            
+            <span>Work</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+  <div class="article-container">
+    <h1 itemprop="name">Finding errors in R</h1>
+    
+
+<div class="article-metadata">
+
+
+  <span class="article-date">
+    <time datetime="2018-10-06 00:00:00 &#43;0000 &#43;0000" itemprop="datePublished">
+      Sat, Oct 6, 2018
+    </time>
+  </span>
+  
+
+  @map[content:Page(/material/2018-10-06-finding-errors.html) is_list:0]
+  </span>
+  
+
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/debugging">debugging</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/r">R</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fmaterial%2f2018-10-06-finding-errors%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Finding%20errors%20in%20R&amp;url=%2fmaterial%2f2018-10-06-finding-errors%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fmaterial%2f2018-10-06-finding-errors%2f&amp;title=Finding%20errors%20in%20R"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fmaterial%2f2018-10-06-finding-errors%2f&amp;title=Finding%20errors%20in%20R"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Finding%20errors%20in%20R&amp;body=%2fmaterial%2f2018-10-06-finding-errors%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      <p>*Portuguese version of this same post <a href="https://www.curso-r.com/blog/2018-09-03-funcoes/">here</a>!</p>
+<p>On a daily basis, I come across people on Facebook groups, Telegram
+or Twitter having troubles with some tasks in R. These
+problems have two main origins:</p>
+<ol style="list-style-type: decimal">
+<li>difficulties in constructing the algorithm to reach the desired result.</li>
+<li>difficulties in understanding the behavior of some function.</li>
+</ol>
+<p>The focus of this post is to give some notion about how to
+solve the second one: problems using functions. To give a little
+bit of context, we can say that R packages are made by
+the community, voluntarily. Therefore, not all package documentations
+are written in the clearest way possible. Also, currently,
+CRAN only demands a certain amount of rigor regarding the
+functions of a package, and not its documentation. This
+situation is changing for better, which can be noted
+by the existence of recommendations such as the following,
+extracted from <a href="http://r-pkgs.had.co.nz/">Hadley’s book about R packages</a>:</p>
+<blockquote>
+<p>Documentation is one of the most important aspects of a good package. Without it, users won’t know how to use your package. Documentation is also useful for future-you (so you remember what your functions were supposed to do), and for developers extending your package.</p>
+</blockquote>
+<p>While documentation is not perfect, users need to try to understand
+the unexpected errors using other resources. The method I’ll
+describe now is basically looking into the source code of
+functions and search for what is generating the troubles.</p>
+<p>There are functions that can be directly viewed in <code>console</code>,
+by just printing them without the final <code>()</code>, for example:</p>
+<pre class="r"><code>mean &lt;- function(x, y){
+  n &lt;- 2
+  sum_vars &lt;- x + y
+  mean &lt;- sum_vars/n
+  mean
+}
+
+mean</code></pre>
+<pre><code>## function(x, y){
+##   n &lt;- 2
+##   sum_vars &lt;- x + y
+##   mean &lt;- sum_vars/n
+##   mean
+## }</code></pre>
+<p>Just by running the name of the function we access
+the code that composes it. Then if we try,
+for example:</p>
+<pre class="r"><code>mean(2, &quot;1&quot;)</code></pre>
+<pre><code>## Error in x + y: non-numeric argument to binary operator</code></pre>
+<p>Well, what does that mean? For the new user, it might not be
+so obvious, but sum 2 and “1” doesn’t work in R. Although they simply look
+like two numbers, they’re actually two different objects, with
+two different classes - 2 is a numeric, but “1” is a character.</p>
+<p>The strategy here is just to copy the function code
+and run line by line until the error is found. Remember to
+create the necessary objects first (the arguments the function
+receives), like this:</p>
+<pre class="r"><code>x &lt;- 2              # The first argument of the function
+y &lt;- &quot;1&quot;            # The second argument of the function
+
+# Code of the created &#39;mean&#39; function   
+n &lt;- 2
+sum_vars &lt;- x + y  # error found here!</code></pre>
+<pre><code>## Error in x + y: non-numeric argument to binary operator</code></pre>
+<pre class="r"><code>mean &lt;- sum_vars/n</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;sum_vars&#39; not found</code></pre>
+<p>This was pretty simple because the function has just a few lines of code,
+and we get the error already in the second line. Now,
+is way easier to think about the probable reason of the problem
+than just trying to interpret the error message. Sometimes, the
+question is exactly about using objects with the wrong structure,
+and this is also what causes the weirdest errors.</p>
+<p>The example above is with just a simple, short function. Usually,
+you’ll come across extensive functions or that when printed in the
+<code>console</code> won’t show the code, but the <code>method</code> used, for
+example:</p>
+<pre class="r"><code># The mean function that exists in R base
+base::mean</code></pre>
+<pre><code>## function (x, ...) 
+## UseMethod(&quot;mean&quot;)
+## &lt;bytecode: 0x7f91cb2539d8&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<p>And how we interpret that? We’re actually looking at a generic
+function of the S3 class, that calls a method to use. There are
+different methods for different object types.</p>
+<p>Let’s use <code>base::mean</code> as an example. Which are the objects
+that can be used in this function? In general, we use
+numeric vectors, but the function can also deal with other types,
+such as dates. What we mean with this is that the <strong>same function
+can perform the same task with different object types</strong>, by
+calling the specific <strong>methods</strong>.</p>
+<p>And what are the methods? A method is a function associated
+with a particular type of object. We can check the available methods with:</p>
+<pre class="r"><code>methods(mean)</code></pre>
+<pre><code>## [1] mean.Date     mean.default  mean.difftime mean.POSIXct  mean.POSIXlt 
+## [6] mean.quosure*
+## see &#39;?methods&#39; for accessing help and source code</code></pre>
+<p>(depending on the package, the methods aren’t exported. If you’re
+dealing with one of those, try using the operator <code>:::</code>, as
+<code>dplyr:::filter.tbl_df</code>, for example!)</p>
+<p>Now we know which methods can be used for the function
+<code>base::mean</code>. We can see the code by running the
+combination <code>desired-function.specific-method</code>, without
+the final <code>()</code>:</p>
+<pre class="r"><code>base::mean.default</code></pre>
+<pre><code>## function (x, trim = 0, na.rm = FALSE, ...) 
+## {
+##     if (!is.numeric(x) &amp;&amp; !is.complex(x) &amp;&amp; !is.logical(x)) {
+##         warning(&quot;argument is not numeric or logical: returning NA&quot;)
+##         return(NA_real_)
+##     }
+##     if (na.rm) 
+##         x &lt;- x[!is.na(x)]
+##     if (!is.numeric(trim) || length(trim) != 1L) 
+##         stop(&quot;&#39;trim&#39; must be numeric of length one&quot;)
+##     n &lt;- length(x)
+##     if (trim &gt; 0 &amp;&amp; n) {
+##         if (is.complex(x)) 
+##             stop(&quot;trimmed means are not defined for complex data&quot;)
+##         if (anyNA(x)) 
+##             return(NA_real_)
+##         if (trim &gt;= 0.5) 
+##             return(stats::median(x, na.rm = FALSE))
+##         lo &lt;- floor(n * trim) + 1
+##         hi &lt;- n + 1 - lo
+##         x &lt;- sort.int(x, partial = unique(c(lo, hi)))[lo:hi]
+##     }
+##     .Internal(mean(x))
+## }
+## &lt;bytecode: 0x7f91cb269188&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<p>Let’s get back to the discovery of error sources. Say we run the
+following line of code, which won’t go so well:</p>
+<pre class="r"><code>base::mean(c(&quot;1&quot;, 3))</code></pre>
+<pre><code>## Warning in mean.default(c(&quot;1&quot;, 3)): argument is not numeric or logical:
+## returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>Note that this is not an error, but a <code>warning</code> message. Anyway,
+the <code>NA</code> is certainly not the desired output when trying to obtain
+the mean of two numbers. What happened? We’ll check it by
+using the code of <code>base::mean.default</code>:</p>
+<pre class="r"><code># Defining the vector which is the argument of the function
+x &lt;- c(&quot;1&quot;, 3)
+
+# Code of  base::mean.default 
+if (!is.numeric(x) &amp;&amp; !is.complex(x) &amp;&amp; !is.logical(x)) {
+  
+  warning(&quot;argument is not numeric or logical: returning NA&quot;)
+  return(NA_real_)
+}</code></pre>
+<pre><code>## Warning: argument is not numeric or logical: returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code># We can stop here as the error was already found!</code></pre>
+<p>In the first line of the function, we have the indication
+of the problem: the vector is neither numeric, complex or logical. If
+we want the function to work, is must receive those types of objects.
+Well, now is easier to understand what was done wrong!</p>
+<div id="why-should-i-try-to-understand-the-errors" class="section level1">
+<h1>Why should I try to understand the errors?</h1>
+<ol style="list-style-type: decimal">
+<li>Making mistakes is a great way to learn.</li>
+</ol>
+<p>Broadly, in my experience with searching errors in functions, I
+always end up learning something new. The own correction of the error
+generally leads me to know something that wasn’t quite
+obvious before. The errors make me look for a better understanding
+of their existence, which hence leads to an improvement in
+the comprehension about programming logic and R in general.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Your own independence.</li>
+</ol>
+<p>Is always more efficient being able to solve your own problems. Not
+rarely, I see questions about R in the internet
+that take a long time to have a proper answer. With a little deeper
+search for the source of your errors and its consequent solution,
+this waiting will be avoided (not that you shouldn’t make
+questions, of course).</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Exposition to the diversity of “coding styles” we have in
+the community.</li>
+</ol>
+<p>Particularly, I can comment that, since R packages are made by the
+community, there is a wide diversity in the ways they’re written.
+The contact with this diversity, aka going deep in how functions
+are coded, leads me not only to learn more about R but also about
+how to refine my own coding style.</p>
+</div>
+<div id="wrap-up" class="section level1">
+<h1>Wrap-up</h1>
+<p>In this blog post, I explained a bit about how to search for errors
+in R functions. We talked about:</p>
+<ul>
+<li>how to see the source code of simple functions;</li>
+<li>how to see the source code of the S3 class functions;</li>
+<li>how to use these code for indentifying the erros;</li>
+<li>how we can learn with our own mistakes;</li>
+<li>how we can save time by learning about finding &amp; fixing errors.</li>
+</ul>
+<p>That’s it for now. I hope you liked it. Any questions can be addressed
+to me directly or here via comments!</p>
+</div>
+
+    </div>
+  </div>
+
+</article>
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+
+    
+    <li class="next"><a href="/material/material/">Machine learning and chord based feature engineering for genre prediction in popular Brazilian music. Article in arXiv. <span
+      aria-hidden="true">&rarr;</span></a></li>
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "http-brunaw-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2018 Bruna Wundervald &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="/js/jquery-1.12.3.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/r.min.js"></script>
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/yaml.min.js"></script>
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

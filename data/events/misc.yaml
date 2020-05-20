@@ -1,0 +1,18 @@
+weight: -201006
+title: "Miscellaneous"
+#subtitle: ""
+#commitee: "Walmes Marques Zeviani"
+#image: "../img/events/hackathon-laura.png"
+description: |
+
+  - [Unit-Interval Distributions Catalog](https://francimario.shinyapps.io/unit_data/)
+  - [Chico Buarque - Music Analysis App (pt-br)](https://r-music.github.io/rday-2018/)
+  - [Datathon Report: Brazilian University Data](/blog/rladies-datathon/relatorio.html)
+  - [Genre Exploratory Analysis in Brazilian Music](/slides/braziliangenres.html)
+  - [Music Data Analysis in R - Short-course Technical Report](/shortcourses/technical_report.pdf)
+  
+#url: http://brunaw.com/IML
+#homepage: http://brunaw.com/IML
+#date: "17 de Março de 2018"
+#place: "Laboratório de Estatística e Goeinformação, Universidade Federal do Paraná"
+#institution: "Laboratório de Estatística e Goeinformação · UFPR"

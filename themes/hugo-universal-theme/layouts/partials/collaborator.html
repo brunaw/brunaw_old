@@ -1,0 +1,143 @@
+<style>
+.fa {
+    font-size: inherit !important;
+}
+div.social .fa {
+    font-size: 200% !important;
+}
+</style>
+
+<div class="container" id="collaborator">
+
+  {{ range $index, $element := sort .Site.Data.collaborators "weight" }}
+
+  <div class="row">
+    <div class="col-md-12" id="blog-listing-medium">
+      <section class="post">
+        <div class="row">
+
+          <div class="col-md-4">
+            <center>
+              <div class="image collaborator">
+
+                {{ if .url }}
+                <a href="{{ .url }}" target="_blank">
+                  <img src="{{ .image }}" alt="{{ .name }}" class="img-responsive" style="width: 150px; border-radius: 50%;" alt=""/> </a>
+                  {{ else }}
+                  <img src="{{ .image }}" alt="{{ .name }}" class="img-responsive" style="width: 150px; border-radius: 50%;" alt=""/>
+                  {{ end }}
+
+              </div>
+
+              {{ if .url }}
+              <h3><a href="{{ .url }}">{{ $element.name }}</a></h3>
+              {{ else }}
+              <h3>{{ $element.name }}</h3>
+              {{ end }}
+
+              {{ if .position }}
+              <p style="margin: -1em;">{{ $element.position }}</p>
+              {{ end }}
+
+              <div class="social">
+                {{ if .homepage }}
+                <a target="_blank" href="mailto:{{ $element.homepage }}"><i class="fa fa-2x fa-home"></i></a>
+                {{ end }}
+
+                {{ if .email }}
+                <a target="_blank" href="mailto:{{ $element.email }}"><i class="fa fa-2x fa-envelope"></i></a>
+                {{ end }}
+
+                {{ if .lattes }}
+                <a target="_blank" href="{{ $element.lattes }}"><i class="ai ai-2x ai-lattes"></i></a>
+                {{ end }}
+
+                {{ if .researchgate }}
+                <a target="_blank" href="{{ $element.researchgate }}"><i class="ai ai-2x ai-researchgate"></i></a>
+                {{ end }}
+
+                {{ if .linkedin }}
+                <a target="_blank" href="{{ $element.linkedin }}"><i class="fa fa-2x fa-linkedin"></i></a>
+                {{ end }}
+
+                {{ if .scholar }}
+                <a target="_blank" href="{{ $element.scholar }}"><i class="ai ai-2x ai-google-scholar"></i></a>
+                {{ end }}
+
+                {{ if .mendeley }}
+                <a target="_blank" href="{{ $element.mendeley }}"><i class="ai ai-2x ai-mendeley"></i></a>
+                {{ end }}
+
+                {{ if .orcid }}
+                <a target="_blank" href="{{ $element.orcid }}"><i class="ai ai-2x ai-orcid"></i></a>
+                {{ end }}
+
+                {{ if .twitter }}
+                <a target="_blank" href="{{ $element.twitter }}"><i class="fa fa-2x fa-twitter"></i></a>
+                {{ end }}
+
+                {{ if .github }}
+                <a target="_blank" href="{{ $element.github }}"><i class="fa fa-2x fa-github"></i></a>
+                {{ end }}
+
+                {{ if .gitlab }}
+                <a target="_blank" href="{{ $element.gitlab }}"><i class="fa fa-2x fa-gitlab"></i></a>
+                {{ end }}
+
+              </div>
+            </center>
+          </div>
+
+          <div class="col-md-8">
+
+            <ul class="fa-ul">
+              {{ if .profession }}
+              <li><i class="fa-li fa fa-user"></i><!-- Profissão: -->
+                {{ $element.profession | markdownify }}
+                {{ end }}
+              </li>
+              {{ if .institution }}
+              <li><i class="fa-li fa fa-university"></i><!-- Instituição: -->
+                {{ $element.institution | markdownify }}
+                {{ end }}
+              </li>
+              {{ if .location }}
+              <li><i class="fa-li fa fa-map-marker"></i><!-- Localização: -->
+                {{ $element.location | markdownify }}
+                {{ end }}
+              </li>
+
+              {{ if .education }}
+              <li><i class="fa-li fa fa-graduation-cap"></i>Education:
+                {{ $element.education | markdownify }}
+                {{ end }}
+              </li>
+              {{ if .domains }}
+              <li><i class="fa-li fa fa-book"></i>Research lines:
+                {{ $element.domains | markdownify }}
+                {{ end }}
+              </li>
+              {{ if .interests }}
+              <li><i class="fa-li fa fa-eye"></i>Interests:
+                {{ $element.interests | markdownify }}
+                {{ end }}
+              </li>
+
+            </ul>
+
+            {{ if .description }}
+            <p class="intro">{{ $element.description | markdownify }}</p>
+            {{ end }}
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+  {{ end }}
+
+  {{ .Content }}
+
+</div>

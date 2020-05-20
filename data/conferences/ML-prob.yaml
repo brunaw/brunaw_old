@@ -1,0 +1,36 @@
+weight: -20190315
+title: "Machine Learning: A Probabilistic Perspective"
+subtitle: "Kevin P. Murphy"
+image: "../img/prob-ml.jpg"
+description: |
+
+  A comprehensive introduction to machine learning that uses 
+  probabilistic models and inference as a unifying approach. 
+  Today's Web-enabled deluge of electronic data calls for automated 
+  methods of data analysis. Machine learning provides these, 
+  developing methods that can automatically detect patterns in 
+  data and then use the uncovered patterns to predict future data. 
+  This textbook offers a comprehensive and self-contained introduction 
+  to the field of machine learning, based on a unified, 
+  probabilistic approach. The coverage combines breadth and depth, 
+  offering necessary background material on such topics as probability,
+  optimization, and linear algebra as well as discussion of recent developments 
+  in the field, including conditional random fields, L1 regularization, 
+  and deep learning. The book is written in an informal, 
+  accessible style, complete with pseudo-code for the most important
+  algorithms. All topics are copiously illustrated with color images 
+  and worked examples drawn from such application domains as biology, 
+  text processing, computer vision, and robotics. Rather than providing a 
+  cookbook of different heuristic methods, the book stresses a 
+  principled model-based approach, often using the language of 
+  graphical models to specify models in a concise and intuitive way.
+  Almost all the models described have been implemented in a MATLAB 
+  software package-PMTK (probabilistic modeling toolkit)-that is 
+  freely available online. The book is suitable for upper-level 
+  undergraduates with an introductory-level college math background 
+  and beginning graduate students.
+
+url: https://www.amazon.co.uk/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020
+#audience: "[Workshop em Data Science](http://www.des.ufla.br/eventos/programa-de-verao-2019/worshop-bayer) · Departamento de Estatística - UFLA"
+#place: "Anfiteatro do Departamento de Estatística · Lavras/MG"
+#date: "15 de Março de 2019"

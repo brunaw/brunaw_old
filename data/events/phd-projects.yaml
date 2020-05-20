@@ -1,0 +1,20 @@
+weight: -201705
+title: "Ph.D. Projects"
+#subtitle: ""
+#commitee: "Fernando de Pol Mayer, Walmes Marques Zeviani, Wagner Hugo Bonat e colaboradores"
+#image: "../img/events/r-day.png"
+description: |
+
+  - [Bayesian Linear Regression](/phd/bayes-regression/report.pdf/)
+  - [Monte Carlo Markov Chain](/phd/mcmc/report.pdf)
+    - [Slides](/phd/mcmc/presentation.html)
+  - [Random Forests by Hand](phd/rf-by-hand/random-forest.html)
+  - [Just Another Gibbs Sampler](phd/jags/report.pdf)
+    - [Slides](/phd/jags/presentation.pdf)
+    
+
+#url: http://rday.leg.ufpr.br/
+#homepage: http://rday.leg.ufpr.br/
+#date: "22 de Maio de 2018"
+#place: "Campus Jardim Botânico, Universidade Federal do Paraná"
+#institution: "Laboratório de Estatística e Geoinformação · UFPR"

@@ -1,0 +1,13 @@
+weight: 3
+name: "Multivariate Distributions"
+image: "../img/projects/eng_gamma.png"
+description: |
+
+  Our main goal is to propose multivariate models for non Gaussian
+  data. The method employed involves quadratic forms based on 
+  deviance residuals, similarly to the multivariate Gaussian 
+  distribution. Between the results, we have the assimilation 
+  of the behaviour of the distributions in relation to its 
+  parameters and the computational implementation.
+
+url: http://brunaw.com/slides/conferences/EMR2019_poster.pdf

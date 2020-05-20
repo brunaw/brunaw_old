@@ -1,0 +1,23 @@
+weight: -201906
+title: "Machine Learning"
+#subtitle: ""
+#commitee: "Walmes Marques Zeviani"
+#image: "../img/events/hackathon-laura.png"
+description: |
+
+  This section contains the assignments I wrote for the 'Introduction to Machine Learning'
+  module during my undergrad. Most things are in Portuguese (I might update it eventually)
+  
+  - [Cross Validation](http://brunaw.com/IML/cross-validation/cv.html)
+
+  - [Trees](http://brunaw.com/IML/trees/arvores.html)
+
+  - [Gradient Descent](http://brunaw.com/IML/gradient-descent/grad.html)
+
+  - [Regularization](http://brunaw.com/IML/regularization/reg.html)
+  
+url: http://brunaw.com/IML
+homepage: http://brunaw.com/IML
+#date: "17 de Março de 2018"
+#place: "Laboratório de Estatística e Goeinformação, Universidade Federal do Paraná"
+#institution: "Laboratório de Estatística e Goeinformação · UFPR"

@@ -1,0 +1,9 @@
+weight: 4
+name: "ranger: A Fast Implementation of Random Forests"
+image: "../img/projects/trees.png"
+description: |
+
+  - Role: Contributor
+  - URL: https://github.com/imbs-hl/ranger
+
+url: ""

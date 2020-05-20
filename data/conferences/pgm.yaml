@@ -1,0 +1,14 @@
+weight: -20200206
+title: "Probabilistic Graphical Models, Principles and Techniques"
+subtitle: "Daphne Koller and Nir Friedman"
+image: "../img/pgm.jpg"
+description: |
+
+  A general framework for constructing and using probabilistic 
+  models of complex systems that would enable a computer to use
+  available information for making decisions.
+
+url: https://mitpress.mit.edu/books/probabilistic-graphical-models
+#audience: "MeetUp de Data Science Curitiba"
+#place: "Jupter"
+#date: "06 de Fevereiro de 2018"

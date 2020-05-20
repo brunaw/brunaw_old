@@ -1,0 +1,208 @@
+---
+title: "Finding errors in R"
+date: "2018-10-06T00:00:00+00:00"
+tags: ["R"]
+categories: ["debugging"]
+author: ["Bruna Wundervald"]
+draft: false
+share: false
+profile: false
+summary: "Summary of my post."
+editor_options: 
+  chunk_output_type: console
+---
+
+*Portuguese version of this same post [here](https://www.curso-r.com/blog/2018-09-03-funcoes/)!
+
+On a daily basis, I come across people on Facebook groups, Telegram
+or Twitter having troubles with some tasks in R. These
+problems have two main origins:
+
+  1. difficulties in constructing the algorithm to reach the desired result.
+  2. difficulties in understanding the behavior of some function. 
+
+The focus of this post is to give some notion about how to 
+solve the second one: problems using functions. To give a little
+bit of context, we can say that R packages are made by 
+the community, voluntarily. Therefore, not all package documentations 
+are written in the clearest way possible.  Also, currently, 
+CRAN only demands a certain amount of rigor regarding the 
+functions of a package, and not its documentation. This 
+situation is changing for better, which can be noted 
+by the existence of recommendations such as the following, 
+extracted from [Hadley's book about R packages](http://r-pkgs.had.co.nz/):
+
+
+> Documentation is one of the most important aspects of a good package. Without it, users won’t know how to use your package. Documentation is also useful for future-you (so you remember what your functions were supposed to do), and for developers extending your package.
+
+While documentation is not perfect, users need to try to understand
+the unexpected errors using other resources. The method I'll 
+describe now is basically looking into the source code of 
+functions and search for what is generating the troubles. 
+
+There are functions that can be directly viewed in `console`, 
+by just printing them without the final `()`, for example: 
+
+```{r}
+mean <- function(x, y){
+  n <- 2
+  sum_vars <- x + y
+  mean <- sum_vars/n
+  mean
+}
+
+mean
+```
+
+Just by running the name of the function we access
+the code that composes it. Then if we try, 
+for example:
+
+```{r, error=TRUE}
+mean(2, "1")
+```
+
+
+Well, what does that mean? For the new user, it might not be 
+so obvious, but sum 2 and "1" doesn't work in R. Although they simply look
+like two numbers, they're actually two different objects, with 
+two different classes - 2 is a numeric, but "1" is a character. 
+
+The strategy here is just to copy the function code 
+and run line by line until the error is found. Remember to 
+create the necessary objects first (the arguments the function
+receives), like this: 
+
+```{r, error = TRUE}
+x <- 2              # The first argument of the function
+y <- "1"            # The second argument of the function
+
+# Code of the created 'mean' function   
+n <- 2
+sum_vars <- x + y  # error found here!
+mean <- sum_vars/n
+```
+
+This was pretty simple because the function has just a few lines of code, 
+and we get the error already in the second line. Now, 
+is way easier to think about the probable reason of the problem
+than just trying to interpret the error message. Sometimes, the 
+question is exactly about using objects with the wrong structure,
+and this is also what causes the weirdest errors.
+
+The example above is with just a simple, short function. Usually, 
+you'll come across extensive functions or that when printed in the
+`console` won't show the code, but the `method` used, for
+example: 
+
+```{r}
+# The mean function that exists in R base
+base::mean
+```
+
+And how we interpret that? We're actually looking at a generic
+function of the S3 class, that calls a method to use. There are 
+different methods for different object types. 
+
+Let's use  `base::mean` as an example. Which are the objects
+that can be used in this function? In general, we use 
+numeric vectors, but the function can also deal with other types, 
+such as dates. What we mean with this is that the **same function 
+can perform the same task with different object types**, by 
+calling the specific **methods**. 
+
+And what are the methods? A method is a function associated 
+with a particular type of object. We can check the available methods with:
+
+```{r, warning=FALSE}
+methods(mean)
+```
+
+(depending on the package, the methods aren't exported. If you're 
+dealing with one of those, try using the operator `:::`, as 
+`dplyr:::filter.tbl_df`, for example!)
+
+Now we know which methods can be used for the function 
+`base::mean`. We can see the code by running the 
+combination `desired-function.specific-method`, without 
+the final `()`: 
+
+```{r}
+base::mean.default
+```
+
+Let's get back to the discovery of error sources. Say we run the
+following line of code, which won't go so well: 
+
+
+```{r, error=TRUE}
+base::mean(c("1", 3))
+```
+
+Note that this is not an error, but a `warning` message. Anyway, 
+the `NA` is certainly not the desired output when trying to obtain
+the mean of two numbers. What happened? We'll check it by
+using the code of  `base::mean.default`: 
+
+
+```{r, eval = TRUE}
+# Defining the vector which is the argument of the function
+x <- c("1", 3)
+
+# Code of  base::mean.default 
+if (!is.numeric(x) && !is.complex(x) && !is.logical(x)) {
+  
+  warning("argument is not numeric or logical: returning NA")
+  return(NA_real_)
+}
+
+# We can stop here as the error was already found!
+```
+
+In the first line of the function, we have the indication 
+of the problem: the vector is neither numeric, complex or logical. If
+we want the function to work, is must receive those types of objects.
+Well, now is easier to understand what was done wrong! 
+
+# Why should I try to understand the errors?
+
+1. Making mistakes is a great way to learn. 
+
+Broadly, in my experience with searching errors in functions, I 
+always end up learning something new. The own correction of the error
+generally leads me to know something that wasn't quite 
+obvious before. The errors make me look for a better understanding 
+of their existence, which hence leads to an improvement in 
+the comprehension about programming logic and R in general. 
+
+2. Your own independence. 
+
+Is always more efficient being able to solve your own problems. Not
+rarely, I see questions about R in the internet
+that take a long time to have a proper answer. With a little deeper 
+search for the source of your errors and its consequent solution, 
+this waiting will be avoided (not that you shouldn't make 
+questions, of course). 
+
+3. Exposition to the diversity of "coding styles" we have in 
+the community. 
+
+Particularly, I can comment that, since R packages are made by the
+community, there is a wide diversity in the ways they're written. 
+The contact with this diversity, aka going deep in how functions
+are coded, leads me not only to learn more about R but also about
+how to refine my own coding style. 
+
+# Wrap-up
+
+In this blog post, I explained a bit about how to search for errors
+in R functions. We talked about:
+
+  - how to see the source code of simple functions; 
+  - how to see the source code of the S3 class functions;
+  - how to use these code for indentifying the erros;
+  - how we can learn with our own mistakes; 
+  - how we can save time by learning about finding & fixing errors. 
+
+That's it for now. I hope you liked it. Any questions can be addressed
+to me directly or here via comments! 

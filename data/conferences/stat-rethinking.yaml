@@ -1,0 +1,18 @@
+weight: -20191025
+title: "Statistical Rethinking, A Bayesian Course with Examples in R and Stan"
+subtitle: "Richard McElreath"
+image: "../img/reth.png"
+description: |
+
+  Statistical Rethinking: A Bayesian Course with Examples in R and Stan builds your knowledge of and confidence in 
+  making inferences from data. Reflecting the need for scripting 
+  in today's model-based statistics, the book pushes you to perform
+  step-by-step calculations that are usually automated. This unique 
+  computational approach ensures that you understand enough of the
+  details to make reasonable choices and interpretations in your own
+  modeling work.
+
+url: https://xcelab.net/rm/statistical-rethinking/
+#audience: "Público do [Workshop Inventário e Mensuração](http://www.apreflorestas.com.br/evento/workshop-inventario-e-mensuracao/)"
+#place: "Auditório da Emater · Rua da Bandeira, 500, Cabral · Curitiba/PR"
+#date: "14:00 · 25 de Outubro de 2019"

@@ -1,0 +1,194 @@
+---
+title: "Publications"
+bibliography: refs.bib
+csl: ABNT-UFPR-2011-Mendeley.csl
+output:
+  html_fragment
+---
+
+```{r, include = FALSE, eval = FALSE}
+library(tidyverse)
+library(bib2df)
+
+ref <- bib2df("refs.bib")
+names(ref)
+
+# Publicações por ano.
+i <- !is.na(ref$JOURNAL)
+tb_year <- ref[i, ] %>%
+    count(YEAR) %>%
+    mutate(ac = cumsum(n)) %>%
+    gather("medida", "qtd", -YEAR) %>%
+    mutate(medida = factor(medida,
+                           levels = c("n", "ac"),
+                           labels = c("Yearly", "Accumulated")))
+
+# Tabela auxiliar para anotações.
+u <- data.frame(medida = "Yearly",
+                # YEAR = min(ref$YEAR),
+                YEAR = 2016,
+                y = sum(i)/(diff(range(ref$YEAR)) + 1))
+u
+
+# Gráfico.
+gg1 <-
+ggplot(tb_year,
+       aes(x = YEAR, y = qtd, group = 1)) +
+    facet_wrap(~medida,
+               # labeller = labeller(medida = c("Yearly" = "Anual",
+               #                                "Accumulated" = "Acumulado")),
+               scales = "free_y", ) +
+    geom_point() +
+    geom_line() +
+    geom_smooth(data = filter(tb_year, medida == "Accumulated"),
+                linetype = 2,
+                size = 0.3,
+                color = "darkorange",
+                se = FALSE,
+                method = "lm") +
+    geom_label(mapping = aes(label = qtd),
+               label.size = 0.1,
+               # fill = "gray25",
+               # color = "white",
+               label.padding = unit(0.15, "lines"),
+               nudge_x = 0.1,
+               hjust = 0,
+               vjust = 0.5) +
+    geom_hline(data = u,
+               mapping = aes(yintercept = y),
+               lty = 3,
+               color = "darkorange") +
+    geom_text(data = u,
+              inherit.aes = FALSE,
+              mapping = aes(x = YEAR,
+                            y = y,
+                            label = sprintf("Avg: %0.1f", y)),
+                            # label = sprintf("Média: %0.1f", y)),
+              hjust = 0, vjust = -0.5) +
+    expand_limits(y = c(0, NA),
+                  x = range(ref$YEAR) + c(-0.25, 0.75)) +
+    scale_x_continuous(breaks = seq(min(tb_year$YEAR),
+                                    max(tb_year$YEAR),
+                                    by = 2)) +
+    labs(x = c("Year",
+               "Ano")[2],
+         y = c("Number of publications",
+               "Número de publicações")[2],
+         title = c("Publications in journals",
+                   "Publicações em periódicos")[2])
+gg1
+
+# ggsave(file = "serie.png",
+#        width = 7,
+#        height = 4.5,
+#        family = "Roboto Condensed")
+
+cap <- sprintf("Number of publications in journal over time. The complete list of references is at the bottom of the page. Last update at %s.",
+               Sys.Date())
+
+#--------------------------------------------
+
+fix <- function(x) {
+    x %>%
+        str_replace_all("[[:punct:]^~]", "") %>%
+        str_to_upper()
+}
+a <- lapply(ref$AUTHOR, fix)
+
+sort(unlist(a)) %>%
+    unique()
+
+
+
+```
+
+
+```{r, echo = FALSE, fig.align = "center", fig.height = 4.32, fig.width = 7, dev.args = list(png = list(family = "Roboto Condensed")), fig.cap = cap, eval = FALSE}
+gg1
+```
+
+----------------------------------------------------------------------
+
+## Academic Profiles
+
+Please, visit my profile at any of the services below:
+
+<br>
+<br>
+
+<center>
+<div class="col-md-3">
+<div class="box-simple">
+<a href="https://www.researchgate.net/profile/Bruna_Wundervald">
+<div class="icon">
+<i class="ai ai-2x ai-researchgate"></i>
+</div>
+<h3>
+Research Gate
+</h3>
+</a>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="box-simple">
+<a href="https://scholar.google.com/citations?user=dG13KE4AAAAJ&hl=en">
+<div class="icon">
+<i class="ai ai-2x ai-google-scholar"></i>
+</div>
+<h3>
+Google Scholar
+</h3>
+</a>
+</div>
+</div>
+</center>
+
+</div>
+</div>
+</div>
+
+<p>
+<p>
+
+
+----------------------------------------------------------------------
+
+## Undergrad Thesis
+
+<div style="float: right;">
+<a href="http://leg.ufpr.br/~walmes/docs/TCC-BrunaWundevald-RogerioHultmannFilho.pdf" target="_blank" class="btn btn-template-main">DOWNLOAD</a>
+</div>
+
+<h3>Machine learning and chord based feature engineering for genre prediction in popular Brazilian music</h3>
+
+**Abstract**: Music genre can be hard to describe: many factors are involved, such as style, music technique, and historical context. Some genres even have overlapping characteristics. Looking for a better understanding of how music genres are related to musical harmonic structures, we gathered data about the music chords for thousands of popular Brazilian songs. Here,'popular'does not only refer to the genre named MPB (Brazilian Popular Music) but to nine different genres that were considered particular to the Brazilian case. The main goals of the present work are to extract and engineer harmonically related features from chords data and to use it to classify popular Brazilian music genres towards establishing a connection between harmonic relationships and Brazilian genres. We also emphasize the generalization of the method for obtaining the data, allowing for the replication and direct extension of this work. Our final model is a combination of multiple classification trees, also known as the random forest model. We found that features extracted from harmonic elements can satisfactorily predict music genre for the Brazilian case, as well as features obtained from the Spotify API. The variables considered in this work also give an intuition about how they relate to the genres.
+
+**Keywords**: feature engineering, MIR, random forests, cgenre classification
+
+
+----------------------------------------------------------------------
+
+## Publications
+
+References are displayed according to the alphabetical order of the
+first author.
+
+```{r, include = FALSE}
+# system("sed '/Url/d' config/refs.bib > config/Refs.bib")
+refs <- system("grep -E '^@[[:alpha:]]+{' refs.bib",
+               intern = TRUE)
+refs <- gsub("^@[[:alpha:]]+\\{([[:alnum:]]+),",
+             replacement = "@\\1",
+             x = refs)
+cat(refs, sep = ", ")
+x <- paste(refs, collapse = ", ")
+```
+
+---
+nocite: |
+  `r x`
+...
+
+<div id="refs">
+</div>

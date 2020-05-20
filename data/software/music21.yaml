@@ -1,0 +1,9 @@
+weight: 6
+name: "music21: python music21 port using reticulate"
+image: "../img/projects/rmusic.png"
+description: |
+
+  - Role: Contributor
+  - URL:  https://github.com/r-music/music21
+
+url: ""

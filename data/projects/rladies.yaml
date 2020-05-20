@@ -1,0 +1,15 @@
+weight: 6
+name: "R-Ladies"
+image: "../img/projects/rladies.png"
+description: |
+
+  As a diversity initiative, the mission of R-Ladies is to 
+  achieve proportionate representation by encouraging, 
+  inspiring, and empowering people of genders currently 
+  underrepresented in the R community. R-Ladies’ primary focus, 
+  therefore, is on supporting minority gender R enthusiasts to 
+  achieve their programming potential, by building a collaborative 
+  global network of R leaders, mentors, learners, and developers 
+  to facilitate individual and collective progress worldwide.
+
+url: https://rladies.org/

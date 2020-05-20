@@ -1,0 +1,10 @@
+weight: 1
+name: "vagalumer: Access to the 'vagalume' api"
+image: "../img/projects/rmusic.png"
+author: "adj"
+description: |
+
+  - Role: Author
+  - URL: https://github.com/r-music/vagalumeR
+
+url: ""

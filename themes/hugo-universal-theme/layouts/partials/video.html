@@ -1,0 +1,93 @@
+<div class="container" id="video">
+  {{ range $index, $element := sort .Site.Data.videos "weight" }}
+
+  <div class="row">
+
+    <div class="col-md-12" id="blog-listing-medium">
+
+      <section class="post">
+        <div class="row">
+
+          <div class="col-md-8">
+
+            {{ if .videourl }}
+            <iframe
+                width="560"
+                height="315"
+                src="{{ .videourl }}"
+                frameborder="1"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            {{ end }}
+
+          </div>
+
+          <div class="col-md-8">
+
+            {{ if .videourl }}
+            <h3><a href="{{ .videourl }}">{{ $element.title }}</a></h3>
+            {{ else }}
+            <h3>{{ $element.title }}</h3>
+            {{ end }}
+
+            {{ if .subtitle }}
+            <h4 style="margin-top: -1em;">{{ $element.subtitle | markdownify }}</h4>
+            {{ end }}
+
+            <ul class="fa-ul">
+
+              {{ if .instructor }}
+              <li><i class="fa fa-li fa-comment"></i> {{ $element.instructor }} </li>
+              {{ end }}
+
+              {{ if .instructors }}
+              <li><i class="fa fa-li fa-comments"></i> {{ $element.instructors }} </li>
+              {{ end }}
+
+              {{ if .audience }}
+              <li><i class="fa fa-li fa-users"></i> {{ $element.audience | markdownify }} </li>
+              {{ end }}
+
+              {{ if .institution }}
+              <li><i class="fa fa-li fa-university"></i> {{ $element.institution | markdownify }} </li>
+              {{ end }}
+
+              {{ if .place }}
+              <li><i class="fa fa-li fa-map-marker"></i> {{ $element.place | markdownify }}</li>
+              {{ end }}
+
+              {{ if .date }}
+              <li><i class="fa fa-li fa-calendar-o"></i> {{ $element.date }}</li>
+              {{ end }}
+
+              {{ if .workload }}
+              <li><i class="fa fa-li fa-clock-o"></i> {{ $element.workload }} </li>
+              {{ end }}
+
+              {{ if .homepage }}
+              <li><i class="fa fa-li fa-external-link"></i> {{ $element.homepage | markdownify }}</li>
+              {{ end }}
+
+              {{ if .slideurl }}
+              <li><i class="fa fa-li fa-desktop"></i> {{ $element.slideurl | markdownify }}</li>
+              {{ end }}
+
+            </ul>
+
+            <p class="intro">{{ $element.description | markdownify }}</p>
+
+            <hr>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+  {{ end }}
+
+  {{ .Content }}
+
+</div>

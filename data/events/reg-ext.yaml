@@ -1,0 +1,24 @@
+weight: -201803
+title: "Regression Models Extensions"
+#subtitle: ""
+#commitee: "Walmes Marques Zeviani"
+#image: "../img/events/hackathon-laura.png"
+description: |
+
+  This section contains the assignments I wrote for the 
+  'Regression Models Extensions' module during my undergrad. 
+  Most things are in Portuguese (I might update it eventually)
+  
+  - [Inference in Heterokedascity Models](http://brunaw.com/ce092/heteroskedacity/ModelosHeterocedasticos.html)
+
+  - [Piecewise regression](http://brunaw.com/ce092/piecewise/piecewise.html)
+
+  - [Paper Study: Confiabilidade e Precisão na Estimação de Médias](http://brunaw.com/ce092/paper-confiability/artigo.html)
+
+  - [Final Assignment: splines, smoothing kernels, GAM ](http://brunaw.com/ce092/many-models/t1.html)
+
+url: http://brunaw.com/ce092
+homepage: http://brunaw.com/ce092
+#date: "17 de Março de 2018"
+#place: "Laboratório de Estatística e Goeinformação, Universidade Federal do Paraná"
+#institution: "Laboratório de Estatística e Goeinformação · UFPR"

@@ -1,0 +1,15 @@
+weight: 5
+name: "Regularization for Tree-Based Models"
+image: "../img/projects/trees2.jpeg"
+description: |
+
+  We generalise the approach of Deng & Runger(2012), which relies on 
+  gain penalisation for fea-ture selection in Random Forests. We show 
+  that previous methods do not perform sufficient regularization and 
+  often exhibit sub-optimal out-of-sample performance, especially when
+  correlatedfeatures are present. Instead, we extend the gain
+  penalisation idea to a general local-global regularization for
+  tree-based models, that allows formore flexibility in the choice 
+  of feature-specific importance weights. 
+
+url: https://github.com/brunaw/regularization-rf

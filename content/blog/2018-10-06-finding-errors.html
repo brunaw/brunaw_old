@@ -1,0 +1,214 @@
+---
+title: "Finding errors in R"
+date: "2018-10-06T00:00:00+00:00"
+tags: ["R"]
+categories: ["debugging"]
+author: ["Bruna Wundervald"]
+draft: false
+share: false
+profile: false
+summary: "Summary of my post."
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+<p>*Portuguese version of this same post <a href="https://www.curso-r.com/blog/2018-09-03-funcoes/">here</a>!</p>
+<p>On a daily basis, I come across people on Facebook groups, Telegram
+or Twitter having troubles with some tasks in R. These
+problems have two main origins:</p>
+<ol style="list-style-type: decimal">
+<li>difficulties in constructing the algorithm to reach the desired result.</li>
+<li>difficulties in understanding the behavior of some function.</li>
+</ol>
+<p>The focus of this post is to give some notion about how to
+solve the second one: problems using functions. To give a little
+bit of context, we can say that R packages are made by
+the community, voluntarily. Therefore, not all package documentations
+are written in the clearest way possible. Also, currently,
+CRAN only demands a certain amount of rigor regarding the
+functions of a package, and not its documentation. This
+situation is changing for better, which can be noted
+by the existence of recommendations such as the following,
+extracted from <a href="http://r-pkgs.had.co.nz/">Hadley’s book about R packages</a>:</p>
+<blockquote>
+<p>Documentation is one of the most important aspects of a good package. Without it, users won’t know how to use your package. Documentation is also useful for future-you (so you remember what your functions were supposed to do), and for developers extending your package.</p>
+</blockquote>
+<p>While documentation is not perfect, users need to try to understand
+the unexpected errors using other resources. The method I’ll
+describe now is basically looking into the source code of
+functions and search for what is generating the troubles.</p>
+<p>There are functions that can be directly viewed in <code>console</code>,
+by just printing them without the final <code>()</code>, for example:</p>
+<pre class="r"><code>mean &lt;- function(x, y){
+  n &lt;- 2
+  sum_vars &lt;- x + y
+  mean &lt;- sum_vars/n
+  mean
+}
+
+mean</code></pre>
+<pre><code>## function(x, y){
+##   n &lt;- 2
+##   sum_vars &lt;- x + y
+##   mean &lt;- sum_vars/n
+##   mean
+## }</code></pre>
+<p>Just by running the name of the function we access
+the code that composes it. Then if we try,
+for example:</p>
+<pre class="r"><code>mean(2, &quot;1&quot;)</code></pre>
+<pre><code>## Error in x + y: non-numeric argument to binary operator</code></pre>
+<p>Well, what does that mean? For the new user, it might not be
+so obvious, but sum 2 and “1” doesn’t work in R. Although they simply look
+like two numbers, they’re actually two different objects, with
+two different classes - 2 is a numeric, but “1” is a character.</p>
+<p>The strategy here is just to copy the function code
+and run line by line until the error is found. Remember to
+create the necessary objects first (the arguments the function
+receives), like this:</p>
+<pre class="r"><code>x &lt;- 2              # The first argument of the function
+y &lt;- &quot;1&quot;            # The second argument of the function
+
+# Code of the created &#39;mean&#39; function   
+n &lt;- 2
+sum_vars &lt;- x + y  # error found here!</code></pre>
+<pre><code>## Error in x + y: non-numeric argument to binary operator</code></pre>
+<pre class="r"><code>mean &lt;- sum_vars/n</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;sum_vars&#39; not found</code></pre>
+<p>This was pretty simple because the function has just a few lines of code,
+and we get the error already in the second line. Now,
+is way easier to think about the probable reason of the problem
+than just trying to interpret the error message. Sometimes, the
+question is exactly about using objects with the wrong structure,
+and this is also what causes the weirdest errors.</p>
+<p>The example above is with just a simple, short function. Usually,
+you’ll come across extensive functions or that when printed in the
+<code>console</code> won’t show the code, but the <code>method</code> used, for
+example:</p>
+<pre class="r"><code># The mean function that exists in R base
+base::mean</code></pre>
+<pre><code>## function (x, ...) 
+## UseMethod(&quot;mean&quot;)
+## &lt;bytecode: 0x7fd5dfc794a0&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<p>And how we interpret that? We’re actually looking at a generic
+function of the S3 class, that calls a method to use. There are
+different methods for different object types.</p>
+<p>Let’s use <code>base::mean</code> as an example. Which are the objects
+that can be used in this function? In general, we use
+numeric vectors, but the function can also deal with other types,
+such as dates. What we mean with this is that the <strong>same function
+can perform the same task with different object types</strong>, by
+calling the specific <strong>methods</strong>.</p>
+<p>And what are the methods? A method is a function associated
+with a particular type of object. We can check the available methods with:</p>
+<pre class="r"><code>methods(mean)</code></pre>
+<pre><code>## [1] mean.Date     mean.default  mean.difftime mean.POSIXct  mean.POSIXlt 
+## [6] mean.quosure*
+## see &#39;?methods&#39; for accessing help and source code</code></pre>
+<p>(depending on the package, the methods aren’t exported. If you’re
+dealing with one of those, try using the operator <code>:::</code>, as
+<code>dplyr:::filter.tbl_df</code>, for example!)</p>
+<p>Now we know which methods can be used for the function
+<code>base::mean</code>. We can see the code by running the
+combination <code>desired-function.specific-method</code>, without
+the final <code>()</code>:</p>
+<pre class="r"><code>base::mean.default</code></pre>
+<pre><code>## function (x, trim = 0, na.rm = FALSE, ...) 
+## {
+##     if (!is.numeric(x) &amp;&amp; !is.complex(x) &amp;&amp; !is.logical(x)) {
+##         warning(&quot;argument is not numeric or logical: returning NA&quot;)
+##         return(NA_real_)
+##     }
+##     if (na.rm) 
+##         x &lt;- x[!is.na(x)]
+##     if (!is.numeric(trim) || length(trim) != 1L) 
+##         stop(&quot;&#39;trim&#39; must be numeric of length one&quot;)
+##     n &lt;- length(x)
+##     if (trim &gt; 0 &amp;&amp; n) {
+##         if (is.complex(x)) 
+##             stop(&quot;trimmed means are not defined for complex data&quot;)
+##         if (anyNA(x)) 
+##             return(NA_real_)
+##         if (trim &gt;= 0.5) 
+##             return(stats::median(x, na.rm = FALSE))
+##         lo &lt;- floor(n * trim) + 1
+##         hi &lt;- n + 1 - lo
+##         x &lt;- sort.int(x, partial = unique(c(lo, hi)))[lo:hi]
+##     }
+##     .Internal(mean(x))
+## }
+## &lt;bytecode: 0x7fd5de00e430&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<p>Let’s get back to the discovery of error sources. Say we run the
+following line of code, which won’t go so well:</p>
+<pre class="r"><code>base::mean(c(&quot;1&quot;, 3))</code></pre>
+<pre><code>## Warning in mean.default(c(&quot;1&quot;, 3)): argument is not numeric or logical:
+## returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>Note that this is not an error, but a <code>warning</code> message. Anyway,
+the <code>NA</code> is certainly not the desired output when trying to obtain
+the mean of two numbers. What happened? We’ll check it by
+using the code of <code>base::mean.default</code>:</p>
+<pre class="r"><code># Defining the vector which is the argument of the function
+x &lt;- c(&quot;1&quot;, 3)
+
+# Code of  base::mean.default 
+if (!is.numeric(x) &amp;&amp; !is.complex(x) &amp;&amp; !is.logical(x)) {
+  
+  warning(&quot;argument is not numeric or logical: returning NA&quot;)
+  return(NA_real_)
+}</code></pre>
+<pre><code>## Warning: argument is not numeric or logical: returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code># We can stop here as the error was already found!</code></pre>
+<p>In the first line of the function, we have the indication
+of the problem: the vector is neither numeric, complex or logical. If
+we want the function to work, is must receive those types of objects.
+Well, now is easier to understand what was done wrong!</p>
+<div id="why-should-i-try-to-understand-the-errors" class="section level1">
+<h1>Why should I try to understand the errors?</h1>
+<ol style="list-style-type: decimal">
+<li>Making mistakes is a great way to learn.</li>
+</ol>
+<p>Broadly, in my experience with searching errors in functions, I
+always end up learning something new. The own correction of the error
+generally leads me to know something that wasn’t quite
+obvious before. The errors make me look for a better understanding
+of their existence, which hence leads to an improvement in
+the comprehension about programming logic and R in general.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Your own independence.</li>
+</ol>
+<p>Is always more efficient being able to solve your own problems. Not
+rarely, I see questions about R in the internet
+that take a long time to have a proper answer. With a little deeper
+search for the source of your errors and its consequent solution,
+this waiting will be avoided (not that you shouldn’t make
+questions, of course).</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Exposition to the diversity of “coding styles” we have in
+the community.</li>
+</ol>
+<p>Particularly, I can comment that, since R packages are made by the
+community, there is a wide diversity in the ways they’re written.
+The contact with this diversity, aka going deep in how functions
+are coded, leads me not only to learn more about R but also about
+how to refine my own coding style.</p>
+</div>
+<div id="wrap-up" class="section level1">
+<h1>Wrap-up</h1>
+<p>In this blog post, I explained a bit about how to search for errors
+in R functions. We talked about:</p>
+<ul>
+<li>how to see the source code of simple functions;</li>
+<li>how to see the source code of the S3 class functions;</li>
+<li>how to use these code for indentifying the erros;</li>
+<li>how we can learn with our own mistakes;</li>
+<li>how we can save time by learning about finding &amp; fixing errors.</li>
+</ul>
+<p>That’s it for now. I hope you liked it. Any questions can be addressed
+to me directly or here via comments!</p>
+</div>

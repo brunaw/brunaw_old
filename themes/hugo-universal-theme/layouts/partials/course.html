@@ -1,0 +1,63 @@
+<div class="container" id="course">
+  <!-- ATTENTION: md com `id = "course"` e diretório `./courses` -->
+  {{ range $index, $element := sort .Site.Data.courses "weight" }}
+
+  <div class="row">
+
+    <div class="col-md-12" id="blog-listing-medium">
+
+      <section class="post">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="image">
+
+              {{ if .url }}
+              <a href="{{ .url }}" target="_blank">
+                <img src="{{ .image }}" alt="{{ .name }}" class="img-responsive courses zoomout" />
+              </a>
+              {{ else }}
+              <img src="{{ .image }}" alt="{{ .name }}" class="img-responsive courses zoomout" />
+              {{ end }}
+
+            </div>
+          </div>
+          <div class="col-md-9">
+
+            {{ if .url }}
+            <h3><a href="{{ .url }}">{{ $element.name }}</a></h3>
+            {{ else }}
+            <h3>{{ $element.name }}</h3>
+            {{ end }}
+
+            <ul class="fa-ul">
+              {{ if .instructor }}
+              <li><i class="fa fa-li fa-user"></i> {{ $element.instructor | markdownify }} </li>
+              {{ end }}
+
+              {{ if .instructors }}
+              <li><i class="fa fa-li fa-users"></i> {{ $element.instructors | markdownify  }} </li>
+              {{ end }}
+
+              {{ if .semester }}
+              <li><i class="fa fa-li fa-graduation-cap"></i> {{ $element.semester | markdownify }}</li>
+              {{ end }}
+
+              {{ if .workload }}
+              <li><i class="fa fa-li fa-clock-o"></i> {{ $element.workload | markdownify }}</li>
+              {{ end }}
+            </ul>
+
+            <p class="intro">{{ $element.description | markdownify }}</p>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+  {{ end }}
+
+  {{ .Content }}
+
+</div>

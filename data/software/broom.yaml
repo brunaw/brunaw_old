@@ -1,0 +1,9 @@
+weight: 3
+name: "broom: Convert Statistical Analysis Objects into Tidy Tibbles"
+image: "../img/model.png"
+description: |
+
+  - Role: Contributor
+  - URL: https://github.com/tidymodels/broom
+
+url: ""

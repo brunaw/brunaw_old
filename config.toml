@@ -1,7 +1,7 @@
-baseurl = "brunaw.com"
+baseurl = "https://brunaw.com"
 title = "Bruna Wundervald"
 theme = "hugo-universal-theme"
-themesDir = "./themes/"
+themesDir = "themes"
 languageCode = "en-us"
 publishDir = "docs"
 # Site language. Available translations in the theme's `/i18n` directory.
